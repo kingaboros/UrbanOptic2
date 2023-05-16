@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- google fonts start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome icons start -->
+    <script
+      src="https://kit.fontawesome.com/97e32a212a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- bootstrap start -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <title>Urban Optic</title>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div id="menu" class="navBar" class="yellowBg">
+        <a href="index.html">
+          <img id="logo" class="logo" src="./img/logo-dark.png" alt="logo" />
+        </a>
+        <nav class="navbarDesk">
+          <ul class="desktopMenu">
+            <li>
+              <a data-section-id="about" class="aboutLink" href="#about"
+                >Despre noi</a
+              >
+            </li>
+            <li>
+              <a
+                data-section-id="services"
+                class="servicesLink"
+                href="#services"
+                >Servicii</a
+              >
+            </li>
+            <li>
+              <a
+                data-section-id="promo"
+                class="promoLink"
+                id="promoLink"
+                href="#promo"
+                >Promoții</a
+              >
+            </li>
+            <li>
+              <a data-section-id="contact" class="contactLink" href="#contact"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <button id="navBtn" class="menuBtn">
+                <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <section id="home" class="yellowBg activeSection">
+        <div class="heroHeadingDiv">
+          <p class="heroSubtitle">Ne bucurăm să ne vedem!</p>
+          <h1 class="mainTitle heroTitleDiv">
+            URBAN<br />
+            <span class="blurredTitle">OPTI</span>
+          </h1>
+        </div>
+        <div class="glassesImg">
+          <img src="./img/glasses.png" alt="" />
+        </div>
+      </section>
+      <section id="about">
+        <video
+          class="aboutVideo"
+          playsinline
+          autoplay
+          muted
+          loop
+          src="./img/video.mp4"
+        ></video>
+      </section>
+      <section id="team" class="teamSection">
+        <h1 class="blackTitle">Valorile noastre</h1>
+        <p class="teamText">
+          Valorile noastre implică o abordare etică și responsabilă în toate
+          serviciile oferite, precum și o înțelegere profundă a nevoilor și
+          dorințelor clienților noștri. Suntem mândri să fim cunoscuți pentru
+          nivelul nostru ridicat de expertiză și competență în domeniul opticii,
+          iar această abordare profesionistă se reflectă în toate aspectele
+          afacerii noastre. În plus, suntem dedicați să oferim clienților noștri
+          sprijin pe tot parcursul procesului de alegere a ochelarilor
+          potriviți.
+          <br />
+          <br />
+          Înțelegem că procesul de alegere a ochelarilor poate fi unul dificil
+          și confuz, dar noi suntem aici pentru a te ajuta să faci cea mai bună
+          alegere pentru nevoile tale. Echipa noastră de experți optometriști
+          este mereu disponibilă pentru a oferi sfaturi și recomandări
+          personalizate.
+        </p>
+        <ul class="teamList">
+          <li>
+            <img
+              class="teamImg"
+              src="./img/team/diana-moraru.png"
+              alt="team member"
+            />
+            <h2 class="teamName">DIANA MORARU</h2>
+            <p class="teamRoles">
+              Co-fondator
+              <br />
+              Ing. Optometrist Specialist
+            </p>
+          </li>
+          <li>
+            <img
+              class="teamImg"
+              src="./img/team/alexandru-moraru.png"
+              alt="team member"
+            />
+            <h2 class="teamName">ALEXANDRU MORARU</h2>
+            <p class="teamRoles">Co-fondator</p>
+          </li>
+          <li>
+            <img
+              class="teamImg"
+              src="./img/team/adeline-honciuc.png"
+              alt="team member"
+            />
+            <h2 class="teamName">ADELINE HONCIUC</h2>
+            <p class="teamRoles">Consilier Vânzări</p>
+          </li>
+          <li>
+            <img
+              class="teamImg"
+              src="./img/team/oana-tehei.png"
+              alt="team member"
+            />
+            <h2 class="teamName">OANA TEHEI</h2>
+            <p class="teamRoles">Optometrist Specialist</p>
+          </li>
+          <li>
+            <img
+              class="teamImg"
+              src="./img/team/izabela-nagy.png"
+              alt="team member"
+            />
+            <h2 class="teamName">IZABELA NAGY</h2>
+            <p class="teamRoles">Consilier Vânzări</p>
+          </li>
+        </ul>
+      </section>
+      <section id="services">
+        <div class="servicesContainer">
+          <div class="row">
+            <div class="col-sm-7">
+              <img
+                class="imgColImg"
+                src="./img/services/services1.png"
+                alt=""
+              />
+            </div>
+            <div class="col-sm-5 textCol">
+              <img src="./img/services/services.png" alt="services graphic" />
+              <div class="textArea">
+                <h2 class="blackTitle sectionHeading">Servicii</h2>
+                <p class="italicText">
+                  La Urban Optic, ne străduim să fim lideri în furnizarea celor
+                  mai bune servicii și produse optice personalizate pentru
+                  nevoile individuale ale clienților noștri.
+                </p>
+                <h3 class="servicesHeading">Consultații oftalmologice</h3>
+                <p class="servicesText">
+                  Fie că este vorba despre un examen de rutină sau unul mai
+                  complex, este esențial că specialistul tău să îți ofere
+                  soluții personalizate pentru problemele tale de vedere. La
+                  Urban Optic, comunicarea între specialist și pacient este o
+                  prioritate, astfel încât să poți avea încredere că vei
+                  beneficia de îngrijire de calitate și personalizată, GRATUIT.
+                </p>
+                <a href="./services.html" class="moreLink"
+                  >Mai multe servicii</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="promo" class="promoSection yellowBg">
+        <div id="curtain" class="promoImgDiv">
+          <img class="promoImg" src="./img/promo-banner.png" alt="promo" />
+        </div>
+        <div class="cardDiv">
+          <div class="slider">
+            <div class="slides">
+              <div class="slideContainer">
+                <div class="cardBg promoImg1">
+                  <div class="textContainer">
+                    <p class="discountTag">
+                      15% <sup class="supText">off</sup>
+                    </p>
+                    <h3 class="discountDesc">spring promo</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="slideContainer">
+                <div class="cardBg promoImg2">
+                  <div class="textContainer">
+                    <p class="discountTag">5% <sup class="supText">off</sup></p>
+                    <h3 class="discountDesc">start summer</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="slideContainer">
+                <div class="cardBg promoImg3">
+                  <div class="textContainer">
+                    <p class="discountTag">
+                      20% <sup class="supText">off</sup>
+                    </p>
+                    <h3 class="discountDesc">spring fashion</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="prevBtn">&#10094;</button>
+            <button class="nextBtn">&#10095;</button>
+          </div>
+          <div class="dots"></div>
+        </div>
+        <!-- <a href="/promo.html" class="moreLink">see promo</a> -->
+      </section>
+      <section id="contact" class="blackBg">
+        <div class="container contactContainer">
+          <div class="row">
+            <div class="col-sm-2 contactImgCol">
+              <img src="./img/contact-details.png" alt="contact" />
+            </div>
+            <div class="col-sm-8 contactTextCol">
+              <h2 class="fadeIn-element yellowTitle">Contactează-ne!</h2>
+              <p class="whiteText">
+                Echipa noastră profesionistă este mereu pregătită să răspundă la
+                întrebările tale și să îți ofere soluțiile potrivite pentru
+                nevoile tale vizuale. Poți să ne suni, să ne trimiți un mesaj
+                sau să ne vizitezi în magazinul nostru. Ne bucurăm să ne vedem!
+              </p>
+              <div class="inner-divider-ultra-half"></div>
+              <div class="contactIconsDiv">
+                <div class="whiteLine"></div>
+                <ul class="contactList">
+                  <li>
+                    <p class="textItem">
+                      <i
+                        class="fa-sharp fa-solid fa-location-dot contactIcon"
+                      ></i
+                      >Str. Strada , Nr. 16
+                    </p>
+                  </li>
+                  <li>
+                    <p class="textItem">
+                      <i class="fa-solid fa-phone contactIcon"></i>+40 755 254
+                      658
+                    </p>
+                  </li>
+                  <li>
+                    <p class="textItem">
+                      <i class="fa-sharp fa-solid fa-envelope contactIcon"></i
+                      >urbanoptic@office.com
+                    </p>
+                  </li>
+                  <li class="socialIcons">
+                    <a href="https://www.facebook.com/" target="_blank"
+                      ><img src="./img/facebook.png" alt="facebook"
+                    /></a>
+                  </li>
+                  <li class="socialIcons">
+                    <a href="https://www.instagram.com/" target="_blank">
+                      <img src="./img/instagram.png" alt="instagram" />
+                    </a>
+                  </li>
+                  <li class="socialIcons">
+                    <a href="https://www.linkedin.com/" target="_blank">
+                      <img src="./img/linkedin.png" alt="linkedin"
+                    /></a>
+                  </li>
+                </ul>
+                <div class="whiteLine"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="./js/customScript.js"></script>
+    <!-- <script src="./js/scripts.js"></script>
+    <script src="./js/jquery.pagepiling.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/smoothscroll.js"></script> -->
+  </body>
+</html>

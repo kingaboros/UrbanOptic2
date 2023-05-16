@@ -1,0 +1,765 @@
+:root {
+  --yellow: #ffcc01;
+  --black: #343434;
+  --grey: #4a4a4a;
+  --lightGrey: #9f9f9f;
+  --shadow: rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html {
+  scroll-behavior: smooth;
+} */
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  /* scroll-snap-stop: always; */
+}
+
+.mobileMainContainer {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  display: block;
+  width: 100%;
+}
+
+section {
+  position: relative;
+  flex: 0 0 auto;
+  height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+section:not(.activeSection) {
+  opacity: 0.7;
+}
+
+.activeSection {
+  height: 100%;
+  transition: 1.5s all ease-in-out;
+  opacity: 1;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.yellowBg {
+  background-color: var(--yellow);
+}
+
+.blackBg {
+  background-color: var(--black);
+}
+
+.whiteBg {
+  background-color: white;
+}
+
+/* hide scroll bar  */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* navbar */
+
+.navBar {
+  z-index: 180;
+  width: 80vw;
+  position: fixed;
+  top: 1rem;
+  left: 16rem;
+}
+
+.logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding-top: 10px;
+}
+
+.logo-yellow {
+  content: url('/img/logo-light.png');
+}
+.logo-dark {
+  content: url('/img/logo-dark.png');
+}
+
+.navbarDesk {
+  margin-top: -5rem;
+}
+
+.desktopMenu {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  align-content: flex-end;
+  float: right;
+  list-style: none;
+}
+
+.desktopMenu a {
+  text-decoration: none;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--black);
+}
+
+.desktopMenu a:hover {
+  color: var(--grey);
+}
+
+.active {
+  text-decoration: underline !important;
+}
+
+.whiteNavLinks {
+  color: white !important;
+}
+
+.menuBtn {
+  align-items: center;
+  padding: 10px 18px;
+  width: 192px;
+  height: 48px;
+  background: var(--black);
+  box-shadow: 4px 4px 20px var(--shadow);
+  border-radius: 100px;
+  color: var(--yellow);
+  border: none;
+  margin-bottom: 15px;
+  margin-top: -9px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.menuBtn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.menuBtn:active {
+  box-shadow: 0px 4px 8px;
+  transform: scale(1.2);
+}
+
+.menuBtn:focus {
+  outline: none;
+  box-shadow: 10px 5px 5px var(--shadow);
+}
+
+.btnIcon {
+  padding-right: 10px;
+}
+
+.yellowMenuBtn {
+  color: var(--black);
+  background-color: var(--yellow);
+}
+
+/* homepage */
+
+.heroHeadingDiv {
+  margin-top: 57rem;
+}
+
+.heroSubtitle {
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 39px;
+  color: var(--black);
+  text-align: left;
+  width: 100%;
+  margin-bottom: -12rem;
+  padding-left: 0.5rem;
+}
+
+.heroTitleDiv {
+  margin-top: 10rem;
+}
+
+.mainTitle {
+  font-weight: 900;
+  font-size: 200px;
+  line-height: 242px;
+  color: var(--grey);
+  /* padding-left: 13rem; */
+}
+
+.blurredTitle {
+  display: block;
+  filter: blur(2px);
+  padding-left: 16rem;
+}
+
+.glassesImg {
+  position: relative;
+  z-index: 27;
+  right: -75vmin;
+  top: -66vmin;
+}
+
+/* about section  */
+
+.aboutVideo {
+  height: auto;
+  /* margin-top: 5px; */
+  width: 100vw !important;
+  z-index: 28;
+}
+
+/* team section */
+
+.teamSection {
+  /* width: 60%; */
+  margin-top: 5rem;
+}
+
+.blackTitle {
+  color: var(--black);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: left;
+  width: 60%;
+}
+
+.teamText {
+  margin-top: 24px;
+  text-align: left;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 18px;
+  width: 60%;
+}
+
+.teamList {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 27px;
+  padding: 0;
+  list-style: none;
+  width: 60%;
+}
+
+.teamImg {
+  display: block;
+  margin: 0 auto;
+}
+
+.teamName {
+  font-size: 22px;
+  color: var(--black) !important;
+  text-align: center;
+  font-weight: 500;
+  line-height: 27px;
+}
+
+.teamRoles {
+  font-size: 18px !important;
+  color: var(--lightGrey) !important;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+/* services */
+
+.servicesContainer {
+  width: 75%;
+}
+
+.serviceRow {
+  width: 76% !important;
+}
+
+.imgColImg {
+  width: auto;
+  height: 100vh;
+}
+
+.textCol {
+  margin-top: 10rem;
+  margin-left: -2rem;
+}
+
+.textArea {
+  margin-top: 5rem;
+}
+
+.italicText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  font-style: italic;
+  text-align: left;
+  max-width: 554px;
+}
+
+.servicesHeading {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  color: var(--black);
+  margin: 32px 0 19px 0;
+}
+
+.servicesText {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--black);
+  max-width: 554px;
+}
+
+.moreLink {
+  font-size: 16px;
+  text-decoration: underline;
+  color: var(--black);
+}
+
+.moreLink:hover {
+  text-decoration: none;
+  color: var(--black);
+}
+
+/* row reverse services */
+
+.textColLeft {
+  margin-top: 15rem;
+}
+
+.servicesVerticalScroll {
+  height: max-content !important;
+}
+
+.verticalScroll {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto;
+  display: block;
+}
+
+#scrollableDiv {
+  height: 78vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
+  overscroll-behavior: contain;
+}
+
+/* promo section  */
+
+.promoSection {
+  position: relative;
+}
+
+.promoImgDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  background-color: var(--yellow);
+  opacity: 1;
+  pointer-events: none;
+  overflow: hidden;
+  width: 100%;
+}
+
+.curtainEffect {
+  transition: opacity 0.8s ease-out;
+  transform: translateY(100%);
+}
+
+.promoImg {
+  max-width: 100%;
+  height: auto;
+  -webkit-transition: opacity 0.6s ease-in-out, transform 2s ease 0.7s;
+  -moz-transition: opacity 0.6s ease-in-out, transform 2s ease 0.7s;
+  -ms-transition: opacity 0.6s ease-in-out, transform 2s ease 0.7s;
+  -o-transition: opacity 0.6s ease-in-out, transform 2s ease 0.7s;
+  transition: opacity 0.6s ease-in-out, transform 2s ease 0.7s;
+  -webkit-transform: scale(1.15);
+  -moz-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  -o-transform: scale(1.15);
+  transform: scale(1.15);
+  opacity: 1;
+  -moz-opacity: 1;
+  -webkit-opacity: 1;
+  filter: alpha(opacity=50);
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)';
+}
+
+/* promotions card */
+
+.cardDiv {
+  position: absolute;
+  /* z-index: 1; */
+  margin: 5rem auto;
+}
+
+.cardBg {
+  width: 100%;
+  height: 560px;
+  border-radius: 20px !important;
+}
+
+/* coupon images  */
+
+.promoImg1 {
+  background: url('/img/products/glasses1.jpg');
+  background-size: cover;
+}
+.promoImg2 {
+  background: url('/img/products/glasses2.jpg');
+  background-size: cover;
+}
+.promoImg3 {
+  background: url('/img/products/glasses3.jpg');
+  background-size: cover;
+}
+
+.textContainer {
+  padding: 2rem 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.discountTag {
+  font-weight: 700;
+  font-size: 120px;
+  line-height: 145px;
+  color: var(--grey);
+}
+
+.supText {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 61px;
+  text-decoration: underline;
+  color: var(--grey);
+  text-transform: uppercase;
+  vertical-align: super;
+}
+
+.discountDesc {
+  color: var(--grey);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  align-self: flex-end;
+  width: 100%;
+}
+
+.lines {
+  position: relative;
+  height: 8px;
+  background-color: var(--grey);
+  width: 100px;
+  z-index: 200;
+  top: -5rem;
+  left: 22.7rem;
+}
+
+.lines::before,
+.lines::after {
+  content: '';
+  position: absolute;
+  height: 8px;
+  background-color: var(--grey);
+  right: 0;
+}
+
+.lines::before {
+  width: 130px;
+  top: -1.3rem;
+}
+
+.lines::after {
+  width: 60%;
+  top: 20px;
+}
+
+/* card slider */
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 4px 4px 20px var(--shadow);
+  border-radius: 20px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slideContainer {
+  flex: 0 0 100%;
+  width: 14vw;
+  height: 100%;
+  animation: fade 500ms ease-in-out;
+}
+
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: left 0.65s ease-out;
+  opacity: 0.5;
+  height: 85%;
+  width: 8%;
+}
+
+.prevBtn:hover,
+.nextBtn:hover {
+  opacity: 1;
+}
+
+button:focus,
+button:focus-visible {
+  border: none;
+  outline: none;
+}
+
+.prevBtn {
+  left: 10px;
+}
+
+.nextBtn {
+  right: 10px;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: var(--black);
+  cursor: pointer;
+}
+
+.activeDot {
+  background-color: var(--lightGrey);
+}
+
+/* contact */
+
+.contactSection {
+  background-color: var(--black);
+  padding-top: 10rem !important;
+}
+
+.contactContainer {
+  max-width: 1300px !important;
+}
+
+.contactTextCol {
+  max-width: 809px;
+  margin-left: 10rem;
+  top: 2vmin;
+}
+
+.contactList {
+  padding: 0.3rem;
+}
+
+.contactList li {
+  list-style: none;
+  margin-top: 0;
+}
+
+.yellowTitle {
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.whiteText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: left;
+  color: white;
+}
+
+.contactDiv {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 100vh;
+}
+
+.contactImg {
+  height: auto;
+  margin-left: 33rem;
+  width: 236px;
+  height: 575px;
+}
+
+.contactIconsDiv {
+  position: relative;
+  top: 33.9vmin;
+}
+
+.whiteLine {
+  border: 1px solid white;
+  border-style: solid none;
+  position: relative;
+  width: 67vw;
+  left: -40.6vmin;
+}
+
+.contactList {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.textItem {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.contactIcon {
+  font-size: 20px;
+  color: var(--yellow);
+  padding-right: 10px;
+  margin-top: 5px;
+}
+
+.socialIcons {
+  margin-right: -3rem;
+}
+
+/* .socialIcons:hover {
+  cursor: pointer;
+} */
+
+#shadow-host-companion {
+  display: none !important;
+}
+
+/* on scroll animation style */
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* --------------- Responsive --------------- */
+
+/* mobile devices */
+@media (max-width: 556px) {
+}
+
+/* tablets and small desktop screens */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* standard desktop screens */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* large desktop screens */
+@media (min-width: 1200px) and (max-width: 1400px) {
+  /* .mainContainer {
+  } */
+  .navBar {
+    width: 90vw;
+    left: 13vmin;
+  }
+  .mainTitle {
+    font-size: 12rem;
+  }
+  .heroHeadingDiv {
+    margin-top: 164vmin;
+    width: 60%;
+  }
+  .blurredTitle {
+    margin-top: -4rem;
+  }
+  .heroSubtitle {
+    margin-bottom: -11rem;
+  }
+  .heroTitleDiv {
+    margin-top: 8rem;
+  }
+  .glassesImg {
+    right: -102vmin;
+    top: -98vmin;
+  }
+
+  /* team section  */
+  .teamSection {
+    margin-top: 7rem;
+  }
+  .teamList {
+    width: 80%;
+  }
+  .teamText {
+    font-size: 16px;
+    width: 80%;
+  }
+  .teamImg {
+    height: 50%;
+    margin-top: 0px;
+  }
+  .blackTitle {
+    font-size: 36px;
+    width: 80%;
+  }
+}

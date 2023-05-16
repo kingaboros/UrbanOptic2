@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/sliderStyles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="carousel">
+      <div class="carousel__item carousel__item--visible">
+        <img src="https://source.unsplash.com/600x600" alt="" />
+      </div>
+      <div class="carousel__item">
+        <img src="https://source.unsplash.com/600x601" alt="" />
+      </div>
+      <div class="carousel__item">
+        <img src="https://source.unsplash.com/600x602" alt="" />
+      </div>
+      <div class="carousel__item">
+        <img src="https://source.unsplash.com/600x603" alt="" />
+      </div>
+      <div class="carousel__item">
+        <img src="https://source.unsplash.com/600x604" alt="" />
+      </div>
+      <div class="carousel__action">
+        <button class="btn-prev" id="carousel__btn--prev"></button>
+        <button class="btn-next" id="carousel__btn--next"></button>
+      </div>
+    </div>
+    <script>
+      let slidePosition = 0;
+      const slides = document.getElementsByClassName('carousel__item');
+      const totalSlides = slides.length;
+
+      document
+        .getElementById('carousel__btn--next')
+        .addEventListener('click', function () {
+          moveToNextSlide();
+        });
+      document
+        .getElementById('carousel__btn--prev')
+        .addEventListener('click', function () {
+          moveToPrevSlide();
+        });
+
+      function updateSlidesPosition() {
+        for (let slide of slides) {
+          slide.classList.remove('carousel__item--visible');
+          slide.classList.add('carousel__item--hidden');
+        }
+        slides[slidePosition].classList.add('carousel__item--visible');
+      }
+
+      function moveToNextSlide() {
+        if (slidePosition === totalSlides - 1) {
+          slidePosition = 0;
+        } else {
+          slidePosition++;
+        }
+        updateSlidesPosition();
+      }
+
+      function moveToPrevSlide() {
+        if (slidePosition === 0) {
+          // totalSlides -1, if you wan't infinite carousel effect to both ways
+          slidePosition = 0;
+        } else {
+          slidePosition--;
+        }
+        updateSlidesPosition();
+      }
+    </script>
+  </body>
+</html>
