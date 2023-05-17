@@ -1,7 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
-gsap.registerPlugin(SplitText);
-// gsap.registerPlugin(ScrollSmoother);
 
 console.clear();
 
@@ -12,24 +10,8 @@ const stage = select('.stage');
 const slides = selectAll('.slide');
 const links = selectAll('.slide__scroll-link');
 const titles = selectAll('.col__content-title');
-const introTitle = new SplitText('.intro__title', {
-  type: 'lines',
-  linesClass: 'intro-line',
-});
-const splitTitles = new SplitText(titles, {
-  type: 'lines, chars',
-  linesClass: 'line',
-  charsClass: 'char',
-  position: 'relative',
-});
-let slideID = 0;
 
-// const smoother = ScrollSmoother.create({
-//   smooth: 2,
-//   effects: true,
-//   // normalizeScroll: true,
-//   smoothTouch: 0.1,
-// });
+let slideID = 0;
 
 function initHeader() {
   // animate the logo and fake burger button into place
@@ -413,4 +395,18 @@ function init() {
 
 window.onload = () => {
   init();
+};
+
+/////// navbar show on scroll up
+
+let prevScrollpos = window.pageYOffset;
+window.onscroll = function () {
+  let currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.querySelector('.header').style.top = '0';
+  } else {
+    document.querySelector('.header').style.top =
+      '-140px'; /* Adjust this value to hide the navbar off-screen */
+  }
+  prevScrollpos = currentScrollPos;
 };
