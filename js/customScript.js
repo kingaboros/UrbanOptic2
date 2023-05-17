@@ -3,7 +3,7 @@ let scrollTimeout = null; // Variable to store the scroll timeout
 const sections = document.querySelectorAll('section');
 
 function scrollH(e) {
-  if (window.innerWidth >= 1000) {
+  if (window.innerWidth >= 992) {
     e = window.event || e;
     let delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
     const mainContainer = document.querySelector('.mainContainer');

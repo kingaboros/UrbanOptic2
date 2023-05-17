@@ -234,6 +234,11 @@ section {
 
 /* team section */
 
+.teamContainer {
+  width: 90vw;
+  margin-left: 24rem;
+}
+
 .teamSection {
   /* width: 60%; */
   margin-top: 5rem;
@@ -254,7 +259,7 @@ section {
   font-weight: 300;
   font-size: 18px;
   line-height: 18px;
-  width: 60%;
+  width: 80%;
 }
 
 .teamList {
@@ -263,7 +268,7 @@ section {
   margin-top: 27px;
   padding: 0;
   list-style: none;
-  width: 60%;
+  width: 80%;
 }
 
 .teamImg {
@@ -603,7 +608,7 @@ button:focus-visible {
 }
 
 .contactList {
-  padding: 0.3rem;
+  padding: 0.5rem;
 }
 
 .contactList li {
@@ -665,7 +670,7 @@ button:focus-visible {
   margin-bottom: 0;
   display: flex;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .contactIcon {
@@ -712,22 +717,124 @@ button:focus-visible {
 
 /* standard desktop screens */
 @media (min-width: 992px) and (max-width: 1199px) {
+  .navBar {
+    width: 93vw;
+    left: 6vmin;
+  }
+  .desktopMenu {
+    width: 63%;
+  }
+  .heroHeadingDiv {
+    margin-top: 68vmin;
+    margin-left: -12vmin;
+  }
+
+  .glassesImg {
+    right: -68vmin;
+    top: -47vmin;
+  }
+
+  .glassesImg img {
+    width: 70%;
+    height: auto;
+  }
+  .mainTitle {
+    font-size: 12rem;
+  }
+
+  .blurredTitle {
+    margin-top: -3rem;
+  }
+
+  .aboutVideo {
+    width: auto !important;
+  }
+
+  /* team section */
+
+  .teamSection {
+    margin-top: 0;
+  }
+
+  .teamContainer {
+    width: 90vw;
+  }
+
+  .teamText,
+  .teamList {
+    width: 100%;
+  }
+
+  /* services section */
+
+  .servicesContainer {
+    width: 100%;
+  }
+
+  .imgColImg {
+    width: 96%;
+    height: auto;
+    margin-left: -3rem;
+  }
+
+  .textCol {
+    margin-top: 1rem;
+    margin-left: -4.5rem;
+  }
+
+  /* promotions section */
+  .cardDiv {
+    width: 80%;
+  }
+
+  .promoImg {
+    max-width: 70%;
+  }
+
+  /* contact section */
+
+  .contactTextCol {
+    max-width: 100% !important;
+    margin-left: 85px;
+  }
+
+  .contactIconsDiv {
+    top: 31.3vmin;
+  }
+
+  .contactList {
+    justify-content: space-evenly;
+    padding: 10px;
+  }
+
+  .socialIcons {
+    margin-right: 0;
+  }
+
+  .textItem {
+    padding-top: 0;
+  }
+
+  .whiteLine {
+    left: -0.6vmin;
+  }
 }
 
 /* large desktop screens */
 @media (min-width: 1200px) and (max-width: 1400px) {
-  /* .mainContainer {
-  } */
+  .desktopMenu {
+    width: 63%;
+  }
   .navBar {
-    width: 90vw;
-    left: 13vmin;
+    width: 95vw;
+    left: 6vmin;
   }
   .mainTitle {
     font-size: 12rem;
   }
   .heroHeadingDiv {
-    margin-top: 164vmin;
-    width: 60%;
+    margin-top: 60vmin;
+    width: 70%;
   }
   .blurredTitle {
     margin-top: -4rem;
@@ -739,27 +846,73 @@ button:focus-visible {
     margin-top: 8rem;
   }
   .glassesImg {
-    right: -102vmin;
-    top: -98vmin;
+    right: -51vmin;
+    top: -52vmin;
+  }
+
+  .aboutVideo {
+    width: auto !important;
   }
 
   /* team section  */
+
   .teamSection {
-    margin-top: 7rem;
+    margin-top: 0;
   }
   .teamList {
-    width: 80%;
+    width: 100%;
+    margin-top: 5rem;
   }
   .teamText {
-    font-size: 16px;
-    width: 80%;
+    font-size: 18px;
+    width: 100%;
   }
   .teamImg {
     height: 50%;
     margin-top: 0px;
   }
+
   .blackTitle {
     font-size: 36px;
     width: 80%;
+  }
+
+  /* services section */
+  .servicesContainer {
+    width: 100%;
+  }
+
+  .imgColImg {
+    width: 96%;
+    height: auto;
+    margin-left: -3rem;
+  }
+
+  .textCol {
+    margin-top: 12rem;
+    margin-left: -4.5rem;
+  }
+
+  /* promotions section */
+  .cardDiv {
+    width: 66%;
+  }
+
+  /* contact  section*/
+
+  .contactIconsDiv {
+    top: 26.9vmin;
+  }
+
+  .whiteLine {
+    width: 82rem;
+  }
+
+  .textItem {
+    padding-top: 5px;
+  }
+
+  .contactList {
+    padding: 0.5rem;
   }
 }
