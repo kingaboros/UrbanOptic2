@@ -152,7 +152,7 @@ section {
   color: var(--yellow);
   border: none;
   margin-bottom: 15px;
-  margin-top: -9px;
+  margin-top: -15px;
   font-weight: 500;
   transition: all 0.3s ease-in-out;
 }
@@ -707,16 +707,71 @@ button:focus-visible {
 
 /* --------------- Responsive --------------- */
 
+/* vertical scrolling */
+
 /* mobile devices */
-@media (max-width: 556px) {
+@media all and (max-width: 767px) {
+  .navBar {
+    left: 1rem;
+  }
+  .logo {
+    width: 7rem;
+    height: 5rem;
+  }
+  .heroHeadingDiv {
+    display: block;
+    margin-top: 20rem;
+    margin-left: -3rem;
+  }
+
+  .mainTitle {
+    display: block;
+    font-size: 60px;
+    padding-left: 0rem;
+    line-height: 5rem;
+  }
+
+  .heroSubtitle {
+    font-weight: 400;
+    font-size: 14px;
+    color: white;
+    margin-bottom: -15px;
+    padding-left: 3px;
+  }
+
+  .heroTitleDiv {
+    margin-top: 0;
+  }
+  .blurredTitle {
+    padding-left: 1.8rem;
+  }
+
+  .glassesImg {
+    right: -46vmin;
+    top: -61vmin;
+  }
+
+  .glassesImg img {
+    width: 20rem;
+    height: auto;
+  }
+
+  .aboutVideo {
+    height: auto;
+    width: auto !important;
+  }
+
+  .teamContainer {
+    width: auto;
+  }
 }
 
 /* tablets and small desktop screens */
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 1023px) {
 }
 
-/* standard desktop screens */
-@media (min-width: 992px) and (max-width: 1199px) {
+/* standard desktop screens - horizontal scrolling */
+@media (min-width: 1024px) and (max-width: 1199px) {
   .navBar {
     width: 93vw;
     left: 6vmin;
@@ -725,19 +780,16 @@ button:focus-visible {
     width: 63%;
   }
   .heroHeadingDiv {
-    margin-top: 68vmin;
-    margin-left: -12vmin;
+    margin-top: 115vmin;
+    margin-left: -21vmin;
   }
 
   .glassesImg {
-    right: -68vmin;
-    top: -47vmin;
+    right: -60vmin;
+    top: -73vmin;
+    width: 72vw;
   }
 
-  .glassesImg img {
-    width: 70%;
-    height: auto;
-  }
   .mainTitle {
     font-size: 12rem;
   }
@@ -757,7 +809,9 @@ button:focus-visible {
   }
 
   .teamContainer {
-    width: 90vw;
+    width: 95vw;
+    margin-left: 0;
+    margin-top: 9rem;
   }
 
   .teamText,
@@ -778,13 +832,14 @@ button:focus-visible {
   }
 
   .textCol {
-    margin-top: 1rem;
+    margin-top: 9rem;
     margin-left: -4.5rem;
   }
 
   /* promotions section */
   .cardDiv {
-    width: 80%;
+    width: 70%;
+    margin-top: 13rem;
   }
 
   .promoImg {
@@ -793,13 +848,17 @@ button:focus-visible {
 
   /* contact section */
 
+  .contactContainer {
+    margin-top: 9rem;
+  }
+
   .contactTextCol {
     max-width: 100% !important;
     margin-left: 85px;
   }
 
   .contactIconsDiv {
-    top: 31.3vmin;
+    top: 37.24vmin;
   }
 
   .contactList {
@@ -821,7 +880,7 @@ button:focus-visible {
 }
 
 /* large desktop screens */
-@media (min-width: 1200px) and (max-width: 1400px) {
+@media (min-width: 1200px) and (max-width: 1499px) {
   .desktopMenu {
     width: 63%;
   }
@@ -833,7 +892,7 @@ button:focus-visible {
     font-size: 12rem;
   }
   .heroHeadingDiv {
-    margin-top: 60vmin;
+    margin-top: 110vmin;
     width: 70%;
   }
   .blurredTitle {
@@ -846,8 +905,9 @@ button:focus-visible {
     margin-top: 8rem;
   }
   .glassesImg {
-    right: -51vmin;
-    top: -52vmin;
+    right: -74vmin;
+    top: -73vmin;
+    width: 80%;
   }
 
   .aboutVideo {
@@ -855,6 +915,11 @@ button:focus-visible {
   }
 
   /* team section  */
+
+  .teamContainer {
+    margin-left: 0;
+    margin-top: 10rem;
+  }
 
   .teamSection {
     margin-top: 0;
@@ -889,23 +954,30 @@ button:focus-visible {
   }
 
   .textCol {
-    margin-top: 12rem;
+    margin-top: 14rem;
     margin-left: -4.5rem;
   }
 
   /* promotions section */
+
   .cardDiv {
-    width: 66%;
+    width: 62%;
+    margin-top: 14rem;
   }
 
   /* contact  section*/
 
+  .contactContainer {
+    margin-top: 9rem;
+  }
+
   .contactIconsDiv {
-    top: 26.9vmin;
+    top: 37.9vmin;
   }
 
   .whiteLine {
-    width: 82rem;
+    width: 76rem;
+    left: -45vmin;
   }
 
   .textItem {
