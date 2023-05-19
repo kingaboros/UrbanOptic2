@@ -109,7 +109,25 @@ section {
 }
 
 .navbarDesk {
-  margin-top: -5rem;
+  margin-top: -1rem;
+}
+
+#navbarNav {
+  justify-content: flex-end;
+  z-index: 9999;
+}
+
+.show {
+  display: block;
+}
+
+.mobileMenu {
+  background-color: var(--black);
+  color: white;
+}
+
+.mobileMenu a {
+  color: white !important;
 }
 
 .desktopMenu {
@@ -157,17 +175,20 @@ section {
   transition: all 0.3s ease-in-out;
 }
 
-.menuBtn:hover {
+.menuBtn:hover,
+.heroContactBtn {
   cursor: pointer;
   transform: scale(1.1);
 }
 
-.menuBtn:active {
+.menuBtn:active,
+.heroContactBtn:active {
   box-shadow: 0px 4px 8px;
   transform: scale(1.2);
 }
 
-.menuBtn:focus {
+.menuBtn:focus,
+.heroContactBtn:focus {
   outline: none;
   box-shadow: 10px 5px 5px var(--shadow);
 }
@@ -181,6 +202,27 @@ section {
   background-color: var(--yellow);
 }
 
+.heroBtnDiv {
+  position: relative;
+  top: -10rem;
+}
+
+.heroContactBtn {
+  display: none;
+  align-items: center;
+  padding: 10px 18px;
+  width: 192px;
+  height: 48px;
+  background: var(--black);
+  box-shadow: 4px 4px 20px var(--shadow);
+  border-radius: 100px;
+  color: var(--yellow);
+  border: none;
+  margin-bottom: 15px;
+  margin-top: -15px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
 /* homepage */
 
 .heroHeadingDiv {
@@ -225,11 +267,27 @@ section {
 
 /* about section  */
 
+.aboutSection {
+  height: 100%;
+}
+
+.aboutDescDiv {
+  margin-top: 3rem;
+}
+
 .aboutVideo {
   height: auto;
   /* margin-top: 5px; */
   width: 100vw !important;
   z-index: 28;
+}
+
+.readMoreLink {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: underline;
+  color: var(--black);
 }
 
 /* team section */
@@ -269,6 +327,10 @@ section {
   padding: 0;
   list-style: none;
   width: 80%;
+}
+
+.teamList li {
+  width: 100%;
 }
 
 .teamImg {
@@ -710,10 +772,24 @@ button:focus-visible {
 /* vertical scrolling */
 
 /* mobile devices */
-@media all and (max-width: 767px) {
+@media all and (max-width: 575px) {
   .navBar {
     left: 1rem;
+    width: 100vw;
   }
+
+  .menuBtn {
+    display: none;
+  }
+
+  .heroContactBtn {
+    display: block;
+  }
+
+  .heroBtnDiv {
+    top: -14rem;
+  }
+
   .logo {
     width: 7rem;
     height: 5rem;
@@ -747,27 +823,59 @@ button:focus-visible {
   }
 
   .glassesImg {
-    right: -46vmin;
-    top: -61vmin;
+    right: -11.3rem;
+    top: -14.5rem;
   }
 
   .glassesImg img {
-    width: 20rem;
+    width: 26rem;
     height: auto;
   }
 
   .aboutVideo {
-    height: auto;
+    height: 100vh !important;
     width: auto !important;
   }
 
+  section {
+    opacity: 1 !important;
+    /* height: 100% !important; */
+  }
+
   .teamContainer {
+    width: 100%;
+    margin-left: 5rem;
+  }
+
+  .teamSection {
     width: auto;
+    height: 100% !important;
+    margin-top: 7rem;
+  }
+
+  .teamList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .teamList li {
+    width: 50%;
+  }
+
+  .aboutDescMobile {
+    display: block;
+  }
+
+  .blackTitle {
+    width: 100%;
   }
 }
 
 /* tablets and small desktop screens */
 @media (min-width: 768px) and (max-width: 1023px) {
+  .aboutDescMobile {
+    display: block;
+  }
 }
 
 /* standard desktop screens - horizontal scrolling */
@@ -802,6 +910,10 @@ button:focus-visible {
     width: auto !important;
   }
 
+  .aboutDescMobile {
+    display: none;
+  }
+
   /* team section */
 
   .teamSection {
@@ -823,6 +935,10 @@ button:focus-visible {
 
   .servicesContainer {
     width: 100%;
+  }
+
+  .servicesSection {
+    height: 100%;
   }
 
   .imgColImg {

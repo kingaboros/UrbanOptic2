@@ -33,44 +33,43 @@
   <body>
     <div class="mainContainer">
       <div id="menu" class="navBar" class="yellowBg">
-        <a href="index.html">
-          <img id="logo" class="logo" src="./img/logo-dark.png" alt="logo" />
-        </a>
-        <nav class="navbarDesk">
-          <ul class="desktopMenu">
-            <li>
-              <a data-section-id="about" class="aboutLink" href="#about"
-                >Despre noi</a
-              >
-            </li>
-            <li>
-              <a
-                data-section-id="services"
-                class="servicesLink"
-                href="#services"
-                >Servicii</a
-              >
-            </li>
-            <li>
-              <a
-                data-section-id="promo"
-                class="promoLink"
-                id="promoLink"
-                href="#promo"
-                >Promoții</a
-              >
-            </li>
-            <li>
-              <a data-section-id="contact" class="contactLink" href="#contact"
-                >Contact</a
-              >
-            </li>
-            <li>
-              <button id="navBtn" class="menuBtn">
-                <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
-              </button>
-            </li>
-          </ul>
+        <!-- <div w3-include-html="./assets/menu.html"></div> -->
+        <nav class="navbarDesk navbar navbar-expand-lg">
+          <a href="index.html">
+            <img id="logo" class="logo" src="./img/logo-dark.png" alt="logo" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="navbar-toggler-icon fa-solid fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav desktopMenu">
+              <li class="nav-item">
+                <a class="nav-link aboutLink" href="#about">Despre noi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link servicesLink" href="#services">Servicii</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link promoLink" href="#promo">Promoții</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link contactLink" href="#contact">Contact</a>
+              </li>
+              <li>
+                <button id="navBtn" class="menuBtn">
+                  <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
+                </button>
+              </li>
+            </ul>
+          </div>
         </nav>
       </div>
       <section id="home" class="yellowBg activeSection">
@@ -84,8 +83,13 @@
         <div class="glassesImg">
           <img src="./img/glasses.png" alt="" />
         </div>
+        <div class="heroBtnDiv">
+          <button class="heroContactBtn">
+            <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
+          </button>
+        </div>
       </section>
-      <section id="about" class="inactiveSection">
+      <section id="about" class="aboutSection inactiveSection">
         <video
           class="aboutVideo"
           playsinline
@@ -94,6 +98,21 @@
           loop
           src="./img/video.mp4"
         ></video>
+        <div class="aboutDescMobile teamContainer">
+          <div class="aboutDescDiv">
+            <h1 class="blackTitle">Despre noi</h1>
+            <p class="teamText">
+              Suntem o echipa de experți in domeniul opticii si suntem dedicați
+              sa oferim cele mai bune servicii si produse adaptate pentru
+              nevoile clienților noștri. Intelegem ca vederea impecabila este o
+              prioritate si, prin urmare, suntem la curent cu cele mai noi
+              tehnologii si metode de diagnostic existente in domeniul opticii,
+              dar si cu cele mai noi tendințe in materie de rame si ochelari de
+              soare.
+            </p>
+            <a href="" class="readMoreLink">Citește mai mult</a>
+          </div>
+        </div>
       </section>
       <section id="team" class="teamSection inactiveSection">
         <div class="teamContainer">
@@ -168,7 +187,7 @@
           </ul>
         </div>
       </section>
-      <section id="services" class="inactiveSection">
+      <section id="services" class="servicesSection inactiveSection">
         <div class="servicesContainer">
           <div class="row">
             <div class="col-sm-3 col-md-7">
@@ -309,5 +328,8 @@
       </section>
     </div>
     <script src="./js/customScript.js"></script>
+    <script>
+      includeHTML();
+    </script>
   </body>
 </html>
