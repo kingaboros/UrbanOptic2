@@ -166,7 +166,8 @@ section {
 .desktopMenu {
   display: flex;
   justify-content: space-around;
-  width: 40%;
+  width: 36rem;
+  /* min-width: 100%; */
   align-content: flex-end;
   float: right;
   list-style: none;
@@ -294,8 +295,8 @@ section {
 .glassesImg {
   position: relative;
   z-index: 27;
-  right: -19.5rem;
-  top: -23.5rem;
+  right: -43.5rem;
+  top: -38.5rem;
 }
 
 /* about section  */
@@ -313,6 +314,10 @@ section {
   /* margin-top: 5px; */
   width: 100vw !important;
   z-index: 28;
+}
+
+.aboutDescMobile {
+  display: none;
 }
 
 .readMoreLink {
@@ -1013,6 +1018,10 @@ button:focus-visible {
     top: -6.47rem;
   }
 
+  /* .menuMobile {
+    display: none;
+  } */
+
   .closeIcon {
     display: flex;
     justify-content: flex-end;
@@ -1187,17 +1196,20 @@ button:focus-visible {
 }
 
 /* standard desktop screens - horizontal scrolling */
-@media (min-width: 1024px) and (max-width: 1199px) {
+@media (min-width: 1024px) and (max-width: 1500px) {
   .navBar {
     width: 93vw;
     left: 6vmin;
   }
+  .navbarDesk {
+    margin-right: -3rem;
+  }
+
   .desktopMenu {
-    width: 63%;
+    width: auto;
   }
   .heroHeadingDiv {
-    margin-top: 115vmin;
-    margin-left: -21vmin;
+    margin: 60rem 0 0 -12rem;
   }
 
   .glassesImg {
@@ -1215,6 +1227,7 @@ button:focus-visible {
   }
 
   .aboutVideo {
+    height: 100vh !important;
     width: auto !important;
   }
 
@@ -1250,14 +1263,23 @@ button:focus-visible {
   }
 
   .imgColImg {
-    width: 96%;
+    width: 58vw;
     height: auto;
-    margin-left: -3rem;
+    margin-left: -5rem;
+  }
+
+  .textArea {
+    margin-top: 2rem;
   }
 
   .textCol {
-    margin-top: 9rem;
+    margin-top: 15rem;
     margin-left: -4.5rem;
+  }
+
+  .textCol img {
+    width: 40vw;
+    height: auto;
   }
 
   /* promotions section */
@@ -1282,7 +1304,7 @@ button:focus-visible {
   }
 
   .contactIconsDiv {
-    top: 37.24vmin;
+    top: 41.24vmin;
   }
 
   .contactList {
@@ -1300,115 +1322,5 @@ button:focus-visible {
 
   .whiteLine {
     left: -0.6vmin;
-  }
-}
-
-/* large desktop screens */
-@media (min-width: 1200px) and (max-width: 1499px) {
-  .desktopMenu {
-    width: 63%;
-  }
-  .navBar {
-    width: 95vw;
-    left: 6vmin;
-  }
-  .mainTitle {
-    font-size: 12rem;
-  }
-  .heroHeadingDiv {
-    margin-top: 110vmin;
-    width: 70%;
-  }
-  .blurredTitle {
-    margin-top: -4rem;
-  }
-  .heroSubtitle {
-    margin-bottom: -11rem;
-  }
-  .heroTitleDiv {
-    margin-top: 8rem;
-  }
-  .glassesImg {
-    right: -74vmin;
-    top: -73vmin;
-    width: 80%;
-  }
-
-  .aboutVideo {
-    width: auto !important;
-  }
-
-  /* team section  */
-
-  .teamContainer {
-    margin-left: 0;
-    margin-top: 10rem;
-  }
-
-  .teamSection {
-    margin-top: 0;
-  }
-  .teamList {
-    width: 100%;
-    margin-top: 5rem;
-  }
-  .teamText {
-    font-size: 18px;
-    width: 100%;
-  }
-  .teamImg {
-    height: 50%;
-    margin-top: 0px;
-  }
-
-  .blackTitle {
-    font-size: 36px;
-    width: 80%;
-  }
-
-  /* services section */
-  .servicesContainer {
-    width: 100%;
-  }
-
-  .imgColImg {
-    width: 96%;
-    height: auto;
-    margin-left: -3rem;
-  }
-
-  .textCol {
-    margin-top: 14rem;
-    margin-left: -4.5rem;
-  }
-
-  /* promotions section */
-
-  .cardDiv {
-    width: 62%;
-    margin-top: 14rem;
-  }
-
-  /* contact  section*/
-
-  .contactContainer {
-    margin-top: 9rem;
-  }
-
-  .contactIconsDiv {
-    top: 37.9vmin;
-  }
-
-  .whiteLine {
-    width: 76rem;
-    left: -45vmin;
-  }
-
-  .textItem {
-    padding-top: 5px;
-  }
-
-  .contactList {
-    padding: 0.5rem;
   }
 }

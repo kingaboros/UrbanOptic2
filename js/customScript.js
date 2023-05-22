@@ -73,8 +73,6 @@ function scrollHorizontal(e) {
               if (section === targetSection) {
                 section.classList.remove('inactiveSection');
                 section.classList.add('activeSection');
-              } else {
-                section.classList.remove('activeSection');
               }
             });
 
@@ -105,110 +103,6 @@ function scrollHorizontal(e) {
     mainContainer.classList.remove('mobileMainContainer');
   }
 }
-
-// function scrollVertical(e) {
-//   if (window.innerWidth < 1024) {
-//     e = window.event || e;
-//     const delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
-//     const mainContainer = document.querySelector('.mainContainer');
-//     const currentScrollTop = mainContainer.scrollTop;
-
-//     clearTimeout(scrollTimeout); // Clear any existing scroll timeout
-
-//     let targetSection = null;
-//     let targetPosition = null;
-
-//     if (delta > 0) {
-//       // Scrolling up
-//       for (let i = 0; i < sections.length; i++) {
-//         const section = sections[i];
-//         const sectionStart = section.offsetTop;
-
-//         if (sectionStart > currentScrollTop) {
-//           targetSection = section;
-//           targetPosition = sectionStart;
-//           break;
-//         }
-//       }
-//     } else {
-//       // Scrolling down
-//       for (let i = sections.length - 1; i >= 0; i--) {
-//         const section = sections[i];
-//         const sectionEnd = section.offsetTop + section.offsetHeight;
-
-//         if (sectionEnd <= currentScrollTop + mainContainer.clientHeight) {
-//           targetSection = section;
-//           targetPosition = sectionEnd - mainContainer.clientHeight;
-//           break;
-//         }
-//       }
-//     }
-
-//     if (targetSection) {
-//       const scrollDelay = 100; // Adjust the scroll delay as needed
-
-//       scrollTimeout = setTimeout(() => {
-//         const animateScroll = () => {
-//           const distance = targetPosition - mainContainer.scrollTop;
-//           const scrollStep =
-//             delta > 0 ? Math.ceil(distance / 10) : Math.floor(distance / 10);
-
-//           mainContainer.scrollTop += scrollStep;
-
-//           // Stop the scroll animation when reaching the target position
-//           if (
-//             (delta > 0 && mainContainer.scrollTop >= targetPosition) ||
-//             (delta < 0 && mainContainer.scrollTop <= targetPosition)
-//           ) {
-//             clearTimeout(scrollTimeout);
-
-//             // Update the section ID in the URL hash
-//             const sectionID = targetSection.getAttribute('id');
-//             if (sectionID) {
-//               window.location.hash = sectionID;
-
-//               // Reset the hash if the target section has an ID of "home"
-//               if (sectionID === 'home') {
-//                 window.location.hash = '';
-//               }
-//             }
-
-//             // Add activeSection class to the visible section
-//             sections.forEach((section) => {
-//               if (section === targetSection) {
-//                 section.classList.add('activeSection');
-//               } else {
-//                 section.classList.remove('activeSection');
-//               }
-//             });
-
-//             // Add active class to the menu links
-//             const menuLinks = document.querySelectorAll('.desktopMenu a');
-//             menuLinks.forEach((link) => {
-//               const linkTarget = link.getAttribute('href');
-//               if (linkTarget === `#${sectionID}`) {
-//                 link.classList.add('active');
-//               } else {
-//                 link.classList.remove('active');
-//               }
-//             });
-
-//             // Check if scrolled to the promo section and call liftPromotions
-//             if (sectionID === 'promo') {
-//               liftPromotions('promo');
-//             }
-//           } else {
-//             requestAnimationFrame(animateScroll);
-//           }
-//         };
-
-//         animateScroll();
-//       }, scrollDelay);
-//     }
-
-//     mainContainer.classList.add('mobileMainContainer');
-//   }
-// }
 
 function scrollVertical(e) {
   if (window.innerWidth < 1024) {
@@ -532,40 +426,6 @@ window.addEventListener('hashchange', function () {
   setNavbarLogo('menu');
 });
 
-// includes other html files
-
-function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /* Loop through a collection of all HTML elements: */
-  z = document.getElementsByTagName('*');
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute('w3-include-html');
-    if (file) {
-      /* Make an HTTP request using the attribute value as the file name: */
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          if (this.status == 200) {
-            elmnt.innerHTML = this.responseText;
-          }
-          if (this.status == 404) {
-            elmnt.innerHTML = 'Page not found.';
-          }
-          /* Remove the attribute, and call this function once more: */
-          elmnt.removeAttribute('w3-include-html');
-          includeHTML();
-        }
-      };
-      xhttp.open('GET', file, true);
-      xhttp.send();
-      /* Exit the function: */
-      return;
-    }
-  }
-}
-
 // image slider
 
 const prevBtn = document.querySelector('.prevBtn');
@@ -651,7 +511,7 @@ window.addEventListener('scroll', function () {
   liftPromotions('promo');
 });
 
-// // hamburger menu
+// hamburger menu
 
 document.addEventListener('DOMContentLoaded', function () {
   const navbarToggler = document.querySelector('.navbar-toggler');
@@ -675,4 +535,29 @@ document.addEventListener('DOMContentLoaded', function () {
       navbarMenu.classList.remove('mobileMenu');
     });
   });
+});
+
+// removes desktopMenu class and adds menuMobile
+function adjustMenuClasses() {
+  const screenWidth = window.innerWidth;
+  const navbarNav = document.querySelector('.navbar-collapse');
+  const menuList = document.querySelector('.navbar-nav');
+
+  if (screenWidth <= 1024) {
+    navbarNav.classList.remove('desktopMenu');
+    menuList.classList.add('menuMobile');
+  } else {
+    menuList.classList.remove('menuMobile');
+    navbarNav.classList.add('desktopMenu');
+  }
+}
+
+// Call the function initially when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+  adjustMenuClasses();
+});
+
+// Attach an event listener to the window resize event
+window.addEventListener('resize', function () {
+  adjustMenuClasses();
 });
