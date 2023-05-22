@@ -553,11 +553,15 @@ p {
   }
   .col__content {
     width: 80%;
+    height: auto;
   }
+
   .col__content-title {
-    margin: 0 0 6vw;
-    font-size: 18vw;
+    margin: 1rem 0 2rem 0;
+    font-size: 4vw;
+    line-height: 17px;
   }
+
   .col__content-wrap {
     flex-direction: column;
   }
@@ -572,6 +576,9 @@ p {
   }
   .slide__scroll-link {
     display: none;
+  }
+  .intro__title {
+    font-size: 100px !important;
   }
 }
 
@@ -598,10 +605,15 @@ p {
 
   .col__content {
     display: block;
-    padding: 0 6vw 6vw;
+    padding: 0 4vw 6vw;
   }
 
   .col__content-txt {
-    max-width: 28vw;
+    max-width: 100%;
+  }
+
+  .col__content-title {
+    margin: 4rem 0 2rem 0;
+    line-height: 31px;
   }
 }
