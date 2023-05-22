@@ -26,6 +26,11 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/css/bootstrap.min.css"
+    />
+
     <link rel="stylesheet" href="./css/styles.css" />
 
     <title>Urban Optic</title>
@@ -33,7 +38,6 @@
   <body>
     <div class="mainContainer">
       <div id="menu" class="navBar" class="yellowBg">
-        <!-- <div w3-include-html="./assets/menu.html"></div> -->
         <nav class="navbarDesk navbar navbar-expand-lg">
           <a href="index.html">
             <img id="logo" class="logo" src="./img/logo-dark.png" alt="logo" />
@@ -50,25 +54,33 @@
             <i class="navbar-toggler-icon fa-solid fa-bars"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav desktopMenu">
-              <li class="nav-item">
-                <a class="nav-link aboutLink" href="#about">Despre noi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link servicesLink" href="#services">Servicii</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link promoLink" href="#promo">Promoții</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link contactLink" href="#contact">Contact</a>
-              </li>
-              <li>
-                <button id="navBtn" class="menuBtn">
-                  <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
-                </button>
-              </li>
-            </ul>
+            <div>
+              <i class="fa-regular closeIcon" id="closeMenu">x</i>
+              <img
+                class="mobileMenuLogo"
+                src="./img/logo-mobile-menu.png"
+                alt="mobile-logo"
+              />
+              <ul class="navbar-nav menuMobile">
+                <li class="nav-item">
+                  <a class="nav-link aboutLink" href="#about">Despre noi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link servicesLink" href="#services">Servicii</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link promoLink" href="#promo">Promoții</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link contactLink" href="#contact">Contact</a>
+                </li>
+                <li>
+                  <button id="navBtn" class="menuBtn">
+                    <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
       </div>
@@ -110,7 +122,15 @@
               dar si cu cele mai noi tendințe in materie de rame si ochelari de
               soare.
             </p>
-            <a href="" class="readMoreLink">Citește mai mult</a>
+            <a
+              type="button"
+              class="btn readMoreLink"
+              data-bs-toggle="collapse"
+              data-bs-target="#aboutMore"
+            >
+              Citește mai mult
+            </a>
+            <div class="collapse showToggle" id="aboutMore">test</div>
           </div>
         </div>
       </section>
@@ -190,7 +210,7 @@
       <section id="services" class="servicesSection inactiveSection">
         <div class="servicesContainer">
           <div class="row">
-            <div class="col-sm-3 col-md-7">
+            <div class="col-sm-3 col-md-7 hideOnMobile">
               <img
                 class="imgColImg"
                 src="./img/services/services1.png"
@@ -215,11 +235,12 @@
                   prioritate, astfel încât să poți avea încredere că vei
                   beneficia de îngrijire de calitate și personalizată, GRATUIT.
                 </p>
-                <a href="./services.html" class="moreLink"
+                <a href="./services.html" class="readMoreLink"
                   >Mai multe servicii</a
                 >
               </div>
             </div>
+            +
           </div>
         </div>
       </section>
@@ -269,7 +290,7 @@
       <section id="contact" class="blackBg inactiveSection">
         <div class="container contactContainer">
           <div class="row">
-            <div class="col-sm-4 col-md-2 contactImgCol">
+            <div class="col-sm-4 col-md-2 contactImgCol hideOnMobile">
               <img src="./img/contact-details.png" alt="contact" />
             </div>
             <div class="col-sm-8 col-md-8 contactTextCol">
@@ -328,6 +349,7 @@
       </section>
     </div>
     <script src="./js/customScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/js/bootstrap.bundle.min.js"></script>
     <script>
       includeHTML();
     </script>

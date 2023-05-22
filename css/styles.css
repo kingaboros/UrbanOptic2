@@ -117,17 +117,46 @@ section {
   z-index: 9999;
 }
 
-.show {
+.showMenu {
+  display: block;
+}
+
+.showToggle {
   display: block;
 }
 
 .mobileMenu {
-  background-color: var(--black);
+  background-color: var(--black) !important;
   color: white;
+  width: 277px;
+  height: 568px;
+  position: relative;
+  top: -5.47rem;
+  right: 0;
 }
 
 .mobileMenu a {
   color: white !important;
+}
+
+.menuMobile {
+  margin-top: 16rem;
+  display: flex;
+  float: right;
+  list-style: none;
+  margin-right: 2rem;
+}
+
+.menuMobile li {
+  text-align: right;
+}
+
+.closeIcon {
+  display: none;
+}
+
+.mobileMenuLogo {
+  display: none;
 }
 
 .desktopMenu {
@@ -286,8 +315,9 @@ section {
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  text-decoration: underline;
+  text-decoration: underline !important;
   color: var(--black);
+  padding-left: 0;
 }
 
 /* team section */
@@ -778,6 +808,22 @@ button:focus-visible {
     width: 100vw;
   }
 
+  .mobileMenuLogo {
+    display: block;
+    margin-left: -17px;
+  }
+
+  .closeIcon {
+    display: block;
+    position: relative;
+    top: -6rem;
+    right: -22rem;
+  }
+
+  .yellowBg {
+    height: 100vh !important;
+  }
+
   .menuBtn {
     display: none;
   }
@@ -794,6 +840,7 @@ button:focus-visible {
     width: 7rem;
     height: 5rem;
   }
+
   .heroHeadingDiv {
     display: block;
     margin-top: 20rem;
@@ -839,7 +886,7 @@ button:focus-visible {
 
   section {
     opacity: 1 !important;
-    /* height: 100% !important; */
+    height: 100% !important;
   }
 
   .teamContainer {
@@ -868,6 +915,41 @@ button:focus-visible {
 
   .blackTitle {
     width: 100%;
+  }
+
+  .servicesContainer {
+    width: 91%;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
+  .textCol {
+    margin-top: 1rem;
+  }
+
+  .textArea {
+    margin: 5rem 0 2rem 2rem;
+  }
+
+  .slideContainer {
+    width: 32vw;
+    height: 60% !important;
+  }
+  .cardBg {
+    height: auto;
+  }
+
+  .slides {
+    width: 85vw;
+    height: 70vh;
+  }
+
+  .contactTextCol {
+    max-width: 809px;
+    margin-left: 0;
+    top: 17vmin;
   }
 }
 
