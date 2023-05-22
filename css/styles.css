@@ -129,7 +129,7 @@ section {
   background-color: var(--black) !important;
   color: white;
   width: 277px;
-  height: 568px;
+  height: 100vh;
   position: relative;
   top: -5.47rem;
   right: 0;
@@ -140,7 +140,6 @@ section {
 }
 
 .menuMobile {
-  margin-top: 16rem;
   display: flex;
   float: right;
   list-style: none;
@@ -157,6 +156,11 @@ section {
 
 .mobileMenuLogo {
   display: none;
+}
+
+.mobileMenuSocials {
+  display: none;
+  list-style: none;
 }
 
 .desktopMenu {
@@ -290,8 +294,8 @@ section {
 .glassesImg {
   position: relative;
   z-index: 27;
-  right: -75vmin;
-  top: -66vmin;
+  right: -19.5rem;
+  top: -23.5rem;
 }
 
 /* about section  */
@@ -802,7 +806,7 @@ button:focus-visible {
 /* vertical scrolling */
 
 /* mobile devices */
-@media all and (max-width: 575px) {
+@media all and (max-width: 767px) {
   .navBar {
     left: 1rem;
     width: 100vw;
@@ -810,14 +814,13 @@ button:focus-visible {
 
   .mobileMenuLogo {
     display: block;
-    margin-left: -17px;
+    /* margin-left: -17px; */
   }
 
   .closeIcon {
-    display: block;
-    position: relative;
-    top: -6rem;
-    right: -22rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem;
   }
 
   .yellowBg {
@@ -915,6 +918,12 @@ button:focus-visible {
 
   .blackTitle {
     width: 100%;
+    font-size: 28px;
+  }
+
+  .servicesHeading {
+    font-size: 24px;
+    line-height: 29px;
   }
 
   .servicesContainer {
@@ -938,7 +947,7 @@ button:focus-visible {
     height: 60% !important;
   }
   .cardBg {
-    height: auto;
+    height: 29rem;
   }
 
   .slides {
@@ -951,12 +960,229 @@ button:focus-visible {
     margin-left: 0;
     top: 17vmin;
   }
+
+  .yellowTitle {
+    font-size: 34px;
+  }
+
+  .discountTag {
+    font-size: 4rem;
+  }
+
+  .supText {
+    font-size: 2rem;
+  }
+
+  .sup {
+    top: -0.3em;
+  }
+
+  .textContainer {
+    padding: 1rem 1.5rem;
+  }
+
+  .promoImg {
+    max-width: 72%;
+  }
+
+  .mobileMenuSocials {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    margin: 16rem 0 0 8rem;
+  }
+
+  .menuSocialIcons {
+    margin-inline: -1rem 2rem;
+  }
 }
 
 /* tablets and small desktop screens */
 @media (min-width: 768px) and (max-width: 1023px) {
+  .navBar {
+    left: 1rem;
+    width: 100vw;
+  }
+
+  .mobileMenuLogo {
+    display: block;
+    margin-top: -3rem;
+  }
+
+  .mobileMenu {
+    top: -6.47rem;
+  }
+
+  .closeIcon {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem;
+  }
+
+  .yellowBg {
+    height: 100vh !important;
+  }
+
+  .menuBtn {
+    display: none;
+  }
+
+  .heroContactBtn {
+    display: block;
+  }
+
+  .heroBtnDiv {
+    top: -27rem;
+  }
+
+  .logo {
+    width: 9rem;
+    height: 6rem;
+  }
+
+  .heroHeadingDiv {
+    display: block;
+    margin: 40rem 0 0 -3rem;
+  }
+
+  .mainTitle {
+    display: block;
+    font-size: 10rem;
+    padding-left: 0rem;
+    line-height: 10rem;
+  }
+
+  .heroSubtitle {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: -15px;
+    padding-left: 3px;
+  }
+
+  .heroTitleDiv {
+    margin-top: 0;
+  }
+  .blurredTitle {
+    padding-left: 1.8rem;
+  }
+
+  .glassesImg {
+    right: -19.5rem;
+    top: -23.5rem;
+  }
+
+  .glassesImg img {
+    width: 40rem;
+    height: auto;
+  }
+
+  .aboutVideo {
+    height: 100vh !important;
+    width: auto !important;
+  }
+
+  section {
+    opacity: 1 !important;
+    height: 100% !important;
+  }
+
+  .teamContainer {
+    width: 100%;
+    margin-left: 5rem;
+  }
+
+  .teamSection {
+    width: auto;
+    height: 100% !important;
+    margin-top: 7rem;
+  }
+
+  .teamList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .teamList li {
+    width: 50%;
+  }
+
   .aboutDescMobile {
     display: block;
+  }
+
+  .blackTitle {
+    width: 100%;
+    font-size: 28px;
+  }
+
+  .servicesHeading {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .servicesContainer {
+    width: 91%;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
+  .textCol {
+    margin: 1rem 2rem;
+  }
+
+  .textCol img {
+    width: 80vw;
+  }
+
+  .textArea {
+    margin: 5rem 0 2rem 0rem;
+    width: 100vw;
+  }
+
+  .slideContainer {
+    width: 32vw;
+    height: 60% !important;
+  }
+  .cardBg {
+    height: 70vh;
+  }
+
+  .slides {
+    width: 85vw;
+    height: 70vh;
+  }
+
+  .contactTextCol {
+    max-width: 809px;
+    margin-left: 0;
+    top: 5vmin;
+    height: 20rem;
+  }
+
+  .yellowTitle {
+    font-size: 34px;
+  }
+
+  .textContainer {
+    padding: 1rem 1.5rem;
+  }
+
+  .promoImg {
+    max-width: 72%;
+  }
+
+  .mobileMenuSocials {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    margin: 16rem 0 0 8rem;
+  }
+
+  .menuSocialIcons {
+    margin-inline: -1rem 2rem;
   }
 }
 
