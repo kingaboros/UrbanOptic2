@@ -828,6 +828,10 @@ button:focus-visible {
     width: 100vw;
   }
 
+  .navbar-toggler {
+    margin-top: 0.5rem;
+  }
+
   .mobileMenuLogo {
     display: block;
     margin-top: -4rem;
@@ -859,6 +863,10 @@ button:focus-visible {
     width: 7rem;
     height: 5rem;
   }
+
+  /* .mobileMenu {
+    top: -5.1rem;
+  } */
 
   .heroHeadingDiv {
     display: block;

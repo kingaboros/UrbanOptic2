@@ -63,7 +63,7 @@ p {
     ========================================================================== */
 
 .header {
-  position: fixed;
+  position: fixed !important;
   left: 40px;
   top: 24px;
   z-index: 100;
@@ -452,18 +452,24 @@ p {
 
 @media all and (max-width: 767px) {
   .header {
-    display: block;
+    position: fixed;
     left: 24px;
   }
+
+  .stage {
+    height: 100vh;
+  }
+
   .nav-btn {
     margin: 18px 0 0 -6px;
   }
 
-  .logo {
+  /* .logo {
     margin-left: -10rem;
-  }
+  } */
   .servicesLogo {
-    width: 25%;
+    width: 60%;
+    margin-top: -0.5rem;
   }
 
   .intro {
@@ -519,13 +525,13 @@ p {
   .col__content {
     width: 100%;
     height: auto;
-    padding: 1vw 6vw 6vw;
+    padding: -1vw 6vw 6vw;
   }
 
   .col__content-title {
     margin: 2rem 0 1rem 0;
-    font-size: 9vw;
-    line-height: 16px;
+    font-size: 8vw;
+    line-height: 26px;
   }
 
   .col__content-wrap {
@@ -551,8 +557,18 @@ p {
     font-size: 4rem !important;
   }
 
+  .footer {
+    padding-top: 12rem;
+  }
+
   .footer__link img {
-    margin-bottom: 14rem;
+    margin-bottom: 8rem;
+  }
+
+  .footer__link-top {
+    position: relative;
+    left: 5%;
+    bottom: 39px;
   }
 }
 
