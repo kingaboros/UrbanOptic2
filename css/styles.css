@@ -20,6 +20,13 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+::selection {
+  background: var(--yellow);
+}
+::-moz-selection {
+  background: var(--yellow);
+}
+
 .mainContainer {
   width: 100%;
   height: 100vh;
@@ -327,6 +334,10 @@ section {
   text-decoration: underline !important;
   color: var(--black);
   padding-left: 0;
+}
+
+.readMoreLink:hover {
+  color: var(--yellow) !important ;
 }
 
 /* team section */
@@ -819,7 +830,7 @@ button:focus-visible {
 
   .mobileMenuLogo {
     display: block;
-    /* margin-left: -17px; */
+    margin-top: -4rem;
   }
 
   .closeIcon {
@@ -994,7 +1005,7 @@ button:focus-visible {
     display: flex;
     justify-content: flex-end;
     width: auto;
-    margin: 16rem 0 0 8rem;
+    margin: 13rem 0 0 8rem;
   }
 
   .menuSocialIcons {
@@ -1322,5 +1333,81 @@ button:focus-visible {
 
   .whiteLine {
     left: -0.6vmin;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .logo {
+    max-width: 80%;
+  }
+  .desktopMenu {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .nav-item {
+    padding-right: 1rem;
+  }
+
+  .glassesImg {
+    right: -37rem;
+    top: -38rem;
+  }
+
+  .aboutVideo {
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  .textCol {
+    margin-top: 14rem;
+  }
+
+  .cardDiv {
+    width: 47%;
+  }
+
+  .cardBg {
+    width: 100%;
+    height: 27rem;
+  }
+
+  .discountTag {
+    font-size: 6rem;
+  }
+
+  .contactImgCol img {
+    height: 70%;
+    margin-top: 5rem;
+  }
+
+  .contactTextCol {
+    margin-top: 5rem;
+  }
+
+  .contactIconsDiv {
+    top: 39.24vmin;
+  }
+
+  .contactTextCol {
+    margin-left: 30px;
+  }
+
+  .whiteLine {
+    width: 74vw;
+    left: -40.6vmin;
+  }
+
+  .contactList {
+    width: 77%;
+    margin-left: -1.5rem;
+  }
+
+  .contactSocialIcons {
+    margin-right: 0;
+  }
+
+  .whiteText {
+    width: 85%;
   }
 }
