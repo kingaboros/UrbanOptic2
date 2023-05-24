@@ -561,3 +561,60 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('resize', function () {
   adjustMenuClasses();
 });
+
+// accordion
+
+// Get all the accordion items
+const accordionItems = document.querySelectorAll('.accordionItem');
+
+// Add click event listeners to each item
+accordionItems.forEach((item) => {
+  const readMoreLink = item.querySelector('.accordionLink');
+  const content = item.querySelector('.accordionContent');
+
+  // Toggle the visibility of content when the heading is clicked
+  readMoreLink.addEventListener('click', () => {
+    content.classList.toggle('showAccordion');
+  });
+});
+
+// services btn redirect
+let servicesBtn = document.getElementById('servicesBtn');
+servicesBtn.addEventListener('click', function () {
+  let url = document.createElement('a');
+  url.href = 'services.html';
+  url.target = '_blank';
+  url.click();
+});
+
+// contact button
+let contactBtn = document.getElementById('contactBtn');
+
+contactBtn.addEventListener('click', function () {
+  let phoneNo = document.createElement('a');
+  phoneNo.href = 'tel:+40755254658';
+  phoneNo.click();
+});
+
+// dynamic year in the footer area
+let currentYear = new Date().getFullYear();
+let copyrightText = document.getElementById('currentYear');
+copyrightText.textContent = 'Copyright © ' + currentYear + ' | Urban Optic';
+
+// hide navbar when the user scrolls down
+let prevScrollPos = window.pageYOffset;
+let menu = document.getElementById('menu');
+
+window.onscroll = function () {
+  let currentScrollPos = window.pageYOffset;
+
+  if (prevScrollPos > currentScrollPos) {
+    // User is scrolling up, show the menu
+    menu.style.top = '0';
+  } else {
+    // User is scrolling down, hide the menu
+    menu.style.top = '-130px'; // Adjust this value based on your menu height
+  }
+
+  prevScrollPos = currentScrollPos;
+};

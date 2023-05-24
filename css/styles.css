@@ -12,12 +12,54 @@
   box-sizing: border-box;
 }
 
-/* html {
-  scroll-behavior: smooth;
-} */
-
 body {
   font-family: 'Inter', sans-serif;
+}
+
+section {
+  position: relative;
+  flex: 0 0 auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+button:focus,
+button:focus-visible {
+  border: none;
+  outline: none;
+}
+
+#menu {
+  transition: top 0.5s ease-in-out;
+}
+
+#navbarNav {
+  justify-content: flex-end;
+  z-index: 9999;
+}
+
+#scrollableDiv {
+  height: 78vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
+  overscroll-behavior: contain;
+}
+
+#shadow-host-companion {
+  display: none !important;
+}
+
+/* hide scroll bar  */
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 ::selection {
@@ -34,7 +76,6 @@ body {
   flex-wrap: nowrap;
   overflow-x: hidden;
   overflow-y: hidden;
-  /* scroll-snap-stop: always; */
 }
 
 .mobileMainContainer {
@@ -43,19 +84,6 @@ body {
   height: auto;
   display: block;
   width: 100%;
-}
-
-section {
-  position: relative;
-  flex: 0 0 auto;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .inactiveSection {
@@ -85,12 +113,6 @@ section {
   background-color: white;
 }
 
-/* hide scroll bar  */
-
-::-webkit-scrollbar {
-  display: none;
-}
-
 /* navbar */
 
 .navBar {
@@ -117,11 +139,7 @@ section {
 
 .navbarDesk {
   margin-top: -1rem;
-}
-
-#navbarNav {
-  justify-content: flex-end;
-  z-index: 9999;
+  padding-right: 0;
 }
 
 .showMenu {
@@ -174,7 +192,6 @@ section {
   display: flex;
   justify-content: space-around;
   width: 36rem;
-  /* min-width: 100%; */
   align-content: flex-end;
   float: right;
   list-style: none;
@@ -264,6 +281,7 @@ section {
   font-weight: 500;
   transition: all 0.3s ease-in-out;
 }
+
 /* homepage */
 
 .heroHeadingDiv {
@@ -290,7 +308,6 @@ section {
   font-size: 200px;
   line-height: 242px;
   color: var(--grey);
-  /* padding-left: 13rem; */
 }
 
 .blurredTitle {
@@ -318,7 +335,6 @@ section {
 
 .aboutVideo {
   height: auto;
-  /* margin-top: 5px; */
   width: 100vw !important;
   z-index: 28;
 }
@@ -327,7 +343,8 @@ section {
   display: none;
 }
 
-.readMoreLink {
+.readMoreLink,
+.accordionLink {
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
@@ -336,8 +353,21 @@ section {
   padding-left: 0;
 }
 
-.readMoreLink:hover {
+.readMoreLink:hover,
+.accordionLink:hover {
   color: var(--yellow) !important ;
+}
+
+.accordionContent {
+  display: none;
+}
+
+.accordionContent.showAccordion {
+  display: block;
+}
+
+.accordionItem {
+  margin-bottom: 2rem;
 }
 
 /* team section */
@@ -348,7 +378,6 @@ section {
 }
 
 .teamSection {
-  /* width: 60%; */
   margin-top: 5rem;
 }
 
@@ -480,14 +509,6 @@ section {
   overflow-y: auto !important;
   height: auto;
   display: block;
-}
-
-#scrollableDiv {
-  height: 78vh;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
-  overscroll-behavior: contain;
 }
 
 /* promo section  */
@@ -669,12 +690,6 @@ section {
   opacity: 1;
 }
 
-button:focus,
-button:focus-visible {
-  border: none;
-  outline: none;
-}
-
 .prevBtn {
   left: 10px;
 }
@@ -762,7 +777,8 @@ button:focus-visible {
   top: 33.9vmin;
 }
 
-.whiteLine {
+.whiteLine,
+.footerWhiteLine {
   border: 1px solid white;
   border-style: solid none;
   position: relative;
@@ -796,14 +812,6 @@ button:focus-visible {
   margin-right: -3rem;
 }
 
-/* .socialIcons:hover {
-  cursor: pointer;
-} */
-
-#shadow-host-companion {
-  display: none !important;
-}
-
 /* on scroll animation style */
 
 .reveal {
@@ -817,15 +825,112 @@ button:focus-visible {
   opacity: 1;
 }
 
+/* ==================================================mobile & tablet styling ===================================*/
+
+.mobileServicesHeading {
+  margin-left: 6rem;
+  position: relative;
+  top: 5rem;
+}
+
+.servicesContent {
+  width: 90vw;
+  margin: 2rem 0 3rem 5rem;
+}
+
+.promoCards {
+  margin: 2rem 0;
+}
+
+.alignLeft {
+  margin: 0 6rem 1.5rem -4rem;
+}
+
+.contactTitle {
+  text-align: center;
+}
+
+.contactText {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.contactIconsList li {
+  margin: 2rem 0;
+}
+
+.contactTextIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactIconDark {
+  color: var(--black);
+  font-size: 2rem;
+}
+
+.mobileFooterSection {
+  background-color: var(--black);
+}
+
+.mobileFooterContent {
+  margin: 2rem auto 0;
+}
+
+.footerLogo {
+  display: block;
+  padding: 2rem 0rem;
+  margin: 0 auto;
+  width: 8rem;
+}
+
+.copyrightText {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: center;
+  color: white;
+  margin-top: 1rem;
+}
+
+.contactSocials {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  width: 54%;
+  margin: 2rem auto 0;
+  padding-bottom: 2rem;
+}
+
+.footerWhiteLine {
+  width: 100vw;
+  left: 0;
+}
+
 /* --------------- Responsive --------------- */
 
 /* vertical scrolling */
 
-/* mobile devices */
+/* ============================================== mobile devices =====================================*/
 @media all and (max-width: 767px) {
+  section {
+    opacity: 1 !important;
+    height: 100% !important;
+  }
+
   .navBar {
-    left: 1rem;
+    left: 0rem;
     width: 100vw;
+    background-color: var(--yellow);
+    top: 0;
+    padding: 1rem 0;
+    z-index: 99999;
   }
 
   .navbar-toggler {
@@ -863,10 +968,6 @@ button:focus-visible {
     width: 7rem;
     height: 5rem;
   }
-
-  /* .mobileMenu {
-    top: -5.1rem;
-  } */
 
   .heroHeadingDiv {
     display: block;
@@ -911,11 +1012,6 @@ button:focus-visible {
     width: auto !important;
   }
 
-  section {
-    opacity: 1 !important;
-    height: 100% !important;
-  }
-
   .teamContainer {
     width: 100%;
     margin-left: 5rem;
@@ -924,7 +1020,7 @@ button:focus-visible {
   .teamSection {
     width: auto;
     height: 100% !important;
-    margin-top: 7rem;
+    margin-top: 1rem;
   }
 
   .teamList {
@@ -945,6 +1041,12 @@ button:focus-visible {
     font-size: 28px;
   }
 
+  /* .mobileServicesHeading {
+    margin-left: 6rem;
+    position: relative;
+    top: 5rem;
+  } */
+
   .servicesHeading {
     font-size: 24px;
     line-height: 29px;
@@ -954,7 +1056,28 @@ button:focus-visible {
     width: 91%;
   }
 
-  .hideOnMobile {
+  /* .servicesContent {
+    width: 90vw;
+    margin: 2rem 0 3rem 5rem;
+  } */
+
+  .servicesBtn,
+  .contactBtn {
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    top: -10rem;
+    width: 44%;
+    justify-content: space-around;
+  }
+
+  .contactBtn {
+    margin: 2rem auto;
+    position: unset;
+  }
+
+  .hideOnMobile,
+  .hideOnDesktop {
     display: none;
   }
 
@@ -970,8 +1093,16 @@ button:focus-visible {
     width: 32vw;
     height: 60% !important;
   }
+
+  .promoCards {
+    margin: 2rem 0;
+  }
+
   .cardBg {
-    height: 29rem;
+    width: auto;
+    height: 300px;
+    margin-bottom: 1.5rem;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
   }
 
   .slides {
@@ -990,19 +1121,49 @@ button:focus-visible {
   }
 
   .discountTag {
-    font-size: 4rem;
+    font-size: 3.5rem;
+    line-height: 80px;
   }
 
   .supText {
     font-size: 2rem;
   }
 
-  .sup {
-    top: -0.3em;
+  sup {
+    top: 0;
   }
 
+  .discountDesc {
+    font-size: 2rem;
+    line-height: 12px;
+  }
+
+  .lines {
+    top: -2.5rem;
+    height: 4px;
+    width: 83px;
+  }
+
+  .lines::before,
+  .lines::after {
+    height: 4px;
+  }
+
+  .lines::before {
+    width: 100px;
+    top: -0.6rem;
+  }
+
+  .lines::after {
+    top: 0.7rem;
+  }
+
+  /* .alignLeft {
+    margin: 0 6rem 1.5rem -4rem;
+  } */
+
   .textContainer {
-    padding: 1rem 1.5rem;
+    padding: 1rem 3rem;
   }
 
   .promoImg {
@@ -1019,13 +1180,99 @@ button:focus-visible {
   .menuSocialIcons {
     margin-inline: -1rem 2rem;
   }
+
+  .hideOnDesktop {
+    display: block;
+  }
+
+  .imgColImg {
+    height: 100%;
+  }
+
+  .servicesImg {
+    display: none;
+  }
+
+  .contactContainer {
+    margin: 3rem auto;
+  }
+
+  /* .contactTitle {
+    text-align: center;
+  } */
+
+  /* .contactText {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    width: 90%;
+    margin: 1rem auto;
+  } */
+
+  /* .contactIconsList li {
+    margin: 2rem 0;
+  }
+
+  .contactTextIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contactIconDark {
+    color: var(--black);
+    font-size: 2rem;
+  }
+
+  .mobileFooterSection {
+    background-color: var(--black);
+  }
+
+  .mobileFooterContent {
+    margin: 2rem auto 0;
+  }
+
+  .footerLogo {
+    display: block;
+    padding: 2rem 0rem;
+    margin: 0 auto;
+    width: 8rem;
+  }
+
+  .copyrightText {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    color: white;
+    margin-top: 1rem;
+  }
+
+  .contactSocials {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 54%;
+    margin: 2rem auto 0;
+    padding-bottom: 2rem;
+  }
+
+  .footerWhiteLine {
+    width: 100vw;
+    left: 0;
+  } */
 }
 
-/* tablets and small desktop screens */
+/* ======================= tablets and small desktop screens ===================================*/
 @media (min-width: 768px) and (max-width: 1023px) {
   .navBar {
-    left: 1rem;
+    left: 0;
+    top: 0;
     width: 100vw;
+    background-color: var(--yellow);
+    padding: 1rem 0;
   }
 
   .mobileMenuLogo {
@@ -1033,13 +1280,17 @@ button:focus-visible {
     margin-top: -3rem;
   }
 
+  .hideOnDesktop {
+    display: block;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
   .mobileMenu {
     top: -6.47rem;
   }
-
-  /* .menuMobile {
-    display: none;
-  } */
 
   .closeIcon {
     display: flex;
@@ -1070,7 +1321,7 @@ button:focus-visible {
 
   .heroHeadingDiv {
     display: block;
-    margin: 40rem 0 0 -3rem;
+    margin: 44rem 0 0 -3rem;
   }
 
   .mainTitle {
@@ -1116,7 +1367,7 @@ button:focus-visible {
   }
 
   .teamContainer {
-    width: 100%;
+    width: 90vw;
     margin-left: 5rem;
   }
 
@@ -1144,17 +1395,44 @@ button:focus-visible {
     font-size: 28px;
   }
 
+  .servicesImg {
+    width: 100%;
+    height: 50vh;
+    background-image: url('../img/services/services1.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .imgColImg {
+    display: none;
+  }
+
   .servicesHeading {
     font-size: 24px;
     line-height: 29px;
+  }
+
+  .servicesContent {
+    width: 100vw;
   }
 
   .servicesContainer {
     width: 91%;
   }
 
-  .hideOnMobile {
-    display: none;
+  .servicesBtn,
+  .contactBtn {
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    top: -10rem;
+    width: 44%;
+    justify-content: space-around;
+  }
+
+  .contactBtn {
+    margin: 2rem auto;
+    position: unset;
   }
 
   .textCol {
@@ -1174,25 +1452,48 @@ button:focus-visible {
     width: 32vw;
     height: 60% !important;
   }
+
   .cardBg {
+    width: 75vw;
     height: 70vh;
+    margin-bottom: 1.5rem;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
   }
 
-  .slides {
+  .discountTag {
+    font-size: 4.5rem;
+    line-height: 8rem;
+  }
+
+  sup {
+    top: 0;
+    font-size: 2rem;
+  }
+
+  .lines {
+    left: 29.7rem;
+  }
+
+  .discountDesc {
+    font-size: 2rem;
+    line-height: 12px;
+  }
+
+  /* .slides {
     width: 85vw;
     height: 70vh;
-  }
+  } */
 
-  .contactTextCol {
+  /* .contactTextCol {
     max-width: 809px;
     margin-left: 0;
     top: 5vmin;
     height: 20rem;
-  }
+  } */
 
-  .yellowTitle {
+  /* .yellowTitle {
     font-size: 34px;
-  }
+  } */
 
   .textContainer {
     padding: 1rem 1.5rem;
@@ -1211,6 +1512,10 @@ button:focus-visible {
 
   .menuSocialIcons {
     margin-inline: -1rem 2rem;
+  }
+
+  .contactContainer {
+    margin: 3rem auto;
   }
 }
 
@@ -1342,12 +1647,29 @@ button:focus-visible {
   .whiteLine {
     left: -0.6vmin;
   }
+
+  .hideOnDesktop {
+    display: none;
+  }
+
+  .hideOnMobile {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 1300px) {
   .logo {
     max-width: 80%;
   }
+
+  .hideOnDesktop {
+    display: none;
+  }
+
+  .hideOnMobile {
+    display: block;
+  }
+
   .desktopMenu {
     width: 100%;
     margin-top: 0.5rem;
