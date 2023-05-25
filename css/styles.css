@@ -347,10 +347,10 @@ section {
   margin-left: 24rem;
 }
 
-.teamSection {
-  /* width: 60%; */
+/* .teamSection {
+  width: 60%;
   margin-top: 5rem;
-}
+} */
 
 .blackTitle {
   color: var(--black);
@@ -1207,7 +1207,7 @@ button:focus-visible {
 }
 
 /* standard desktop screens - horizontal scrolling */
-@media (min-width: 1024px) and (max-width: 1500px) {
+@media (min-width: 1024px) and (max-width: 1299px) {
   .navBar {
     width: 93vw;
     left: 6vmin;
@@ -1336,7 +1336,7 @@ button:focus-visible {
   }
 }
 
-@media only screen and (min-width: 1300px) {
+@media (min-width: 1300px) and (max-width: 1500px) {
   .logo {
     max-width: 80%;
   }
