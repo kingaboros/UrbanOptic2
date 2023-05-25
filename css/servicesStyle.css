@@ -370,6 +370,48 @@ p {
   height: 100%;
 }
 
+.slide--0 {
+  .slide__scroll-line {
+    background: var(--yellow);
+  }
+}
+
+.slide--1 {
+  .slide__scroll-line {
+    background: var(--yellow);
+  }
+}
+
+.slide--2 {
+  .slide__scroll-line {
+    background: var(--yellow);
+  }
+}
+
+.slide--3 {
+  .slide__scroll-line {
+    background: var(--yellow);
+  }
+}
+
+.slide--4 {
+  .slide__scroll-line {
+    background: var(--yellow);
+  }
+}
+
+.slide--5 {
+  .slide__scroll-line {
+    background: var(--yellow);
+  }
+}
+
+.slide--6 {
+  .slide__scroll-line {
+    background: var(--yellow);
+  }
+}
+
 /*  ========================================================================== 
     Column Image
     ========================================================================== */
