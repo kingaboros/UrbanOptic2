@@ -1098,7 +1098,7 @@ button:focus-visible {
     margin: 2rem 0;
   }
 
-  .cardBg {
+  .cardBgMobile {
     width: auto;
     height: 300px;
     margin-bottom: 1.5rem;
@@ -1453,7 +1453,7 @@ button:focus-visible {
     height: 60% !important;
   }
 
-  .cardBg {
+  .cardBgMobile {
     width: 75vw;
     height: 70vh;
     margin-bottom: 1.5rem;

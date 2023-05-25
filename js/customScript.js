@@ -89,7 +89,7 @@ function scrollHorizontal(e) {
 
             // Check if scrolled to the promo section and call liftPromotions
             if (sectionID === 'promo') {
-              liftPromotions('promo');
+              liftPromotions('');
             }
           } else {
             requestAnimationFrame(animateScroll);
@@ -193,7 +193,7 @@ function scrollVertical(e) {
 
             // Check if scrolled to the promo section and call liftPromotions
             if (sectionID === 'promo') {
-              liftPromotions('promo');
+              liftPromotions('');
             }
           } else {
             requestAnimationFrame(animateScroll);
@@ -272,7 +272,7 @@ menuLinks.forEach((link) => {
 
       // Check if scrolled to the promo section and call liftPromotions
       if (targetSectionID === 'promo') {
-        liftPromotions('promo');
+        liftPromotions('');
       }
     }
   });
