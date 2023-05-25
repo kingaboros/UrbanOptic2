@@ -26,10 +26,6 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/css/bootstrap.min.css"
-    />
 
     <link rel="stylesheet" href="./css/styles.css" />
 
@@ -103,7 +99,7 @@
           </div>
         </nav>
       </div>
-      <section id="home" class="yellowBg activeSection">
+      <section id="home" class="homeSection yellowBg activeSection">
         <div class="heroHeadingDiv">
           <p class="heroSubtitle">Ne bucurăm să ne vedem!</p>
           <h1 class="mainTitle heroTitleDiv">
@@ -115,7 +111,7 @@
           <img src="./img/glasses.png" alt="" />
         </div>
         <div class="heroBtnDiv">
-          <button class="heroContactBtn">
+          <button id="heroContactBtn" class="heroContactBtn">
             <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
           </button>
         </div>
@@ -130,33 +126,45 @@
           src="./img/video.mp4"
         ></video>
         <div class="aboutDescMobile teamContainer">
-          <div class="aboutDescDiv">
+          <div class="aboutDescDiv accordionItem">
             <h1 class="blackTitle">Despre noi</h1>
             <p class="teamText">
-              Suntem o echipa de experți in domeniul opticii si suntem dedicați
-              sa oferim cele mai bune servicii si produse adaptate pentru
-              nevoile clienților noștri. Intelegem ca vederea impecabila este o
-              prioritate si, prin urmare, suntem la curent cu cele mai noi
-              tehnologii si metode de diagnostic existente in domeniul opticii,
-              dar si cu cele mai noi tendințe in materie de rame si ochelari de
+              Suntem o echipă de experți în domeniul opticii și suntem dedicați
+              să oferim cele mai bune servicii și produse adaptate pentru
+              nevoile clienților noștri. Înțelegem că vederea impecabilă este o
+              prioritate și, prin urmare, suntem la curent cu cele mai noi
+              tehnologii și metode de diagnostic existente în domeniul opticii,
+              dar și cu cele mai noi tendințe în materie de rame și ochelari de
               soare.
             </p>
-            <a
-              type="button"
-              class="btn readMoreLink"
-              data-bs-toggle="collapse"
-              data-bs-target="#aboutMore"
-            >
-              Citește mai mult
-            </a>
-            <div class="collapse showToggle" id="aboutMore">test</div>
+            <a class="accordionLink"> Citește mai mult</a>
+            <div class="accordionContent">
+              <p class="teamText">
+                Dacă sunteți în căutarea unor lentile de înaltă calitate, a unei
+                rame ideale, sau aveți nevoie de o consultație de specialitate
+                pentru a vă ajută să găsiți dioptria potrivită, suntem aici
+                pentru a vă ghida prin tot acest proces.
+                <br />
+                <br />
+                Echipa noastră de experți este mereu disponibilă pentru a vă
+                oferi sfaturi și recomandări personalizate pentru nevoile
+                dumneavoastră individuale.
+                <br />
+                <br />
+                Vă invităm să ne vizitați magazinele din Cluj-Napoca și să
+                experimentați serviciile și produsele noastre de calitate
+                superioară. Vă asigurăm că veți fi întâmpinați cu profesionalism
+                și bucurie, și că vă vom oferi cele mai bune soluții pentru
+                sănătatea ochilor dumneavoastră.
+              </p>
+            </div>
           </div>
         </div>
       </section>
       <section id="team" class="teamSection inactiveSection">
         <div class="teamContainer">
           <h1 class="blackTitle">Valorile noastre</h1>
-          <p class="teamText">
+          <p class="teamText hideOnMobile">
             Valorile noastre implică o abordare etică și responsabilă în toate
             serviciile oferite, precum și o înțelegere profundă a nevoilor și
             dorințelor clienților noștri. Suntem mândri să fim cunoscuți pentru
@@ -173,6 +181,36 @@
             optometriști este mereu disponibilă pentru a oferi sfaturi și
             recomandări personalizate.
           </p>
+          <div class="hideOnDesktop">
+            <div class="accordionItem">
+              <p class="teamText">
+                Valorile noastre implică o abordare etică și responsabilă în
+                toate serviciile oferite, precum și o înțelegere profundă a
+                nevoilor și dorințelor clienților noștri. Suntem mândri să fim
+                cunoscuți pentru nivelul nostru ridicat de expertiză și
+                competență în domeniul opticii, iar această abordare
+                profesionistă se reflectă în toate aspectele afacerii noastre.
+              </p>
+              <a class="accordionLink"> Citește mai mult</a>
+              <div class="accordionContent">
+                <p class="teamText">
+                  În plus, suntem dedicați să oferim clienților noștri sprijin
+                  pe tot parcursul procesului de alegere a ochelarilor
+                  potriviți.
+                  <br />
+                  <br />
+                  Înțelegem că procesul de alegere a ochelarilor poate fi unul
+                  dificil și confuz, dar noi suntem aici pentru a te ajuta să
+                  faci cea mai bună alegere pentru nevoile tale. Echipa noastră
+                  de experți optometriști este mereu disponibilă pentru a oferi
+                  sfaturi și recomandări personalizate.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="hideOnDesktop">
+            <h1 class="blackTitle">Echipa</h1>
+          </div>
           <ul class="teamList">
             <li>
               <img
@@ -227,13 +265,13 @@
         </div>
       </section>
       <section id="services" class="servicesSection inactiveSection">
-        <div class="servicesContainer">
+        <div class="servicesContainer hideOnMobile">
           <div class="row">
             <div class="col-sm-3 col-md-7 hideOnMobile">
               <img
                 class="imgColImg"
                 src="./img/services/services1.png"
-                alt=""
+                alt="aparatura urban optic"
               />
             </div>
             <div class="col-sm-8 col-md-5 textCol">
@@ -259,108 +297,221 @@
                 >
               </div>
             </div>
-            +
           </div>
+        </div>
+        <div class="hideOnDesktop">
+          <h2 class="blackTitle mobileServicesHeading">Servicii</h2>
+          <p class="servicesImg"></p>
+          <img
+            class="imgColImg"
+            src="./img/services/services1.png"
+            alt="aparatura urban optic"
+          />
+          <div class="servicesContent">
+            <p class="italicText">
+              La Urban Optic, ne străduim să fim lideri în furnizarea celor mai
+              bune servicii și produse optice personalizate pentru nevoile
+              individuale ale clienților noștri.
+            </p>
+            <img src="./img/services/services.png" alt="services graphic" />
+          </div>
+          <button id="servicesBtn" class="servicesBtn">
+            Vezi toate serviciile
+          </button>
         </div>
       </section>
       <section id="promo" class="promoSection yellowBg inactiveSection">
-        <div id="curtain" class="promoImgDiv">
-          <img class="promoImg" src="./img/promo-banner.png" alt="promo" />
+        <div class="hideOnMobile">
+          <div id="curtain" class="promoImgDiv">
+            <img class="promoImg" src="./img/promo-banner.png" alt="promo" />
+          </div>
+          <div class="cardDiv">
+            <div class="slider">
+              <div class="slides">
+                <div class="slideContainer">
+                  <div class="cardBg promoImg1">
+                    <div class="textContainer">
+                      <p class="discountTag">
+                        15% <sup class="supText">off</sup>
+                      </p>
+                      <h3 class="discountDesc">spring promo</h3>
+                    </div>
+                    <div class="lines"></div>
+                  </div>
+                </div>
+                <div class="slideContainer">
+                  <div class="cardBg promoImg2">
+                    <div class="textContainer">
+                      <p class="discountTag">
+                        5% <sup class="supText">off</sup>
+                      </p>
+                      <h3 class="discountDesc">start summer</h3>
+                      <div class="lines"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slideContainer">
+                  <div class="cardBg promoImg3">
+                    <div class="textContainer">
+                      <p class="discountTag">
+                        20% <sup class="supText">off</sup>
+                      </p>
+                      <h3 class="discountDesc">spring fashion</h3>
+                      <div class="lines"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="prevBtn">&#10094;</button>
+              <button class="nextBtn">&#10095;</button>
+            </div>
+            <div class="dots"></div>
+          </div>
         </div>
-        <div class="cardDiv">
-          <div class="slider">
-            <div class="slides">
-              <div class="slideContainer">
-                <div class="cardBg promoImg1">
-                  <div class="textContainer">
-                    <p class="discountTag">
-                      15% <sup class="supText">off</sup>
-                    </p>
-                    <h3 class="discountDesc">spring promo</h3>
-                  </div>
+        <div class="hideOnDesktop">
+          <div class="promoContainer">
+            <h2 class="blackTitle">Promoții</h2>
+            <div class="promoCards">
+              <div class="cardBgMobile promoImg1">
+                <div class="textContainer">
+                  <p class="discountTag">15% <sup class="supText">off</sup></p>
+                  <h3 class="discountDesc">spring promo</h3>
                 </div>
+                <div class="linesMobile"></div>
               </div>
-              <div class="slideContainer">
-                <div class="cardBg promoImg2">
-                  <div class="textContainer">
-                    <p class="discountTag">5% <sup class="supText">off</sup></p>
-                    <h3 class="discountDesc">start summer</h3>
-                  </div>
+              <div class="cardBgMobile promoImg2 alignLeft">
+                <div class="textContainer">
+                  <p class="discountTag">5% <sup class="supText">off</sup></p>
+                  <h3 class="discountDesc">start summer</h3>
                 </div>
+                <div class="linesMobile"></div>
               </div>
-              <div class="slideContainer">
-                <div class="cardBg promoImg3">
-                  <div class="textContainer">
-                    <p class="discountTag">
-                      20% <sup class="supText">off</sup>
-                    </p>
-                    <h3 class="discountDesc">spring fashion</h3>
-                  </div>
+              <div class="cardBgMobile promoImg3">
+                <div class="textContainer">
+                  <p class="discountTag">20% <sup class="supText">off</sup></p>
+                  <h3 class="discountDesc">spring fashion</h3>
                 </div>
+                <div class="linesMobile"></div>
               </div>
             </div>
-            <button class="prevBtn">&#10094;</button>
-            <button class="nextBtn">&#10095;</button>
           </div>
-          <div class="dots"></div>
         </div>
       </section>
       <section id="contact" class="blackBg inactiveSection">
-        <div class="container contactContainer">
-          <div class="row">
-            <div class="col-sm-4 col-md-2 contactImgCol hideOnMobile">
-              <img src="./img/contact-details.png" alt="contact" />
-            </div>
-            <div class="col-sm-8 col-md-8 contactTextCol">
-              <h2 class="fadeIn-element yellowTitle">Contactează-ne!</h2>
-              <p class="whiteText">
-                Echipa noastră profesionistă este mereu pregătită să răspundă la
-                întrebările tale și să îți ofere soluțiile potrivite pentru
-                nevoile tale vizuale. Poți să ne suni, să ne trimiți un mesaj
-                sau să ne vizitezi în magazinul nostru. Ne bucurăm să ne vedem!
-              </p>
-              <div class="inner-divider-ultra-half"></div>
-              <div class="contactIconsDiv">
-                <div class="whiteLine"></div>
-                <ul class="contactList">
-                  <li>
-                    <p class="textItem">
-                      <i
-                        class="fa-sharp fa-solid fa-location-dot contactIcon"
-                      ></i
-                      >Str. Strada , Nr. 16
-                    </p>
-                  </li>
-                  <li>
-                    <p class="textItem">
-                      <i class="fa-solid fa-phone contactIcon"></i>+40 755 254
-                      658
-                    </p>
-                  </li>
-                  <li>
-                    <p class="textItem">
-                      <i class="fa-sharp fa-solid fa-envelope contactIcon"></i
-                      >urbanoptic@office.com
-                    </p>
-                  </li>
-                  <li class="contactSocialIcons">
-                    <a href="https://www.facebook.com/" target="_blank"
-                      ><img src="./img/facebook.png" alt="facebook"
-                    /></a>
-                  </li>
-                  <li class="contactSocialIcons">
-                    <a href="https://www.instagram.com/" target="_blank">
-                      <img src="./img/instagram.png" alt="instagram" />
-                    </a>
-                  </li>
-                  <li class="contactSocialIcons">
-                    <a href="https://www.linkedin.com/" target="_blank">
-                      <img src="./img/linkedin.png" alt="linkedin"
-                    /></a>
-                  </li>
-                </ul>
-                <div class="whiteLine"></div>
+        <div class="hideOnMobile">
+          <div class="container contactContainer">
+            <div class="row">
+              <div class="col-sm-4 col-md-2 contactImgCol hideOnMobile">
+                <img src="./img/contact-details.png" alt="contact" />
               </div>
+              <div class="col-sm-8 col-md-8 contactTextCol">
+                <h2 class="fadeIn-element yellowTitle">Contactează-ne!</h2>
+                <p class="whiteText">
+                  Echipa noastră profesionistă este mereu pregătită să răspundă
+                  la întrebările tale și să îți ofere soluțiile potrivite pentru
+                  nevoile tale vizuale. Poți să ne suni, să ne trimiți un mesaj
+                  sau să ne vizitezi în magazinul nostru. Ne bucurăm să ne
+                  vedem!
+                </p>
+                <div class="inner-divider-ultra-half"></div>
+                <div class="contactIconsDiv">
+                  <div class="whiteLine"></div>
+                  <ul class="contactList">
+                    <li>
+                      <p class="textItem">
+                        <i
+                          class="fa-sharp fa-solid fa-location-dot contactIcon"
+                        ></i
+                        >Str. Strada , Nr. 16
+                      </p>
+                    </li>
+                    <li>
+                      <p class="textItem">
+                        <i class="fa-solid fa-phone contactIcon"></i>+40 755 254
+                        658
+                      </p>
+                    </li>
+                    <li>
+                      <p class="textItem">
+                        <i class="fa-sharp fa-solid fa-envelope contactIcon"></i
+                        >urbanoptic@office.com
+                      </p>
+                    </li>
+                    <li class="contactSocialIcons">
+                      <a href="https://www.facebook.com/" target="_blank"
+                        ><img src="./img/facebook.png" alt="facebook"
+                      /></a>
+                    </li>
+                    <li class="contactSocialIcons">
+                      <a href="https://www.instagram.com/" target="_blank">
+                        <img src="./img/instagram.png" alt="instagram" />
+                      </a>
+                    </li>
+                    <li class="contactSocialIcons">
+                      <a href="https://www.linkedin.com/" target="_blank">
+                        <img src="./img/linkedin.png" alt="linkedin"
+                      /></a>
+                    </li>
+                  </ul>
+                  <div class="whiteLine"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hideOnDesktop">
+          <div class="contactContainer">
+            <h2 class="blackTitle contactTitle">Contactează-ne!</h2>
+            <p class="contactText">
+              Echipa noastră profesionistă este mereu pregătită să răspundă la
+              întrebările tale și să îți ofere soluțiile potrivite pentru
+              nevoile tale vizuale. Poți să ne suni, să ne trimiți un mesaj sau
+              să ne vizitezi în magazinul nostru. Ne bucurăm să ne vedem!
+            </p>
+            <button id="contactBtn" class="menuBtn contactBtn">
+              <i class="fa-solid fa-phone btnIcon"></i>
+              +40 755 254 658
+            </button>
+            <ul class="contactIconsList">
+              <li>
+                <p class="contactTextIcon">
+                  <i class="fa-sharp fa-solid fa-envelope contactIconDark"></i
+                  >urbanoptic@office.com
+                </p>
+              </li>
+              <li>
+                <p class="contactTextIcon">
+                  <i
+                    class="fa-sharp fa-solid fa-location-dot contactIconDark"
+                  ></i
+                  >Str. Strada , Nr. 16
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="mobileFooterSection">
+            <div class="mobileFooterContent">
+              <img class="footerLogo" src="./img/logo-light.png" alt="" />
+              <div class="footerWhiteLine"></div>
+              <p id="currentYear" class="copyrightText"></p>
+              <div class="footerWhiteLine"></div>
+              <ul class="contactSocials">
+                <li>
+                  <a href="https://www.facebook.com/" target="_blank"
+                    ><img src="./img/facebook.png" alt="facebook"
+                  /></a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/" target="_blank">
+                    <img src="./img/instagram.png" alt="instagram" />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/" target="_blank">
+                    <img src="./img/linkedin.png" alt="linkedin"
+                  /></a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

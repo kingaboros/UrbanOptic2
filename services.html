@@ -4,25 +4,107 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- google fonts start -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome icons start -->
     <script
       src="https://kit.fontawesome.com/97e32a212a.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- bootstrap start -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/servicesStyle.css" />
+
     <title>Servicii | Urban Optic</title>
   </head>
   <body>
     <header class="header">
-      <div class="logo">
-        <a href="index.html">
-          <img
-            id="logo"
-            class="servicesLogo"
-            src="./img/logo-light.png"
-            alt="logo"
-          />
-        </a>
+      <div id="menu" class="navBar clearfix">
+        <nav class="navbarDesk navbar navbar-expand-lg">
+          <a href="index.html">
+            <img
+              id="logo"
+              class="servicesLogo"
+              src="./img/logo-light.png"
+              alt="logo"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="navbar-toggler-icon fa-solid fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div>
+              <i class="fa-regular closeIcon" id="closeMenu">x</i>
+              <img
+                class="mobileMenuLogo"
+                src="./img/logo-mobile-menu.png"
+                alt="mobile-logo"
+              />
+              <ul class="navbar-nav desktopMenu">
+                <li class="nav-item">
+                  <a class="nav-link aboutLink" href="#about">Despre noi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link servicesLink" href="#services">Servicii</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link promoLink" href="#promo">Promoții</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link contactLink" href="#contact">Contact</a>
+                </li>
+                <li>
+                  <button id="navBtn" class="menuBtn">
+                    <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
+                  </button>
+                </li>
+              </ul>
+              <div>
+                <ul class="mobileMenuSocials">
+                  <li class="menuSocialIcons">
+                    <a href="https://www.facebook.com/" target="_blank"
+                      ><img src="./img/facebook.png" alt="facebook"
+                    /></a>
+                  </li>
+                  <li class="menuSocialIcons">
+                    <a href="https://www.instagram.com/" target="_blank">
+                      <img src="./img/instagram.png" alt="instagram" />
+                    </a>
+                  </li>
+                  <li class="menuSocialIcons">
+                    <a href="https://www.linkedin.com/" target="_blank">
+                      <img src="./img/linkedin.png" alt="linkedin"
+                    /></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
+<<<<<<< HEAD
       <nav class="navbarDesk">
         <ul class="desktopMenu">
           <li>
@@ -47,6 +129,8 @@
         </ul>
       </nav>
       <a href="#" class="nav-btn"></a>
+=======
+>>>>>>> mobile-layout
     </header>
     <div id="smooth-wrapper">
       <div class="stage" id="smooth-content">
@@ -57,7 +141,6 @@
           <img class="intro__img intro__img--1" src="./img/urban-optic2.jpg" />
           <img class="intro__img intro__img--2" src="./img/urban-optic1.jpg" />
         </section>
-
         <section class="slide slide--1" id="slide-1">
           <div class="col col--1">
             <div class="col__content col__content--1">
@@ -406,5 +489,10 @@
     <!-- GSAP plugin  -->
 
     <script src="./js/servicesScript.js"></script>
+    <script src="./js/includeHTML.js"></script>
+    <script src="./js/hamburgerMenu.js"></script>
+    <script>
+      includeHTML();
+    </script>
   </body>
 </html>

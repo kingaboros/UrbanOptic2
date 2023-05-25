@@ -1,8 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
-console.clear();
-
 select = (e) => document.querySelector(e);
 selectAll = (e) => document.querySelectorAll(e);
 
@@ -51,23 +49,25 @@ function initHeader() {
 
   let navBtn = select('.nav-btn');
 
-  navBtn.addEventListener('mouseover', (e) => {
-    gsap.to('.nav-rect', {
-      scaleX: 1,
-      transformOrigin: 'top left',
-      duration: 0.4,
-      ease: 'power4',
+  if (navBtn) {
+    navBtn.addEventListener('mouseover', (e) => {
+      gsap.to('.nav-rect', {
+        scaleX: 1,
+        transformOrigin: 'top left',
+        duration: 0.4,
+        ease: 'power4',
+      });
     });
-  });
 
-  navBtn.addEventListener('mouseout', (e) => {
-    gsap.to('.nav-rect', {
-      scaleX: 0.8,
-      transformOrigin: 'top left',
-      duration: 0.6,
-      ease: 'power4',
+    navBtn.addEventListener('mouseout', (e) => {
+      gsap.to('.nav-rect', {
+        scaleX: 0.8,
+        transformOrigin: 'top left',
+        duration: 0.6,
+        ease: 'power4',
+      });
     });
-  });
+  }
 }
 
 function initIntro() {
@@ -400,13 +400,15 @@ window.onload = () => {
 /////// navbar show on scroll up
 
 let prevScrollpos = window.pageYOffset;
+
 window.onscroll = function () {
   let currentScrollPos = window.pageYOffset;
+
   if (prevScrollpos > currentScrollPos) {
     document.querySelector('.header').style.top = '0';
   } else {
-    document.querySelector('.header').style.top =
-      '-140px'; /* Adjust this value to hide the navbar off-screen */
+    document.querySelector('.header').style.top = '-140px';
   }
+
   prevScrollpos = currentScrollPos;
 };

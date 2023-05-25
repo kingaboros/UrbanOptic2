@@ -12,12 +12,54 @@
   box-sizing: border-box;
 }
 
-/* html {
-  scroll-behavior: smooth;
-} */
-
 body {
   font-family: 'Inter', sans-serif;
+}
+
+section {
+  position: relative;
+  flex: 0 0 auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+button:focus,
+button:focus-visible {
+  border: none;
+  outline: none;
+}
+
+#menu {
+  transition: top 0.5s ease-in-out;
+}
+
+#navbarNav {
+  justify-content: flex-end;
+  z-index: 9999;
+}
+
+#scrollableDiv {
+  height: 78vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
+  overscroll-behavior: contain;
+}
+
+#shadow-host-companion {
+  display: none !important;
+}
+
+/* hide scroll bar  */
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 ::selection {
@@ -34,7 +76,6 @@ body {
   flex-wrap: nowrap;
   overflow-x: hidden;
   overflow-y: hidden;
-  /* scroll-snap-stop: always; */
 }
 
 .mobileMainContainer {
@@ -43,19 +84,6 @@ body {
   height: auto;
   display: block;
   width: 100%;
-}
-
-section {
-  position: relative;
-  flex: 0 0 auto;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .inactiveSection {
@@ -85,12 +113,6 @@ section {
   background-color: white;
 }
 
-/* hide scroll bar  */
-
-::-webkit-scrollbar {
-  display: none;
-}
-
 /* navbar */
 
 .navBar {
@@ -117,11 +139,7 @@ section {
 
 .navbarDesk {
   margin-top: -1rem;
-}
-
-#navbarNav {
-  justify-content: flex-end;
-  z-index: 9999;
+  padding-right: 0;
 }
 
 .showMenu {
@@ -174,7 +192,6 @@ section {
   display: flex;
   justify-content: space-around;
   width: 36rem;
-  /* min-width: 100%; */
   align-content: flex-end;
   float: right;
   list-style: none;
@@ -200,10 +217,13 @@ section {
   color: white !important;
 }
 
-.menuBtn {
+.menuBtn,
+.heroContactBtn,
+.servicesBtn,
+.contactBtn {
   align-items: center;
   padding: 10px 18px;
-  width: 192px;
+  width: fit-content;
   height: 48px;
   background: var(--black);
   box-shadow: 4px 4px 20px var(--shadow);
@@ -217,19 +237,25 @@ section {
 }
 
 .menuBtn:hover,
-.heroContactBtn {
+.heroContactBtn,
+.servicesBtn:hover,
+.contactBtn:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
 .menuBtn:active,
-.heroContactBtn:active {
+.heroContactBtn:active,
+.servicesBtn:active,
+.contactBtn:active {
   box-shadow: 0px 4px 8px;
   transform: scale(1.2);
 }
 
 .menuBtn:focus,
-.heroContactBtn:focus {
+.heroContactBtn:focus,
+.servicesBtn:focus,
+.contactBtn:focus {
   outline: none;
   box-shadow: 10px 5px 5px var(--shadow);
 }
@@ -264,6 +290,7 @@ section {
   font-weight: 500;
   transition: all 0.3s ease-in-out;
 }
+
 /* homepage */
 
 .heroHeadingDiv {
@@ -290,7 +317,6 @@ section {
   font-size: 200px;
   line-height: 242px;
   color: var(--grey);
-  /* padding-left: 13rem; */
 }
 
 .blurredTitle {
@@ -318,7 +344,6 @@ section {
 
 .aboutVideo {
   height: auto;
-  /* margin-top: 5px; */
   width: 100vw !important;
   z-index: 28;
 }
@@ -327,7 +352,8 @@ section {
   display: none;
 }
 
-.readMoreLink {
+.readMoreLink,
+.accordionLink {
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
@@ -336,8 +362,21 @@ section {
   padding-left: 0;
 }
 
-.readMoreLink:hover {
+.readMoreLink:hover,
+.accordionLink:hover {
   color: var(--yellow) !important ;
+}
+
+.accordionContent {
+  display: none;
+}
+
+.accordionContent.showAccordion {
+  display: block;
+}
+
+.accordionItem {
+  margin-bottom: 2rem;
 }
 
 /* team section */
@@ -347,8 +386,12 @@ section {
   margin-left: 24rem;
 }
 
+<<<<<<< HEAD
 /* .teamSection {
   width: 60%;
+=======
+.teamSection {
+>>>>>>> mobile-layout
   margin-top: 5rem;
 } */
 
@@ -482,19 +525,11 @@ section {
   display: block;
 }
 
-#scrollableDiv {
-  height: 78vh;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
-  overscroll-behavior: contain;
-}
-
 /* promo section  */
 
-.promoSection {
+/* .promoSection {
   position: relative;
-}
+} */
 
 .promoImgDiv {
   display: flex;
@@ -598,18 +633,21 @@ section {
   width: 100%;
 }
 
-.lines {
+.lines,
+.linesMobile {
   position: relative;
   height: 8px;
   background-color: var(--grey);
   width: 100px;
   z-index: 200;
   top: -5rem;
-  left: 22.7rem;
+  left: 50.7rem;
 }
 
 .lines::before,
-.lines::after {
+.lines::after,
+.linesMobile::before,
+.linesMobile::after {
   content: '';
   position: absolute;
   height: 8px;
@@ -617,12 +655,14 @@ section {
   right: 0;
 }
 
-.lines::before {
+.lines::before,
+.linesMobile::before {
   width: 130px;
   top: -1.3rem;
 }
 
-.lines::after {
+.lines::after,
+.linesMobile::after {
   width: 60%;
   top: 20px;
 }
@@ -667,12 +707,6 @@ section {
 .prevBtn:hover,
 .nextBtn:hover {
   opacity: 1;
-}
-
-button:focus,
-button:focus-visible {
-  border: none;
-  outline: none;
 }
 
 .prevBtn {
@@ -762,7 +796,8 @@ button:focus-visible {
   top: 33.9vmin;
 }
 
-.whiteLine {
+.whiteLine,
+.footerWhiteLine {
   border: 1px solid white;
   border-style: solid none;
   position: relative;
@@ -796,14 +831,6 @@ button:focus-visible {
   margin-right: -3rem;
 }
 
-/* .socialIcons:hover {
-  cursor: pointer;
-} */
-
-#shadow-host-companion {
-  display: none !important;
-}
-
 /* on scroll animation style */
 
 .reveal {
@@ -817,15 +844,132 @@ button:focus-visible {
   opacity: 1;
 }
 
+/* ==================================================mobile & tablet styling ===================================*/
+
+.mobileServicesHeading {
+  position: relative;
+  top: 5rem;
+  padding-left: 2rem;
+}
+
+.servicesContent {
+  width: 100vw;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.promoCards {
+  margin: 2rem 0;
+}
+
+.alignLeft {
+  margin: 0 6rem 1.5rem -4rem;
+}
+
+.contactTitle {
+  text-align: center;
+}
+
+.contactText {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.contactIconsList li {
+  margin: 2rem 0;
+}
+
+.contactTextIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactIconDark {
+  color: var(--black);
+  font-size: 2rem;
+}
+
+.mobileFooterSection {
+  background-color: var(--black);
+}
+
+.mobileFooterContent {
+  margin: 2rem auto 0;
+}
+
+.footerLogo {
+  display: block;
+  padding: 2rem 0rem;
+  margin: 0 auto;
+  width: 8rem;
+}
+
+.copyrightText {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: center;
+  color: white;
+  margin-top: 1rem;
+}
+
+.contactSocials {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  width: 54%;
+  margin: 2rem auto 0;
+  padding-bottom: 2rem;
+}
+
+.footerWhiteLine {
+  width: 100vw;
+  left: 0;
+}
+
+.servicesBtn,
+.contactBtn {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  top: -10rem;
+  width: fit-content;
+  justify-content: space-around;
+}
+
+.contactBtn {
+  margin: 2rem auto;
+  position: unset;
+}
+
 /* --------------- Responsive --------------- */
 
 /* vertical scrolling */
 
-/* mobile devices */
+/* ============================================== mobile devices =====================================*/
 @media all and (max-width: 767px) {
+  section {
+    opacity: 1 !important;
+    height: 100% !important;
+  }
+
   .navBar {
-    left: 1rem;
+    left: 0rem;
     width: 100vw;
+    background-color: var(--yellow);
+    top: 0;
+    padding: 1rem 0;
+    z-index: 99999;
+  }
+
+  .navbar-toggler {
+    margin-top: 0.5rem;
   }
 
   .mobileMenuLogo {
@@ -840,7 +984,7 @@ button:focus-visible {
   }
 
   .yellowBg {
-    height: 100vh !important;
+    height: 0;
   }
 
   .menuBtn {
@@ -862,8 +1006,7 @@ button:focus-visible {
 
   .heroHeadingDiv {
     display: block;
-    margin-top: 20rem;
-    margin-left: -3rem;
+    margin: 15rem 0 0 -3rem;
   }
 
   .mainTitle {
@@ -903,20 +1046,15 @@ button:focus-visible {
     width: auto !important;
   }
 
-  section {
-    opacity: 1 !important;
-    height: 100% !important;
-  }
-
   .teamContainer {
     width: 100%;
-    margin-left: 5rem;
+    margin-left: 3rem;
   }
 
   .teamSection {
     width: auto;
     height: 100% !important;
-    margin-top: 7rem;
+    margin-top: 1rem;
   }
 
   .teamList {
@@ -933,8 +1071,9 @@ button:focus-visible {
   }
 
   .blackTitle {
-    width: 100%;
+    width: 100vw;
     font-size: 28px;
+    margin: auto;
   }
 
   .servicesHeading {
@@ -946,7 +1085,8 @@ button:focus-visible {
     width: 91%;
   }
 
-  .hideOnMobile {
+  .hideOnMobile,
+  .hideOnDesktop {
     display: none;
   }
 
@@ -962,8 +1102,17 @@ button:focus-visible {
     width: 32vw;
     height: 60% !important;
   }
-  .cardBg {
-    height: 29rem;
+
+  .promoCards {
+    margin: 2rem 0;
+  }
+
+  .cardBgMobile {
+    width: auto;
+    height: clamp(17rem, 56vw, 27rem);
+    margin-bottom: 1.5rem;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px !important;
   }
 
   .slides {
@@ -982,23 +1131,54 @@ button:focus-visible {
   }
 
   .discountTag {
-    font-size: 4rem;
+    font-size: 3.5rem;
+    line-height: 80px;
   }
 
   .supText {
     font-size: 2rem;
   }
 
-  .sup {
-    top: -0.3em;
+  sup {
+    top: 0;
+  }
+
+  .discountDesc {
+    font-size: 1rem;
+    line-height: 12px;
+  }
+
+  .linesMobile {
+    top: -2.5rem;
+    left: 41rem;
+    height: 4px;
+    width: 83px;
+  }
+
+  .linesMobile::before,
+  .linesMobile::after {
+    height: 4px;
+  }
+
+  .linesMobile::before {
+    width: 100px;
+    top: -0.6rem;
+  }
+
+  .linesMobile::after {
+    top: 0.7rem;
   }
 
   .textContainer {
-    padding: 1rem 1.5rem;
+    padding: 1rem 3rem;
   }
 
   .promoImg {
     max-width: 72%;
+  }
+
+  .promoContainer {
+    margin-left: 5rem;
   }
 
   .mobileMenuSocials {
@@ -1011,13 +1191,37 @@ button:focus-visible {
   .menuSocialIcons {
     margin-inline: -1rem 2rem;
   }
+
+  .hideOnDesktop {
+    display: block;
+  }
+
+  .imgColImg {
+    height: 100%;
+  }
+
+  .servicesImg {
+    display: none;
+  }
+
+  .contactContainer {
+    margin: 3rem auto;
+  }
 }
 
-/* tablets and small desktop screens */
-@media (min-width: 768px) and (max-width: 1023px) {
+/* ======================= tablets and small desktop screens ===================================*/
+@media (min-width: 768px) and (max-width: 991px) {
   .navBar {
-    left: 1rem;
+    left: 0;
+    top: 0;
     width: 100vw;
+    background-color: var(--yellow);
+    padding: 1rem 0;
+    z-index: 99999;
+  }
+
+  .menuBtn {
+    display: none;
   }
 
   .mobileMenuLogo {
@@ -1025,26 +1229,22 @@ button:focus-visible {
     margin-top: -3rem;
   }
 
+  .hideOnDesktop {
+    display: block;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
   .mobileMenu {
     top: -6.47rem;
   }
-
-  /* .menuMobile {
-    display: none;
-  } */
 
   .closeIcon {
     display: flex;
     justify-content: flex-end;
     padding: 2rem;
-  }
-
-  .yellowBg {
-    height: 100vh !important;
-  }
-
-  .menuBtn {
-    display: none;
   }
 
   .heroContactBtn {
@@ -1062,7 +1262,11 @@ button:focus-visible {
 
   .heroHeadingDiv {
     display: block;
-    margin: 40rem 0 0 -3rem;
+    margin: 34rem 0 0 -3rem;
+  }
+
+  .homeSection {
+    height: 100vh !important;
   }
 
   .mainTitle {
@@ -1108,14 +1312,19 @@ button:focus-visible {
   }
 
   .teamContainer {
-    width: 100%;
+    width: 90vw;
     margin-left: 5rem;
   }
 
   .teamSection {
     width: auto;
     height: 100% !important;
-    margin-top: 7rem;
+    margin-top: 2rem;
+  }
+
+  .promoContainer {
+    width: 100vw;
+    margin: 3rem 0 0 5rem;
   }
 
   .teamList {
@@ -1136,17 +1345,42 @@ button:focus-visible {
     font-size: 28px;
   }
 
+  .servicesImg {
+    width: 100%;
+    height: 50vh;
+    background-image: url('../img/services/services1.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .imgColImg {
+    display: none;
+  }
+
   .servicesHeading {
     font-size: 24px;
     line-height: 29px;
+  }
+
+  .servicesContent {
+    width: 100vw;
+  }
+
+  .servicesContent img {
+    margin-top: 2rem;
+    width: 100vw;
   }
 
   .servicesContainer {
     width: 91%;
   }
 
-  .hideOnMobile {
-    display: none;
+  .italicText {
+    max-width: 100%;
+  }
+
+  .servicesBtn {
+    top: -16rem;
   }
 
   .textCol {
@@ -1166,28 +1400,59 @@ button:focus-visible {
     width: 32vw;
     height: 60% !important;
   }
-  .cardBg {
-    height: 70vh;
+
+  .promoCards {
+    display: block;
+    margin: 3rem auto;
+    width: 74vw;
   }
 
-  .slides {
-    width: 85vw;
-    height: 70vh;
+  .cardBgMobile {
+    width: 70vw;
+    height: clamp(17rem, 56vw, 27rem);
+    margin-bottom: 1.5rem;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px !important;
   }
 
-  .contactTextCol {
-    max-width: 809px;
-    margin-left: 0;
-    top: 5vmin;
-    height: 20rem;
+  .discountTag {
+    font-size: 4.5rem;
+    line-height: 8rem;
   }
 
-  .yellowTitle {
-    font-size: 34px;
+  .discountDesc {
+    font-size: 1.7rem;
+    line-height: 26px;
+  }
+
+  sup {
+    top: 0;
+    font-size: 2rem;
+  }
+
+  .linesMobile {
+    top: -2.5rem;
+    left: clamp(28.4rem, 39rem, 47rem);
+    height: 4px;
+    width: 83px;
+  }
+
+  .linesMobile::before,
+  .linesMobile::after {
+    height: 4px;
+  }
+
+  .linesMobile::before {
+    width: 100px;
+    top: -0.6rem;
+  }
+
+  .linesMobile::after {
+    top: 0.7rem;
   }
 
   .textContainer {
-    padding: 1rem 1.5rem;
+    padding: 1rem 2.5rem;
   }
 
   .promoImg {
@@ -1204,10 +1469,24 @@ button:focus-visible {
   .menuSocialIcons {
     margin-inline: -1rem 2rem;
   }
+
+  .contactContainer {
+    margin: 3rem auto;
+  }
+
+  .contactText {
+    width: 70%;
+  }
 }
 
+<<<<<<< HEAD
 /* standard desktop screens - horizontal scrolling */
 @media (min-width: 1024px) and (max-width: 1299px) {
+=======
+/* ======================= standard desktop screens - horizontal scrolling  ===================================*/
+
+@media (min-width: 992px) and (max-width: 1499px) {
+>>>>>>> mobile-layout
   .navBar {
     width: 93vw;
     left: 6vmin;
@@ -1284,7 +1563,7 @@ button:focus-visible {
   }
 
   .textCol {
-    margin-top: 15rem;
+    margin-top: 10rem;
     margin-left: -4.5rem;
   }
 
@@ -1334,12 +1613,37 @@ button:focus-visible {
   .whiteLine {
     left: -0.6vmin;
   }
+
+  .hideOnDesktop {
+    display: none;
+  }
+
+  .hideOnMobile {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+  }
 }
 
+<<<<<<< HEAD
 @media (min-width: 1300px) and (max-width: 1500px) {
+=======
+@media (min-width: 1500px) and (max-width: 2000px) {
+>>>>>>> mobile-layout
   .logo {
     max-width: 80%;
   }
+
+  .hideOnDesktop {
+    display: none;
+  }
+
+  .hideOnMobile {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+  }
+
   .desktopMenu {
     width: 100%;
     margin-top: 0.5rem;
@@ -1350,7 +1654,7 @@ button:focus-visible {
   }
 
   .glassesImg {
-    right: -37rem;
+    right: -44rem;
     top: -38rem;
   }
 
@@ -1365,11 +1669,13 @@ button:focus-visible {
 
   .cardDiv {
     width: 47%;
+    position: unset;
+    margin: 11rem auto;
   }
 
   .cardBg {
     width: 100%;
-    height: 27rem;
+    height: 560px;
   }
 
   .discountTag {
@@ -1409,5 +1715,13 @@ button:focus-visible {
 
   .whiteText {
     width: 85%;
+  }
+
+  .teamSection {
+    margin-top: 0;
+  }
+
+  .textCol {
+    margin-top: 10rem;
   }
 }

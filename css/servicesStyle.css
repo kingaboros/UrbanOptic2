@@ -63,7 +63,7 @@ p {
     ========================================================================== */
 
 .header {
-  position: fixed;
+  position: fixed !important;
   left: 40px;
   top: 24px;
   z-index: 100;
@@ -146,7 +146,9 @@ p {
   color: white !important;
 }
 
-.menuBtn {
+.menuBtn,
+.servicesBtn,
+.contactBtn {
   align-items: center;
   padding: 10px 18px;
   width: 192px;
@@ -162,17 +164,23 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
-.menuBtn:hover {
+.menuBtn:hover,
+.servicesBtn:hover,
+.contactBtn:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
-.menuBtn:active {
+.menuBtn:active,
+.servicesBtn:active,
+.contactBtn:active {
   box-shadow: 0px 4px 8px;
   transform: scale(1.2);
 }
 
-.menuBtn:focus {
+.menuBtn:focus,
+.servicesBtn:focus,
+.contactBtn:focus {
   outline: none;
   box-shadow: 10px 5px 5px var(--shadow);
 }
@@ -494,18 +502,24 @@ p {
 
 @media all and (max-width: 767px) {
   .header {
-    display: block;
+    position: fixed;
     left: 24px;
   }
+
+  .stage {
+    height: 100vh;
+  }
+
   .nav-btn {
     margin: 18px 0 0 -6px;
   }
 
-  .logo {
+  /* .logo {
     margin-left: -10rem;
-  }
+  } */
   .servicesLogo {
-    width: 25%;
+    width: 60%;
+    margin-top: -0.5rem;
   }
 
   .intro {
@@ -561,13 +575,13 @@ p {
   .col__content {
     width: 100%;
     height: auto;
-    padding: 1vw 6vw 6vw;
+    padding: -1vw 6vw 6vw;
   }
 
   .col__content-title {
     margin: 2rem 0 1rem 0;
-    font-size: 9vw;
-    line-height: 16px;
+    font-size: 8vw;
+    line-height: 26px;
   }
 
   .col__content-wrap {
@@ -593,16 +607,26 @@ p {
     font-size: 4rem !important;
   }
 
+  .footer {
+    padding-top: 12rem;
+  }
+
   .footer__link img {
-    margin-bottom: 14rem;
+    margin-bottom: 8rem;
+  }
+
+  .footer__link-top {
+    position: relative;
+    left: 5%;
+    bottom: 39px;
   }
 }
 
 /* tablets and small desktop screens */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 991px) {
 }
 
-@media (min-width: 1024px) and (max-width: 1499px) {
+@media (min-width: 992px) and (max-width: 1499px) {
   .header {
     left: -97px;
     top: 1px;

@@ -2,7 +2,7 @@ let scrollTimeout = null; // Variable to store the scroll timeout
 const sections = document.querySelectorAll('section');
 
 function scrollHorizontal(e) {
-  if (window.innerWidth >= 1024) {
+  if (window.innerWidth >= 992) {
     e = window.event || e;
     let delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
     const mainContainer = document.querySelector('.mainContainer');
@@ -105,7 +105,7 @@ function scrollHorizontal(e) {
 }
 
 function scrollVertical(e) {
-  if (window.innerWidth < 1024) {
+  if (window.innerWidth < 992) {
     e = window.event || e;
     let delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
     const mainContainer = document.querySelector('.mainContainer');
@@ -222,7 +222,7 @@ function updateHash(sectionID) {
 // Attach the scroll event listener to the window
 const mainContainer = document.querySelector('.mainContainer');
 if (mainContainer.addEventListener) {
-  if (window.innerWidth >= 1024) {
+  if (window.innerWidth >= 992) {
     mainContainer.addEventListener('wheel', scrollHorizontal, false);
   } else {
     mainContainer.addEventListener('wheel', scrollVertical, false);
@@ -543,7 +543,7 @@ function adjustMenuClasses() {
   const navbarNav = document.querySelector('.navbar-collapse');
   const menuList = document.querySelector('.navbar-nav');
 
-  if (screenWidth <= 1024) {
+  if (screenWidth <= 992) {
     navbarNav.classList.remove('desktopMenu');
     menuList.classList.add('menuMobile');
   } else {
@@ -552,12 +552,105 @@ function adjustMenuClasses() {
   }
 }
 
+// accordion
+
+// Get all the accordion items
+const accordionItems = document.querySelectorAll('.accordionItem');
+
+// Add click event listeners to each item
+accordionItems.forEach((item) => {
+  const readMoreLink = item.querySelector('.accordionLink');
+  const content = item.querySelector('.accordionContent');
+
+  // Toggle the visibility of content when the heading is clicked
+  readMoreLink.addEventListener('click', () => {
+    content.classList.toggle('showAccordion');
+  });
+});
+
+// services btn redirect
+let servicesBtn = document.getElementById('servicesBtn');
+servicesBtn.addEventListener('click', function () {
+  let url = document.createElement('a');
+  url.href = 'services.html';
+  url.click();
+});
+
+// contact button
+let contactBtn = document.getElementById('contactBtn');
+
+contactBtn.addEventListener('click', function () {
+  let phoneNo = document.createElement('a');
+  phoneNo.href = 'tel:+40755254658';
+  phoneNo.click();
+});
+
+let heroContactBtn = document.getElementById('heroContactBtn');
+
+heroContactBtn.addEventListener('click', function () {
+  let phoneNo = document.createElement('a');
+  phoneNo.href = 'tel:+40755254658';
+  phoneNo.click();
+});
+
+// dynamic year in the footer area
+let currentYear = new Date().getFullYear();
+let copyrightText = document.getElementById('currentYear');
+copyrightText.textContent = 'Copyright © ' + currentYear + ' | Urban Optic';
+
+// hide navbar when the user scrolls down
+let prevScrollPos = window.pageYOffset;
+let menu = document.getElementById('menu');
+
+window.onscroll = function () {
+  let currentScrollPos = window.pageYOffset;
+
+  if (prevScrollPos > currentScrollPos) {
+    // User is scrolling up, show the menu
+    menu.style.top = '0';
+  } else {
+    // User is scrolling down, hide the menu
+    menu.style.top = '-130px'; // Adjust this value based on your menu height
+  }
+
+  prevScrollPos = currentScrollPos;
+};
+
+// remove yellowBg for mobile and tablet
+
+function removeYellowBg() {
+  const screenWidth = window.innerWidth;
+  const yellowBgSection = document.getElementById('promo');
+
+  if (screenWidth <= 992) {
+    yellowBgSection.classList.remove('yellowBg');
+  } else {
+    yellowBgSection.classList.add('yellowBg');
+  }
+}
+
+// remove blackBg for mobile and tablet
+function removeBlackBg() {
+  const screenWidth = window.innerWidth;
+  const blackBgSection = document.getElementById('contact');
+
+  if (screenWidth <= 992) {
+    blackBgSection.classList.remove('blackBg');
+  } else {
+    blackBgSection.classList.add('blackBg');
+  }
+}
+
 // Call the function initially when the page loads
 document.addEventListener('DOMContentLoaded', function () {
   adjustMenuClasses();
+  removeYellowBg();
+  removeBlackBg();
 });
 
 // Attach an event listener to the window resize event
 window.addEventListener('resize', function () {
   adjustMenuClasses();
+  removeYellowBg();
+  removeBlackBg();
 });
