@@ -217,10 +217,13 @@ button:focus-visible {
   color: white !important;
 }
 
-.menuBtn {
+.menuBtn,
+.heroContactBtn,
+.servicesBtn,
+.contactBtn {
   align-items: center;
   padding: 10px 18px;
-  width: 192px;
+  width: fit-content;
   height: 48px;
   background: var(--black);
   box-shadow: 4px 4px 20px var(--shadow);
@@ -234,19 +237,25 @@ button:focus-visible {
 }
 
 .menuBtn:hover,
-.heroContactBtn {
+.heroContactBtn,
+.servicesBtn:hover,
+.contactBtn:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
 .menuBtn:active,
-.heroContactBtn:active {
+.heroContactBtn:active,
+.servicesBtn:active,
+.contactBtn:active {
   box-shadow: 0px 4px 8px;
   transform: scale(1.2);
 }
 
 .menuBtn:focus,
-.heroContactBtn:focus {
+.heroContactBtn:focus,
+.servicesBtn:focus,
+.contactBtn:focus {
   outline: none;
   box-shadow: 10px 5px 5px var(--shadow);
 }
@@ -513,9 +522,9 @@ button:focus-visible {
 
 /* promo section  */
 
-.promoSection {
+/* .promoSection {
   position: relative;
-}
+} */
 
 .promoImgDiv {
   display: flex;
@@ -619,18 +628,21 @@ button:focus-visible {
   width: 100%;
 }
 
-.lines {
+.lines,
+.linesMobile {
   position: relative;
   height: 8px;
   background-color: var(--grey);
   width: 100px;
   z-index: 200;
   top: -5rem;
-  left: 22.7rem;
+  left: 50.7rem;
 }
 
 .lines::before,
-.lines::after {
+.lines::after,
+.linesMobile::before,
+.linesMobile::after {
   content: '';
   position: absolute;
   height: 8px;
@@ -638,12 +650,14 @@ button:focus-visible {
   right: 0;
 }
 
-.lines::before {
+.lines::before,
+.linesMobile::before {
   width: 130px;
   top: -1.3rem;
 }
 
-.lines::after {
+.lines::after,
+.linesMobile::after {
   width: 60%;
   top: 20px;
 }
@@ -828,14 +842,15 @@ button:focus-visible {
 /* ==================================================mobile & tablet styling ===================================*/
 
 .mobileServicesHeading {
-  margin-left: 6rem;
   position: relative;
   top: 5rem;
+  padding-left: 2rem;
 }
 
 .servicesContent {
-  width: 90vw;
-  margin: 2rem 0 3rem 5rem;
+  width: 100vw;
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
 .promoCards {
@@ -913,6 +928,21 @@ button:focus-visible {
   left: 0;
 }
 
+.servicesBtn,
+.contactBtn {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  top: -10rem;
+  width: fit-content;
+  justify-content: space-around;
+}
+
+.contactBtn {
+  margin: 2rem auto;
+  position: unset;
+}
+
 /* --------------- Responsive --------------- */
 
 /* vertical scrolling */
@@ -949,7 +979,7 @@ button:focus-visible {
   }
 
   .yellowBg {
-    height: 100vh !important;
+    height: 0;
   }
 
   .menuBtn {
@@ -971,8 +1001,7 @@ button:focus-visible {
 
   .heroHeadingDiv {
     display: block;
-    margin-top: 20rem;
-    margin-left: -3rem;
+    margin: 15rem 0 0 -3rem;
   }
 
   .mainTitle {
@@ -1014,7 +1043,7 @@ button:focus-visible {
 
   .teamContainer {
     width: 100%;
-    margin-left: 5rem;
+    margin-left: 3rem;
   }
 
   .teamSection {
@@ -1037,15 +1066,10 @@ button:focus-visible {
   }
 
   .blackTitle {
-    width: 100%;
+    width: 100vw;
     font-size: 28px;
+    margin: auto;
   }
-
-  /* .mobileServicesHeading {
-    margin-left: 6rem;
-    position: relative;
-    top: 5rem;
-  } */
 
   .servicesHeading {
     font-size: 24px;
@@ -1054,26 +1078,6 @@ button:focus-visible {
 
   .servicesContainer {
     width: 91%;
-  }
-
-  /* .servicesContent {
-    width: 90vw;
-    margin: 2rem 0 3rem 5rem;
-  } */
-
-  .servicesBtn,
-  .contactBtn {
-    display: flex;
-    margin: 0 auto;
-    position: relative;
-    top: -10rem;
-    width: 44%;
-    justify-content: space-around;
-  }
-
-  .contactBtn {
-    margin: 2rem auto;
-    position: unset;
   }
 
   .hideOnMobile,
@@ -1100,9 +1104,10 @@ button:focus-visible {
 
   .cardBgMobile {
     width: auto;
-    height: 300px;
+    height: clamp(17rem, 56vw, 27rem);
     margin-bottom: 1.5rem;
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px !important;
   }
 
   .slides {
@@ -1134,33 +1139,30 @@ button:focus-visible {
   }
 
   .discountDesc {
-    font-size: 2rem;
+    font-size: 1rem;
     line-height: 12px;
   }
 
-  .lines {
+  .linesMobile {
     top: -2.5rem;
+    left: 41rem;
     height: 4px;
     width: 83px;
   }
 
-  .lines::before,
-  .lines::after {
+  .linesMobile::before,
+  .linesMobile::after {
     height: 4px;
   }
 
-  .lines::before {
+  .linesMobile::before {
     width: 100px;
     top: -0.6rem;
   }
 
-  .lines::after {
+  .linesMobile::after {
     top: 0.7rem;
   }
-
-  /* .alignLeft {
-    margin: 0 6rem 1.5rem -4rem;
-  } */
 
   .textContainer {
     padding: 1rem 3rem;
@@ -1168,6 +1170,10 @@ button:focus-visible {
 
   .promoImg {
     max-width: 72%;
+  }
+
+  .promoContainer {
+    margin-left: 5rem;
   }
 
   .mobileMenuSocials {
@@ -1196,83 +1202,21 @@ button:focus-visible {
   .contactContainer {
     margin: 3rem auto;
   }
-
-  /* .contactTitle {
-    text-align: center;
-  } */
-
-  /* .contactText {
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
-    width: 90%;
-    margin: 1rem auto;
-  } */
-
-  /* .contactIconsList li {
-    margin: 2rem 0;
-  }
-
-  .contactTextIcon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .contactIconDark {
-    color: var(--black);
-    font-size: 2rem;
-  }
-
-  .mobileFooterSection {
-    background-color: var(--black);
-  }
-
-  .mobileFooterContent {
-    margin: 2rem auto 0;
-  }
-
-  .footerLogo {
-    display: block;
-    padding: 2rem 0rem;
-    margin: 0 auto;
-    width: 8rem;
-  }
-
-  .copyrightText {
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 14px;
-    text-align: center;
-    color: white;
-    margin-top: 1rem;
-  }
-
-  .contactSocials {
-    display: flex;
-    justify-content: space-evenly;
-    list-style: none;
-    width: 54%;
-    margin: 2rem auto 0;
-    padding-bottom: 2rem;
-  }
-
-  .footerWhiteLine {
-    width: 100vw;
-    left: 0;
-  } */
 }
 
 /* ======================= tablets and small desktop screens ===================================*/
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .navBar {
     left: 0;
     top: 0;
     width: 100vw;
     background-color: var(--yellow);
     padding: 1rem 0;
+    z-index: 99999;
+  }
+
+  .menuBtn {
+    display: none;
   }
 
   .mobileMenuLogo {
@@ -1298,14 +1242,6 @@ button:focus-visible {
     padding: 2rem;
   }
 
-  .yellowBg {
-    height: 100vh !important;
-  }
-
-  .menuBtn {
-    display: none;
-  }
-
   .heroContactBtn {
     display: block;
   }
@@ -1321,7 +1257,11 @@ button:focus-visible {
 
   .heroHeadingDiv {
     display: block;
-    margin: 44rem 0 0 -3rem;
+    margin: 34rem 0 0 -3rem;
+  }
+
+  .homeSection {
+    height: 100vh !important;
   }
 
   .mainTitle {
@@ -1374,7 +1314,12 @@ button:focus-visible {
   .teamSection {
     width: auto;
     height: 100% !important;
-    margin-top: 7rem;
+    margin-top: 2rem;
+  }
+
+  .promoContainer {
+    width: 100vw;
+    margin: 3rem 0 0 5rem;
   }
 
   .teamList {
@@ -1416,23 +1361,21 @@ button:focus-visible {
     width: 100vw;
   }
 
+  .servicesContent img {
+    margin-top: 2rem;
+    width: 100vw;
+  }
+
   .servicesContainer {
     width: 91%;
   }
 
-  .servicesBtn,
-  .contactBtn {
-    display: flex;
-    margin: 0 auto;
-    position: relative;
-    top: -10rem;
-    width: 44%;
-    justify-content: space-around;
+  .italicText {
+    max-width: 100%;
   }
 
-  .contactBtn {
-    margin: 2rem auto;
-    position: unset;
+  .servicesBtn {
+    top: -16rem;
   }
 
   .textCol {
@@ -1453,11 +1396,18 @@ button:focus-visible {
     height: 60% !important;
   }
 
+  .promoCards {
+    display: block;
+    margin: 3rem auto;
+    width: 74vw;
+  }
+
   .cardBgMobile {
-    width: 75vw;
-    height: 70vh;
+    width: 70vw;
+    height: clamp(17rem, 56vw, 27rem);
     margin-bottom: 1.5rem;
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px !important;
   }
 
   .discountTag {
@@ -1465,38 +1415,39 @@ button:focus-visible {
     line-height: 8rem;
   }
 
+  .discountDesc {
+    font-size: 1.7rem;
+    line-height: 26px;
+  }
+
   sup {
     top: 0;
     font-size: 2rem;
   }
 
-  .lines {
-    left: 29.7rem;
+  .linesMobile {
+    top: -2.5rem;
+    left: clamp(28.4rem, 39rem, 47rem);
+    height: 4px;
+    width: 83px;
   }
 
-  .discountDesc {
-    font-size: 2rem;
-    line-height: 12px;
+  .linesMobile::before,
+  .linesMobile::after {
+    height: 4px;
   }
 
-  /* .slides {
-    width: 85vw;
-    height: 70vh;
-  } */
+  .linesMobile::before {
+    width: 100px;
+    top: -0.6rem;
+  }
 
-  /* .contactTextCol {
-    max-width: 809px;
-    margin-left: 0;
-    top: 5vmin;
-    height: 20rem;
-  } */
-
-  /* .yellowTitle {
-    font-size: 34px;
-  } */
+  .linesMobile::after {
+    top: 0.7rem;
+  }
 
   .textContainer {
-    padding: 1rem 1.5rem;
+    padding: 1rem 2.5rem;
   }
 
   .promoImg {
@@ -1517,10 +1468,15 @@ button:focus-visible {
   .contactContainer {
     margin: 3rem auto;
   }
+
+  .contactText {
+    width: 70%;
+  }
 }
 
-/* standard desktop screens - horizontal scrolling */
-@media (min-width: 1024px) and (max-width: 1500px) {
+/* ======================= standard desktop screens - horizontal scrolling  ===================================*/
+
+@media (min-width: 992px) and (max-width: 1499px) {
   .navBar {
     width: 93vw;
     left: 6vmin;
@@ -1597,7 +1553,7 @@ button:focus-visible {
   }
 
   .textCol {
-    margin-top: 15rem;
+    margin-top: 10rem;
     margin-left: -4.5rem;
   }
 
@@ -1654,10 +1610,12 @@ button:focus-visible {
 
   .hideOnMobile {
     display: block;
+    height: 100vh;
+    width: 100vw;
   }
 }
 
-@media only screen and (min-width: 1300px) {
+@media (min-width: 1500px) and (max-width: 2000px) {
   .logo {
     max-width: 80%;
   }
@@ -1668,6 +1626,8 @@ button:focus-visible {
 
   .hideOnMobile {
     display: block;
+    height: 100vh;
+    width: 100vw;
   }
 
   .desktopMenu {
@@ -1680,7 +1640,7 @@ button:focus-visible {
   }
 
   .glassesImg {
-    right: -37rem;
+    right: -44rem;
     top: -38rem;
   }
 
@@ -1695,11 +1655,13 @@ button:focus-visible {
 
   .cardDiv {
     width: 47%;
+    position: unset;
+    margin: 11rem auto;
   }
 
   .cardBg {
     width: 100%;
-    height: 27rem;
+    height: 560px;
   }
 
   .discountTag {
@@ -1739,5 +1701,13 @@ button:focus-visible {
 
   .whiteText {
     width: 85%;
+  }
+
+  .teamSection {
+    margin-top: 0;
+  }
+
+  .textCol {
+    margin-top: 10rem;
   }
 }

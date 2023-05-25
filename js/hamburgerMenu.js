@@ -30,7 +30,7 @@ function adjustMenuClasses() {
   const navbarNav = document.querySelector('.navbar-collapse');
   const menuList = document.querySelector('.navbar-nav');
 
-  if (screenWidth <= 1024) {
+  if (screenWidth <= 992) {
     navbarNav.classList.remove('desktopMenu');
     menuList.classList.add('menuMobile');
   } else {
