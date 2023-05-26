@@ -467,5 +467,21 @@
     <script>
       includeHTML();
     </script>
+    <script>
+      let prevScrollPos = window.pageYOffset;
+      let menu = document.getElementById('menu');
+
+      window.onscroll = function () {
+        let currentScrollPos = window.pageYOffset;
+
+        if (prevScrollPos > currentScrollPos) {
+          menu.style.top = '0';
+        } else {
+          menu.style.top = '-130px';
+
+          prevScrollPos = currentScrollPos;
+        }
+      };
+    </script>
   </body>
 </html>

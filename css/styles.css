@@ -1238,7 +1238,7 @@ button:focus-visible {
   }
 
   .mobileMenu {
-    top: -6.47rem;
+    top: -7.8rem;
   }
 
   .closeIcon {
@@ -1618,11 +1618,19 @@ button:focus-visible {
     height: 100vh;
     width: 100vw;
   }
+
+  section {
+    flex-direction: unset !important;
+  }
 }
 
 /* //////////////////////////// */
 
 @media (min-width: 1300px) and (max-width: 1499px) {
+  section {
+    flex-direction: unset !important;
+  }
+
   .hideOnMobile {
     display: block;
     height: auto;
@@ -1749,6 +1757,10 @@ button:focus-visible {
 /* ////////////////////////// */
 
 @media (min-width: 1500px) and (max-width: 2000px) {
+  section {
+    flex-direction: unset !important;
+  }
+
   .logo {
     max-width: 80%;
   }

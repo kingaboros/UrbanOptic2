@@ -464,6 +464,21 @@ p {
     left: 24px;
   }
 
+  .navBar {
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .navbarDesk {
+    margin-top: -1rem;
+  }
+
+  .servicesLogo {
+    max-width: 70%;
+    margin-left: 1rem;
+  }
+
   .stage {
     height: 100vh;
   }
@@ -582,6 +597,29 @@ p {
 
 /* tablets and small desktop screens */
 @media (min-width: 768px) and (max-width: 991px) {
+  .navBar {
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .navbarDesk {
+    margin-top: -1rem;
+  }
+
+  .servicesLogo {
+    max-width: 70%;
+    margin-left: 1rem;
+  }
+
+  .intro {
+    height: 100vh !important;
+    margin-top: -4rem;
+  }
+
+  .intro__title {
+    font-size: 7rem;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1299px) {
@@ -631,6 +669,12 @@ p {
 
 @media (min-width: 1500px) and (max-width: 2000px) {
   .navbarDesk {
-    margin-top: 0;
+    margin-top: 0rem;
+    width: 90vw;
+    margin-inline: -6rem;
+  }
+
+  .desktopMenu {
+    width: 100%;
   }
 }
