@@ -1615,6 +1615,8 @@ button:focus-visible {
   }
 }
 
+/* //////////////////////////// */
+
 @media (min-width: 1500px) and (max-width: 2000px) {
   .logo {
     max-width: 80%;
@@ -1626,8 +1628,8 @@ button:focus-visible {
 
   .hideOnMobile {
     display: block;
-    height: 100vh;
-    width: 100vw;
+    height: auto;
+    width: 100%;
   }
 
   .desktopMenu {
@@ -1653,6 +1655,31 @@ button:focus-visible {
     margin-top: 14rem;
   }
 
+  /* team section */
+
+  .teamSection {
+    margin-top: 0;
+  }
+
+  .teamContainer {
+    width: 95vw;
+    /* margin-left: 0; */
+    margin-top: 9rem;
+  }
+
+  .teamText {
+    width: 75vw;
+  }
+
+  .servicesContainer {
+    width: 75%;
+  }
+
+  /* promotions section */
+  .promoImgDiv {
+    margin: 0 auto;
+  }
+
   .cardDiv {
     width: 47%;
     position: unset;
@@ -1668,31 +1695,28 @@ button:focus-visible {
     font-size: 6rem;
   }
 
-  .contactImgCol img {
+  /* .contactImgCol img {
     height: 70%;
     margin-top: 5rem;
-  }
-
-  .contactTextCol {
-    margin-top: 5rem;
-  }
+  } */
 
   .contactIconsDiv {
-    top: 39.24vmin;
+    top: 36.24vmin;
   }
 
   .contactTextCol {
-    margin-left: 30px;
+    margin-left: 2.5rem;
+    max-width: 54vw;
   }
 
   .whiteLine {
     width: 74vw;
-    left: -40.6vmin;
+    left: -27.6vmin;
   }
 
   .contactList {
-    width: 77%;
-    margin-left: -1.5rem;
+    width: 88%;
+    margin-left: 3.5rem;
   }
 
   .contactSocialIcons {
@@ -1701,13 +1725,14 @@ button:focus-visible {
 
   .whiteText {
     width: 85%;
-  }
-
-  .teamSection {
-    margin-top: 0;
+    margin-left: 3rem;
   }
 
   .textCol {
     margin-top: 10rem;
+  }
+
+  .yellowTitle {
+    margin-left: 3rem;
   }
 }

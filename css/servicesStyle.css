@@ -616,7 +616,7 @@ p {
   }
 }
 
-@media only screen and (min-width: 1300px) {
+/* @media only screen and (min-width: 1300px) {
   .servicesLogo {
     max-width: 80%;
   }
@@ -626,5 +626,11 @@ p {
 
   .intro__content {
     bottom: 35%;
+  }
+} */
+
+@media (min-width: 1500px) and (max-width: 2000px) {
+  .navbarDesk {
+    margin-top: 0;
   }
 }
