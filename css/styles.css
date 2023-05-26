@@ -74,8 +74,7 @@ button:focus-visible {
   height: 100vh;
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-x: scroll;
 }
 
 .mobileMainContainer {
@@ -826,6 +825,12 @@ button:focus-visible {
   margin-right: -3rem;
 }
 
+.servicesBtnDesk {
+  display: block !important;
+  margin: unset !important;
+  position: unset !important;
+}
+
 /* on scroll animation style */
 
 .reveal {
@@ -1476,7 +1481,7 @@ button:focus-visible {
 
 /* ======================= standard desktop screens - horizontal scrolling  ===================================*/
 
-@media (min-width: 992px) and (max-width: 1499px) {
+@media (min-width: 992px) and (max-width: 1299px) {
   .navBar {
     width: 93vw;
     left: 6vmin;
@@ -1616,6 +1621,132 @@ button:focus-visible {
 }
 
 /* //////////////////////////// */
+
+@media (min-width: 1300px) and (max-width: 1499px) {
+  .hideOnMobile {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  .heroHeadingDiv {
+    margin-top: 60rem;
+  }
+
+  .logo {
+    max-width: 80%;
+  }
+  .navbarDesk {
+    width: 96vw;
+    margin-left: -14rem;
+  }
+
+  .hideOnDesktop {
+    display: none;
+  }
+
+  .teamContainer {
+    width: 95vw;
+    margin-left: 15rem;
+    margin-top: 10rem;
+  }
+
+  .teamSection {
+    margin-top: 0;
+  }
+
+  .blackTitle {
+    font-size: 2rem;
+  }
+
+  .teamText {
+    margin-top: 0rem;
+    font-size: 17px;
+    line-height: 16px;
+    width: 82%;
+  }
+
+  .teamList {
+    margin-top: 0rem;
+  }
+
+  .teamImg {
+    height: 58%;
+  }
+
+  .servicesContainer {
+    width: 95%;
+  }
+
+  .imgColImg {
+    height: auto;
+  }
+
+  .textCol {
+    margin-top: 7rem;
+    margin-left: -7rem;
+  }
+
+  .textCol img {
+    height: 34%;
+  }
+
+  .textArea {
+    margin-top: 1rem;
+  }
+
+  .servicesHeading {
+    font-size: 1.5rem;
+    line-height: 20px;
+    margin: 19px 0;
+  }
+
+  /* promotions section */
+  .promoImgDiv {
+    background-color: var(--yellow);
+    margin: -16rem auto;
+    height: 100vh;
+  }
+
+  .promoImg {
+    max-width: 54%;
+  }
+
+  .cardDiv {
+    margin: -11rem 25rem;
+  }
+
+  .cardBg {
+    height: 26rem;
+  }
+
+  .linesSlide1 {
+    left: 29.6rem;
+  }
+  .linesSlide2 {
+    left: 26.6rem;
+    top: 0;
+  }
+  .linesSlide3 {
+    left: 26.6rem;
+    top: 0;
+  }
+
+  .contactImgCol img {
+    height: 59%;
+    margin-top: 14rem;
+  }
+
+  .contactTextCol {
+    margin-left: 2rem;
+    top: 42vmin;
+  }
+
+  .whiteLine {
+    width: 77vw;
+  }
+}
+
+/* ////////////////////////// */
 
 @media (min-width: 1500px) and (max-width: 2000px) {
   .logo {
