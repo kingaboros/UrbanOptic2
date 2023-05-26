@@ -129,6 +129,13 @@ button:focus-visible {
   padding-top: 10px;
 }
 
+.servicesLogo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding-top: 10px;
+}
+
 .logo-yellow {
   content: url('/img/logo-light.png');
 }
@@ -137,7 +144,7 @@ button:focus-visible {
 }
 
 .navbarDesk {
-  margin-top: -1rem;
+  margin-top: 0rem;
   padding-right: 0;
 }
 
@@ -953,6 +960,14 @@ button:focus-visible {
 /* vertical scrolling */
 
 /* ============================================== mobile devices =====================================*/
+
+@media all and (max-width: 991px) {
+  .servicesLogo {
+    width: 60%;
+    margin-top: -0.5rem;
+  }
+}
+
 @media all and (max-width: 767px) {
   section {
     opacity: 1 !important;
@@ -975,6 +990,10 @@ button:focus-visible {
   .mobileMenuLogo {
     display: block;
     margin-top: -4rem;
+  }
+
+  .mobileMenu {
+    top: -6.47rem;
   }
 
   .closeIcon {
@@ -1237,9 +1256,9 @@ button:focus-visible {
     display: none;
   }
 
-  .mobileMenu {
+  /* .mobileMenu {
     top: -7.8rem;
-  }
+  } */
 
   .closeIcon {
     display: flex;
@@ -1486,12 +1505,18 @@ button:focus-visible {
     width: 93vw;
     left: 6vmin;
   }
+
+  .servicesLogo {
+    max-width: 10rem;
+    margin-left: -10rem;
+  }
+
   .navbarDesk {
-    margin-right: -3rem;
+    margin-right: 2rem;
   }
 
   .desktopMenu {
-    width: auto;
+    width: 100%;
   }
   .heroHeadingDiv {
     margin: 60rem 0 0 -12rem;
@@ -1615,20 +1640,16 @@ button:focus-visible {
 
   .hideOnMobile {
     display: block;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100vw;
-  }
-
-  section {
-    flex-direction: unset !important;
   }
 }
 
 /* //////////////////////////// */
 
 @media (min-width: 1300px) and (max-width: 1499px) {
-  section {
-    flex-direction: unset !important;
+  .servicesLogo {
+    max-width: 80%;
   }
 
   .hideOnMobile {
@@ -1757,10 +1778,6 @@ button:focus-visible {
 /* ////////////////////////// */
 
 @media (min-width: 1500px) and (max-width: 2000px) {
-  section {
-    flex-direction: unset !important;
-  }
-
   .logo {
     max-width: 80%;
   }
@@ -1773,6 +1790,12 @@ button:focus-visible {
     display: block;
     height: auto;
     width: 100%;
+  }
+
+  .navbarDesk {
+    margin-top: 0rem;
+    width: 90vw;
+    margin-inline: -6rem;
   }
 
   .desktopMenu {

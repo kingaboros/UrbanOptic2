@@ -99,43 +99,11 @@ p {
   left: 16rem;
 }
 
-.servicesLogo {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  padding-top: 10px;
-}
-
 .logo-yellow {
   content: url('/img/logo-light.png');
 }
 .logo-dark {
   content: url('/img/logo-dark.png');
-}
-
-.navbarDesk {
-  margin-top: -5rem;
-}
-
-.desktopMenu {
-  display: flex;
-  justify-content: space-around;
-  width: 40%;
-  align-content: flex-end;
-  float: right;
-  list-style: none;
-}
-
-.desktopMenu a {
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
-  color: var(--black);
-}
-
-.desktopMenu a:hover {
-  color: var(--grey);
 }
 
 .active {
@@ -259,10 +227,6 @@ p {
   align-items: stretch;
   height: 100vh;
   overflow: hidden;
-}
-
-.slide:nth-of-type(even) {
-  background: #c4cdc4;
 }
 
 /*  Columns
@@ -458,7 +422,7 @@ p {
   color: white;
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 991px) {
   .header {
     position: fixed;
     left: 24px;
@@ -468,15 +432,6 @@ p {
     left: 0;
     width: 100%;
     background-color: transparent;
-  }
-
-  .navbarDesk {
-    margin-top: -1rem;
-  }
-
-  .servicesLogo {
-    max-width: 70%;
-    margin-left: 1rem;
   }
 
   .stage {
@@ -490,10 +445,6 @@ p {
   /* .logo {
     margin-left: -10rem;
   } */
-  .servicesLogo {
-    width: 60%;
-    margin-top: -0.5rem;
-  }
 
   .intro {
     margin-top: -6rem;
@@ -547,7 +498,7 @@ p {
 
   .col__content {
     width: 100%;
-    height: auto;
+    height: fit-content;
     padding: -1vw 6vw 6vw;
   }
 
@@ -564,7 +515,7 @@ p {
   .col__content-txt {
     order: 1;
     max-width: 100vw;
-    margin: 0 0 10vw 0vw;
+    margin: 3vw 0 5vw 0vw;
   }
 
   .slide-link {
@@ -585,7 +536,7 @@ p {
   }
 
   .footer__link img {
-    margin-bottom: 8rem;
+    margin-bottom: 16rem;
   }
 
   .footer__link-top {
@@ -595,43 +546,12 @@ p {
   }
 }
 
-/* tablets and small desktop screens */
-@media (min-width: 768px) and (max-width: 991px) {
-  .navBar {
-    left: 0;
-    width: 100%;
-    background-color: transparent;
-  }
-
-  .navbarDesk {
-    margin-top: -1rem;
-  }
-
-  .servicesLogo {
-    max-width: 70%;
-    margin-left: 1rem;
-  }
-
-  .intro {
-    height: 100vh !important;
-    margin-top: -4rem;
-  }
-
-  .intro__title {
-    font-size: 7rem;
-  }
-}
-
 @media (min-width: 992px) and (max-width: 1299px) {
   .header {
     left: -97px;
     top: 1px;
     z-index: 100;
     width: 94vw;
-  }
-
-  .desktopMenu {
-    width: 50%;
   }
 
   .intro__title {
@@ -655,9 +575,6 @@ p {
 }
 
 @media (min-width: 1300px) and (max-width: 1499px) {
-  .servicesLogo {
-    max-width: 80%;
-  }
   .logo {
     width: 15%;
   }
@@ -668,13 +585,4 @@ p {
 }
 
 @media (min-width: 1500px) and (max-width: 2000px) {
-  .navbarDesk {
-    margin-top: 0rem;
-    width: 90vw;
-    margin-inline: -6rem;
-  }
-
-  .desktopMenu {
-    width: 100%;
-  }
 }

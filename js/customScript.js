@@ -1,5 +1,7 @@
 let scrollTimeout = null; // Variable to store the scroll timeout
 const sections = document.querySelectorAll('section');
+const mainContainer = document.querySelector('.mainContainer');
+const supportsPassive = eventListenerOptionsSupported();
 
 function scrollHorizontal(e) {
   if (window.innerWidth >= 992) {
@@ -108,12 +110,25 @@ function scrollHorizontal(e) {
 }
 
 function scrollVertical(e) {
-  if (window.innerWidth < 992) {
-    e = window.event || e;
-    let delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
-    const mainContainer = document.querySelector('.mainContainer');
-    const currentScrollTop = mainContainer.scrollTop;
+  const isMobile = window.innerWidth < 992;
+  const mainContainer = document.querySelector('.mainContainer');
+  const currentScrollTop = mainContainer.scrollTop;
 
+  let delta;
+
+  if (isMobile) {
+    // Touch-based scrolling
+    if (e.touches.length > 0) {
+      const touch = e.touches[0];
+      delta = touch.pageY - currentScrollTop;
+    }
+  } else {
+    // Mouse wheel scrolling
+    e = window.event || e;
+    delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
+  }
+
+  if (delta) {
     clearTimeout(scrollTimeout); // Clear any existing scroll timeout
 
     let targetSection = null;
@@ -210,12 +225,12 @@ function scrollVertical(e) {
     mainContainer.classList.add('mobileMainContainer');
   }
 
-  let prevScrollPos = window.pageYOffset;
+  let prevScrollPos = currentScrollTop;
   let menu = document.getElementById('menu');
   let menuLinks = menu.getElementsByTagName('a');
 
   if (window.innerWidth >= 992) {
-    if (prevScrollPos > currentScrollPos) {
+    if (prevScrollPos > currentScrollTop) {
       // User is scrolling up, show the menu
       menu.style.top = '0';
     } else {
@@ -227,7 +242,7 @@ function scrollVertical(e) {
     menu.style.top = '0';
   }
 
-  prevScrollPos = currentScrollPos;
+  prevScrollPos = currentScrollTop;
 
   // Prevent default behavior for menu links
   for (let i = 0; i < menuLinks.length; i++) {
@@ -235,6 +250,39 @@ function scrollVertical(e) {
       event.preventDefault();
     });
   }
+}
+
+// Add event listeners for touch and wheel events
+
+if (supportsPassive) {
+  mainContainer.addEventListener('touchstart', scrollVertical, {
+    passive: true,
+  });
+  mainContainer.addEventListener('touchmove', scrollVertical, {
+    passive: true,
+  });
+} else {
+  mainContainer.addEventListener('touchstart', scrollVertical, false);
+  mainContainer.addEventListener('touchmove', scrollVertical, false);
+}
+
+mainContainer.addEventListener('wheel', scrollVertical, { passive: false });
+
+// Helper function to check if the browser supports passive event listeners
+function eventListenerOptionsSupported() {
+  let supported = false;
+
+  try {
+    const opts = Object.defineProperty({}, 'passive', {
+      get: function () {
+        supported = true;
+      },
+    });
+
+    window.addEventListener('test', null, opts);
+  } catch (e) {}
+
+  return supported;
 }
 
 // function scrollVertical(e) {
@@ -353,7 +401,7 @@ function updateHash(sectionID) {
 }
 
 // Attach the scroll event listener to the window
-const mainContainer = document.querySelector('.mainContainer');
+
 if (mainContainer.addEventListener) {
   if (window.innerWidth >= 992) {
     mainContainer.addEventListener('wheel', scrollHorizontal, false);
