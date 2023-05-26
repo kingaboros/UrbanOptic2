@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- google fonts start -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,91 +31,117 @@
     />
 
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/servicesStyle.css" />
 
     <title>Programări | Urban Optic</title>
   </head>
-  <body class="appBody">
-    <div id="menu" class="navBar clearfix">
-      <nav class="navbarDesk navbar navbar-expand-lg">
-        <a href="index.html">
-          <img id="logo" class="logo" src="./img/logo-light.png" alt="logo" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="navbar-toggler-icon fa-solid fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <div>
-            <i class="fa-regular closeIcon" id="closeMenu">x</i>
+  <body>
+    <header class="header">
+      <div id="menu" class="navBar clearfix">
+        <nav class="navbarDesk navbar navbar-expand-lg">
+          <a href="index.html">
             <img
-              class="mobileMenuLogo"
-              src="./img/logo-mobile-menu.png"
-              alt="mobile-logo"
+              id="logo"
+              class="servicesLogo"
+              src="./img/logo-light.png"
+              alt="logo"
             />
-            <ul class="navbar-nav desktopMenu">
-              <li class="nav-item">
-                <a class="nav-link aboutLink" href="index.html#about"
-                  >Despre noi</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link servicesLink" href="index.html#services"
-                  >Servicii</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link promoLink" href="index.html#promo"
-                  >Promoții</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link contactLink" href="index.html#contact"
-                  >Contact</a
-                >
-              </li>
-              <li>
-                <button id="navBtn" class="menuBtn">
-                  <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
-                </button>
-              </li>
-            </ul>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="navbar-toggler-icon fa-solid fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
             <div>
-              <ul class="mobileMenuSocials">
-                <li class="menuSocialIcons">
-                  <a href="https://www.facebook.com/" target="_blank"
-                    ><img src="./img/facebook.png" alt="facebook"
-                  /></a>
+              <i class="fa-regular closeIcon" id="closeMenu">x</i>
+              <img
+                class="mobileMenuLogo"
+                src="./img/logo-mobile-menu.png"
+                alt="mobile-logo"
+              />
+              <ul class="navbar-nav desktopMenu">
+                <li class="nav-item">
+                  <a class="nav-link aboutLink" href="index.html#about"
+                    >Despre noi</a
+                  >
                 </li>
-                <li class="menuSocialIcons">
-                  <a href="https://www.instagram.com/" target="_blank">
-                    <img src="./img/instagram.png" alt="instagram" />
-                  </a>
+                <li class="nav-item">
+                  <a class="nav-link servicesLink" href="index.html#services"
+                    >Servicii</a
+                  >
                 </li>
-                <li class="menuSocialIcons">
-                  <a href="https://www.linkedin.com/" target="_blank">
-                    <img src="./img/linkedin.png" alt="linkedin"
-                  /></a>
+                <li class="nav-item">
+                  <a class="nav-link promoLink" href="index.html#promo"
+                    >Promoții</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link contactLink" href="index.html#contact"
+                    >Contact</a
+                  >
+                </li>
+                <li>
+                  <button id="navBtn" class="menuBtn">
+                    <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
+                  </button>
                 </li>
               </ul>
+              <div>
+                <ul class="mobileMenuSocials">
+                  <li class="menuSocialIcons">
+                    <a href="https://www.facebook.com/" target="_blank"
+                      ><img src="./img/facebook.png" alt="facebook"
+                    /></a>
+                  </li>
+                  <li class="menuSocialIcons">
+                    <a href="https://www.instagram.com/" target="_blank">
+                      <img src="./img/instagram.png" alt="instagram" />
+                    </a>
+                  </li>
+                  <li class="menuSocialIcons">
+                    <a href="https://www.linkedin.com/" target="_blank">
+                      <img src="./img/linkedin.png" alt="linkedin"
+                    /></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
-    </div>
-    <div class="appTitleSection">
-      <div class="titleDiv">
-        <h1 class="introTitle">Programarea dvs. este deja anulată.</h1>
+        </nav>
       </div>
-      <img class="introImg introImg1" src="./img/urban-optic2.jpg" />
-      <img class="introImg introImg2" src="./img/urban-optic1.jpg" />
+      <a href="#" class="nav-btn"></a>
+    </header>
+    <div id="smooth-wrapper">
+      <div class="stage" id="smooth-content">
+        <div class="intro slide--0" id="slide-0">
+          <div class="intro__content introContentApp">
+            <h1 class="intro__title introTitle">
+              Programarea dvs. este deja anulată
+            </h1>
+          </div>
+          <img class="intro__img intro__img--1" src="./img/urban-optic2.jpg" />
+          <img class="intro__img intro__img--2" src="./img/urban-optic1.jpg" />
+        </div>
+      </div>
     </div>
-    <script src="./js/customScript.js"></script>
+
+    <!-- GSAP plugin  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/TextPlugin.min.js"></script>
+    <script src="./js/ScrollToPlugin.min.js"></script>
+    <script src="./js/ScrollTrigger.min.js"></script>
+    <!-- GSAP plugin  -->
+
+    <script src="./js/servicesScript.js"></script>
+    <script src="./js/hamburgerMenu.js"></script>
   </body>
 </html>

@@ -190,6 +190,14 @@ p {
   z-index: 3;
 }
 
+.introContentApp {
+  right: 4%;
+  bottom: 48%;
+  z-index: 3;
+  height: auto;
+  width: 48vw;
+}
+
 .intro__title {
   font-weight: 900;
   font-size: 200px;
@@ -197,6 +205,12 @@ p {
   overflow: hidden;
   letter-spacing: -0.4vw;
   padding-right: 2.3vw;
+}
+
+.introTitle {
+  font-size: 5rem;
+  letter-spacing: normal;
+  padding: 0.5rem;
 }
 
 .intro__img {
