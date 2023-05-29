@@ -1,7 +1,17 @@
-let scrollTimeout = null; // Variable to store the scroll timeout
 const sections = document.querySelectorAll('section');
 const mainContainer = document.querySelector('.mainContainer');
 const supportsPassive = eventListenerOptionsSupported();
+
+let scrollTimeout = null; // Variable to store the scroll timeout
+let currentScrollTop2 =
+  window.pageYOffset || document.documentElement.scrollTop;
+let prevScrollPos = currentScrollTop2;
+let menu = document.getElementById('menu');
+let menuItems = menu.getElementsByTagName('a');
+let isTouchDevice =
+  'ontouchstart' in window ||
+  navigator.maxTouchPoints > 0 ||
+  navigator.msMaxTouchPoints > 0;
 
 function scrollHorizontal(e) {
   if (window.innerWidth >= 992) {
@@ -17,28 +27,25 @@ function scrollHorizontal(e) {
 
     if (delta > 0) {
       // Scrolling to the right
-      delta = 1; // Set delta to 1 when scrolling to the right
       for (let i = 0; i < sections.length; i++) {
         const section = sections[i];
         const sectionStart = section.offsetLeft;
-        const sectionEnd = section.offsetLeft + section.offsetWidth;
 
-        if (sectionStart >= currentScrollLeft + mainContainer.clientWidth) {
+        if (sectionStart > currentScrollLeft) {
           targetSection = section;
-          targetPosition = sectionEnd - mainContainer.clientWidth;
+          targetPosition = sectionStart;
           break;
         }
       }
     } else {
       // Scrolling to the left
-      delta = -1; // Set delta to -1 when scrolling to the left
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
-        const sectionStart = section.offsetLeft;
+        const sectionEnd = section.offsetLeft + section.offsetWidth;
 
-        if (sectionStart < currentScrollLeft) {
+        if (sectionEnd <= currentScrollLeft + mainContainer.clientWidth) {
           targetSection = section;
-          targetPosition = sectionStart - mainContainer.clientWidth;
+          targetPosition = sectionEnd - mainContainer.clientWidth;
           break;
         }
       }
@@ -94,7 +101,7 @@ function scrollHorizontal(e) {
 
             // Check if scrolled to the promo section and call liftPromotions
             if (sectionID === 'promo') {
-              liftPromotions('promo');
+              liftPromotions('');
             }
           } else {
             requestAnimationFrame(animateScroll);
@@ -110,15 +117,13 @@ function scrollHorizontal(e) {
 }
 
 function scrollVertical(e) {
-  const isMobile = window.innerWidth < 992;
-  const mainContainer = document.querySelector('.mainContainer');
-  const currentScrollTop = mainContainer.scrollTop;
-
   let delta;
+  const currentScrollTop = mainContainer.scrollTop;
+  const isMobile = window.innerWidth < 992;
 
   if (isMobile) {
     // Touch-based scrolling
-    if (e.touches.length > 0) {
+    if (e.touches && e.touches.length > 0) {
       const touch = e.touches[0];
       delta = touch.pageY - currentScrollTop;
     }
@@ -225,12 +230,8 @@ function scrollVertical(e) {
     mainContainer.classList.add('mobileMainContainer');
   }
 
-  let prevScrollPos = currentScrollTop;
-  let menu = document.getElementById('menu');
-  let menuLinks = menu.getElementsByTagName('a');
-
   if (window.innerWidth >= 992) {
-    if (prevScrollPos > currentScrollTop) {
+    if (prevScrollPos > currentScrollTop2) {
       // User is scrolling up, show the menu
       menu.style.top = '0';
     } else {
@@ -242,31 +243,57 @@ function scrollVertical(e) {
     menu.style.top = '0';
   }
 
-  prevScrollPos = currentScrollTop;
+  prevScrollPos = currentScrollTop2;
 
   // Prevent default behavior for menu links
-  for (let i = 0; i < menuLinks.length; i++) {
-    menuLinks[i].addEventListener('click', function (event) {
+  for (let i = 0; i < menuItems.length; i++) {
+    menuItems[i].addEventListener('click', function (event) {
       event.preventDefault();
     });
   }
 }
 
-// Add event listeners for touch and wheel events
-
-if (supportsPassive) {
-  mainContainer.addEventListener('touchstart', scrollVertical, {
-    passive: true,
-  });
-  mainContainer.addEventListener('touchmove', scrollVertical, {
-    passive: true,
-  });
-} else {
-  mainContainer.addEventListener('touchstart', scrollVertical, false);
-  mainContainer.addEventListener('touchmove', scrollVertical, false);
+function handleTouchMove(event) {
+  if (isTouchDevice) {
+    if (event.touches[0].clientY < prevTouchY) {
+      // User is scrolling down, hide the menu
+      menu.style.top = '-130px'; // Adjust this value based on your menu height
+    } else {
+      // User is scrolling up, show the menu
+      menu.style.top = '0';
+    }
+    prevTouchY = event.touches[0].clientY;
+  }
 }
 
-mainContainer.addEventListener('wheel', scrollVertical, { passive: false });
+// Add the scroll event listener
+window.addEventListener('scroll', scrollVertical);
+
+// Add touch event listeners
+let prevTouchY = 0;
+window.addEventListener('touchmove', handleTouchMove);
+
+// Add event listeners for touch and wheel events
+
+if (window.innerWidth >= 992) {
+  mainContainer.addEventListener('wheel', scrollHorizontal, {
+    passive: false,
+  });
+} else {
+  if (supportsPassive) {
+    mainContainer.addEventListener('touchstart', scrollVertical, {
+      passive: true,
+    });
+    mainContainer.addEventListener('touchmove', scrollVertical, {
+      passive: true,
+    });
+  } else {
+    mainContainer.addEventListener('touchstart', scrollVertical, false);
+    mainContainer.addEventListener('touchmove', scrollVertical, false);
+  }
+
+  mainContainer.addEventListener('wheel', scrollVertical, { passive: false });
+}
 
 // Helper function to check if the browser supports passive event listeners
 function eventListenerOptionsSupported() {
@@ -284,110 +311,6 @@ function eventListenerOptionsSupported() {
 
   return supported;
 }
-
-// function scrollVertical(e) {
-//   if (window.innerWidth < 992) {
-//     e = window.event || e;
-//     let delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
-//     const mainContainer = document.querySelector('.mainContainer');
-//     const currentScrollTop = mainContainer.scrollTop;
-
-//     clearTimeout(scrollTimeout); // Clear any existing scroll timeout
-
-//     let targetSection = null;
-//     let targetPosition = null;
-
-//     if (delta > 0) {
-//       // Scrolling up
-//       for (let i = 0; i < sections.length; i++) {
-//         const section = sections[i];
-//         const sectionStart = section.offsetTop;
-
-//         if (sectionStart > currentScrollTop) {
-//           targetSection = section;
-//           targetPosition = sectionStart;
-//           break;
-//         }
-//       }
-//     } else {
-//       // Scrolling down
-//       for (let i = sections.length - 1; i >= 0; i--) {
-//         const section = sections[i];
-//         const sectionEnd = section.offsetTop + section.offsetHeight;
-
-//         if (sectionEnd <= currentScrollTop + mainContainer.clientHeight) {
-//           targetSection = section;
-//           targetPosition = sectionEnd - mainContainer.clientHeight;
-//           break;
-//         }
-//       }
-//     }
-
-//     if (targetSection) {
-//       const scrollDelay = 100; // Adjust the scroll delay as needed
-
-//       scrollTimeout = setTimeout(() => {
-//         const animateScroll = () => {
-//           const distance = targetPosition - mainContainer.scrollTop;
-//           const scrollStep =
-//             delta > 0 ? Math.ceil(distance / 10) : Math.floor(distance / 10);
-
-//           mainContainer.scrollTop += scrollStep;
-
-//           // Stop the scroll animation when reaching the target position
-//           if (
-//             (delta > 0 && mainContainer.scrollTop >= targetPosition) ||
-//             (delta < 0 && mainContainer.scrollTop <= targetPosition)
-//           ) {
-//             clearTimeout(scrollTimeout);
-
-//             // Update the section ID in the URL hash
-//             const sectionID = targetSection.getAttribute('id');
-//             if (sectionID) {
-//               updateHash(sectionID);
-
-//               // Reset the hash if the target section has an ID of "home"
-//               if (sectionID === 'home') {
-//                 updateHash('');
-//               }
-//             }
-
-//             // Add activeSection class to the visible section
-//             sections.forEach((section) => {
-//               if (section === targetSection) {
-//                 section.classList.add('activeSection');
-//               } else {
-//                 section.classList.remove('activeSection');
-//               }
-//             });
-
-//             // Add active class to the menu links
-//             const menuLinks = document.querySelectorAll('.desktopMenu a');
-//             menuLinks.forEach((link) => {
-//               const linkTarget = link.getAttribute('href');
-//               if (linkTarget === `#${sectionID}`) {
-//                 link.classList.add('active');
-//               } else {
-//                 link.classList.remove('active');
-//               }
-//             });
-
-//             // Check if scrolled to the promo section and call liftPromotions
-//             if (sectionID === 'promo') {
-//               liftPromotions('');
-//             }
-//           } else {
-//             requestAnimationFrame(animateScroll);
-//           }
-//         };
-
-//         animateScroll();
-//       }, scrollDelay);
-//     }
-
-//     mainContainer.classList.add('mobileMainContainer');
-//   }
-// }
 
 function updateHash(sectionID) {
   if (sectionID) {
@@ -889,30 +812,6 @@ heroContactBtn.addEventListener('click', function () {
 let currentYear = new Date().getFullYear();
 let copyrightText = document.getElementById('currentYear');
 copyrightText.textContent = 'Copyright © ' + currentYear + ' | Urban Optic';
-
-// hide navbar when the user scrolls down
-// let prevScrollPos = window.pageYOffset;
-// let menu = document.getElementById('menu');
-
-// window.onscroll = function () {
-//   let currentScrollPos = window.pageYOffset;
-//   let windowWidth = window.innerWidth;
-
-//   if (windowWidth >= 992) {
-//     if (prevScrollPos > currentScrollPos) {
-//       // User is scrolling up, show the menu
-//       menu.style.top = '0';
-//     } else {
-//       // User is scrolling down, hide the menu
-//       menu.style.top = '-130px'; // Adjust this value based on your menu height
-//     }
-//   } else {
-//     // For screen sizes less than 992px, always show the menu
-//     menu.style.top = '0';
-//   }
-
-//   prevScrollPos = currentScrollPos;
-// };
 
 // remove yellowBg for mobile and tablet
 

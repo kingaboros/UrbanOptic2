@@ -435,12 +435,18 @@ button:focus-visible {
   margin: 0 auto;
 }
 
+.teamLast {
+  height: 75%;
+  margin-top: 1.5rem;
+}
+
 .teamName {
   font-size: 22px;
   color: var(--black) !important;
   text-align: center;
   font-weight: 500;
   line-height: 27px;
+  text-transform: uppercase;
 }
 
 .teamRoles {
@@ -1301,9 +1307,11 @@ select option {
   .contactContainer {
     margin: 3rem auto;
   }
+
   .formContainer {
     margin: 2rem auto;
     display: flex;
+    justify-content: center;
   }
 
   .formContainer input,

@@ -1,0 +1,10 @@
+{
+  "employees": [
+    {
+      "name": "DIANA MORARU",
+      "role": "Co-fondator",
+      "secondaryRole": "Ing. Optometrist Specialist",
+      "profilePic": "./img/team/diana-moraru.png"
+    }
+  ]
+}
