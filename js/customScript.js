@@ -41,11 +41,11 @@ function scrollHorizontal(e) {
       // Scrolling to the left
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
-        const sectionEnd = section.offsetLeft + section.offsetWidth;
+        const sectionStart = section.offsetLeft;
 
-        if (sectionEnd <= currentScrollLeft + mainContainer.clientWidth) {
+        if (sectionStart < currentScrollLeft) {
           targetSection = section;
-          targetPosition = sectionEnd - mainContainer.clientWidth;
+          targetPosition = sectionStart - mainContainer.clientWidth;
           break;
         }
       }
@@ -128,285 +128,6 @@ function scrollHorizontal(e) {
   }
 }
 
-// function scrollVertical(e) {
-//   let delta;
-//   const currentScrollTop = mainContainer.scrollTop;
-//   const isMobile = window.innerWidth < 992;
-
-//   if (isMobile) {
-//     // Touch-based scrolling
-//     if (e.touches && e.touches.length > 0) {
-//       const touch = e.touches[0];
-//       delta = touch.pageY - currentScrollTop;
-//     }
-//   } else {
-//     // Mouse wheel scrolling
-//     e = window.event || e;
-//     delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
-//   }
-
-//   if (delta) {
-//     clearTimeout(scrollTimeout); // Clear any existing scroll timeout
-
-//     let targetSection = null;
-//     let targetPosition = null;
-
-//     if (delta > 0) {
-//       // Scrolling up
-//       for (let i = 0; i < sections.length; i++) {
-//         const section = sections[i];
-//         const sectionStart = section.offsetTop;
-
-//         if (sectionStart > currentScrollTop) {
-//           targetSection = section;
-//           targetPosition = sectionStart;
-//           break;
-//         }
-//       }
-//     } else {
-//       // Scrolling down
-//       for (let i = sections.length - 1; i >= 0; i--) {
-//         const section = sections[i];
-//         const sectionEnd = section.offsetTop + section.offsetHeight;
-
-//         if (sectionEnd <= currentScrollTop + mainContainer.clientHeight) {
-//           targetSection = section;
-//           targetPosition = sectionEnd - mainContainer.clientHeight;
-//           break;
-//         }
-//       }
-//     }
-
-//     if (targetSection) {
-//       const scrollDelay = 100; // Adjust the scroll delay as needed
-
-//       scrollTimeout = setTimeout(() => {
-//         const animateScroll = () => {
-//           const distance = targetPosition - mainContainer.scrollTop;
-//           const scrollStep =
-//             delta > 0 ? Math.ceil(distance / 10) : Math.floor(distance / 10);
-
-//           mainContainer.scrollTop += scrollStep;
-
-//           // Stop the scroll animation when reaching the target position
-//           if (
-//             (delta > 0 && mainContainer.scrollTop >= targetPosition) ||
-//             (delta < 0 && mainContainer.scrollTop <= targetPosition)
-//           ) {
-//             clearTimeout(scrollTimeout);
-
-//             // Update the section ID in the URL hash
-//             const sectionID = targetSection.getAttribute('id');
-//             if (sectionID) {
-//               updateHash(sectionID);
-
-//               // Reset the hash if the target section has an ID of "home"
-//               if (sectionID === 'home') {
-//                 updateHash('');
-//               }
-//             }
-
-//             // Add activeSection class to the visible section
-//             sections.forEach((section) => {
-//               if (section === targetSection) {
-//                 section.classList.add('activeSection');
-//               } else {
-//                 section.classList.remove('activeSection');
-//               }
-//             });
-
-//             // Add active class to the menu links
-//             const menuLinks = document.querySelectorAll('.desktopMenu a');
-//             menuLinks.forEach((link) => {
-//               const linkTarget = link.getAttribute('href');
-//               if (linkTarget === `#${sectionID}`) {
-//                 link.classList.add('active');
-//               } else {
-//                 link.classList.remove('active');
-//               }
-//             });
-
-//             // Check if scrolled to the promo section and call liftPromotions
-//             if (sectionID === 'promo') {
-//               liftPromotions('promo');
-//             }
-//           } else {
-//             requestAnimationFrame(animateScroll);
-//           }
-//         };
-
-//         animateScroll();
-//       }, scrollDelay);
-//     }
-
-//     mainContainer.classList.add('mobileMainContainer');
-//   }
-
-//   if (window.innerWidth >= 992) {
-//     if (prevScrollPos > currentScrollTop2) {
-//       // User is scrolling up, show the menu
-//       menu.style.top = '0';
-//     } else {
-//       // User is scrolling down, hide the menu
-//       menu.style.top = '-130px'; // Adjust this value based on your menu height
-//     }
-//   } else {
-//     // For screen sizes less than 992px, always show the menu
-//     menu.style.top = '0';
-//   }
-
-//   prevScrollPos = currentScrollTop2;
-
-//   // Prevent default behavior for menu links
-//   for (let i = 0; i < menuItems.length; i++) {
-//     menuItems[i].addEventListener('click', function (event) {
-//       event.preventDefault();
-//     });
-//   }
-// }
-
-// function scrollVertical(e) {
-//   const isMobile = window.innerWidth < 992;
-
-//   if (!isMobile) {
-//     // Do not execute the scroll functionality for screens 992px and above
-//     return;
-//   }
-
-//   let delta;
-//   const currentScrollTop = mainContainer.scrollTop;
-
-//   if (e.touches && e.touches.length > 0) {
-//     // Touch-based scrolling
-//     const touch = e.touches[0];
-//     delta = touch.pageY - currentScrollTop;
-//   } else {
-//     // Mouse wheel scrolling
-//     e = window.event || e;
-//     delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
-//   }
-
-//   if (delta) {
-//     clearTimeout(scrollTimeout); // Clear any existing scroll timeout
-
-//     let targetSection = null;
-//     let targetPosition = null;
-
-//     if (delta > 0) {
-//       // Scrolling up
-//       for (let i = 0; i < sections.length; i++) {
-//         const section = sections[i];
-//         const sectionStart = section.offsetTop;
-
-//         if (sectionStart > currentScrollTop) {
-//           targetSection = section;
-//           targetPosition = sectionStart;
-//           break;
-//         }
-//       }
-//     } else {
-//       // Scrolling down
-//       for (let i = sections.length - 1; i >= 0; i--) {
-//         const section = sections[i];
-//         const sectionEnd = section.offsetTop + section.offsetHeight;
-
-//         if (sectionEnd <= currentScrollTop + mainContainer.clientHeight) {
-//           targetSection = section;
-//           targetPosition = sectionEnd - mainContainer.clientHeight;
-//           break;
-//         }
-//       }
-//     }
-
-//     if (targetSection) {
-//       const scrollDelay = 100; // Adjust the scroll delay as needed
-
-//       scrollTimeout = setTimeout(() => {
-//         const animateScroll = () => {
-//           const distance = targetPosition - mainContainer.scrollTop;
-//           const scrollStep =
-//             delta > 0 ? Math.ceil(distance / 10) : Math.floor(distance / 10);
-
-//           mainContainer.scrollTop += scrollStep;
-
-//           // Stop the scroll animation when reaching the target position
-//           if (
-//             (delta > 0 && mainContainer.scrollTop >= targetPosition) ||
-//             (delta < 0 && mainContainer.scrollTop <= targetPosition)
-//           ) {
-//             clearTimeout(scrollTimeout);
-
-//             // Update the section ID in the URL hash
-//             const sectionID = targetSection.getAttribute('id');
-//             if (sectionID) {
-//               updateHash(sectionID);
-
-//               // Reset the hash if the target section has an ID of "home"
-//               if (sectionID === 'home') {
-//                 updateHash('');
-//               }
-//             }
-
-//             // Add activeSection class to the visible section
-//             sections.forEach((section) => {
-//               if (section === targetSection) {
-//                 section.classList.add('activeSection');
-//               } else {
-//                 section.classList.remove('activeSection');
-//               }
-//             });
-
-//             // Add active class to the menu links
-//             const menuLinks = document.querySelectorAll('.desktopMenu a');
-//             menuLinks.forEach((link) => {
-//               const linkTarget = link.getAttribute('href');
-//               if (linkTarget === `#${sectionID}`) {
-//                 link.classList.add('active');
-//               } else {
-//                 link.classList.remove('active');
-//               }
-//             });
-
-//             // Check if scrolled to the promo section and call liftPromotions
-//             if (sectionID === 'promo') {
-//               liftPromotions('promo');
-//             }
-//           } else {
-//             requestAnimationFrame(animateScroll);
-//           }
-//         };
-
-//         animateScroll();
-//       }, scrollDelay);
-//     }
-
-//     mainContainer.classList.add('mobileMainContainer');
-//   }
-
-//   if (window.innerWidth <= 992) {
-//     // Show the menu when scrolling up or using touch
-//     if (
-//       delta < 0 ||
-//       (e.touches && e.touches.length > 0 && e.touches[0].clientY < prevTouchY)
-//     ) {
-//       menu.style.top = '0';
-//     } else {
-//       // Hide the menu when scrolling down
-//       menu.style.top = '-140px'; // Adjust this value based on your menu height
-//     }
-//   } else {
-//     // For screen sizes greater than 992px, always show the menu
-//     menu.style.top = '0';
-//   }
-
-//   // Prevent default behavior for menu links
-//   for (let i = 0; i < menuItems.length; i++) {
-//     menuItems[i].addEventListener('click', function (event) {
-//       event.preventDefault();
-//     });
-//   }
-// }
-
 function scrollVertical(e) {
   const isMobile = window.innerWidth < 992;
 
@@ -418,10 +139,10 @@ function scrollVertical(e) {
   let delta;
   const currentScrollTop = mainContainer.scrollTop;
 
-  if (e.touches && e.touches.length > 0) {
+  if (e.touches && e.touches.length < 0) {
     // Touch-based scrolling
     const touch = e.touches[0];
-    delta = touch.pageY - currentScrollTop;
+    delta = touch.pageY - prevTouchY;
   } else {
     // Mouse wheel scrolling
     e = window.event || e;
@@ -526,7 +247,7 @@ function scrollVertical(e) {
   }
 
   if (window.innerWidth <= 992) {
-    // Show the menu when scrolling up or using touch
+    // Show the menu when scrolling up or using touch in the upward direction
     if (
       delta < 0 ||
       (e.touches && e.touches.length > 0 && e.touches[0].clientY < prevTouchY)
@@ -642,6 +363,7 @@ if (mainContainer.addEventListener) {
 }
 
 // Add click event listener to menu links
+
 const menuLinks = document.querySelectorAll('.desktopMenu a');
 menuLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
@@ -685,6 +407,13 @@ menuLinks.forEach((link) => {
       // Check if scrolled to the promo section and call liftPromotions
       if (targetSectionID === 'promo') {
         liftPromotions('promo');
+      }
+
+      // Show the aboutDesk container if the target section is the about section
+      if (targetSectionID === 'about') {
+        const aboutDeskContainer = document.getElementById('aboutDesk');
+        aboutDeskContainer.style.display = 'block';
+        aboutDeskContainer.style.opacity = '1';
       }
     }
   });
@@ -1038,21 +767,30 @@ document.addEventListener('DOMContentLoaded', function () {
   const navbarMenu = document.querySelector('.navbar-collapse');
   const menuLinks = document.querySelectorAll('.navbar-nav .nav-link');
   const menuIcon = document.querySelector('#closeMenu');
+  const menu = document.querySelector('#menu');
 
   navbarToggler.addEventListener('click', function () {
     navbarMenu.classList.toggle('show');
     navbarMenu.classList.toggle('mobileMenu');
+
+    if (navbarMenu.classList.contains('show')) {
+      menu.style.top = '0';
+    } else {
+      menu.style.top = '0';
+    }
   });
 
   menuIcon.addEventListener('click', function () {
     navbarMenu.classList.remove('show');
     navbarMenu.classList.remove('mobileMenu');
+    menu.style.top = '0';
   });
 
   menuLinks.forEach(function (link) {
     link.addEventListener('click', function () {
       navbarMenu.classList.remove('show');
       navbarMenu.classList.remove('mobileMenu');
+      menu.style.top = '0';
     });
   });
 });
@@ -1074,15 +812,12 @@ function adjustMenuClasses() {
 
 // accordion
 
-// Get all the accordion items
 const accordionItems = document.querySelectorAll('.accordionItem');
 
-// Add click event listeners to each item
 accordionItems.forEach((item) => {
   const readMoreLink = item.querySelector('.accordionLink');
   const content = item.querySelector('.accordionContent');
 
-  // Toggle the visibility of content when the heading is clicked
   readMoreLink.addEventListener('click', () => {
     content.classList.toggle('showAccordion');
   });
@@ -1122,7 +857,6 @@ let copyrightText = document.getElementById('currentYear');
 copyrightText.textContent = 'Copyright © ' + currentYear + ' | Urban Optic';
 
 // remove yellowBg for mobile and tablet
-
 function removeYellowBg() {
   const screenWidth = window.innerWidth;
   const yellowBgSection = document.getElementById('promo');
@@ -1169,3 +903,47 @@ if (window.location.hash) {
     window.location.pathname + window.location.search
   );
 }
+
+////// typewritter intro text
+
+const greeting = 'Ne bucurăm să ne vedem!';
+const delay = 0.2;
+
+let i = 0;
+const typewriter = setInterval(() => {
+  document.getElementById('helloText').textContent = greeting.slice(0, i);
+  i++;
+  if (i > greeting.length) {
+    clearInterval(typewriter);
+  }
+}, delay);
+
+const hero = document.getElementById('heroTitle');
+
+setTimeout(function () {
+  hero.style = 'block';
+  hero.classList.add('fade-in');
+  setTimeout(function () {
+    hero.style.opacity = '1';
+  }, 1400);
+}, 1400);
+
+// appointment  button redirect
+
+let appBtns = document.querySelectorAll('.appBtn');
+appBtns.forEach(function (button) {
+  button.addEventListener('click', function () {
+    window.location.href =
+      'https://urbanoptic.programari.cloud.onlineservice.io/';
+  });
+});
+
+////// hero title animation
+const heroTitle = document.getElementById('heroTitle');
+
+// Hide the heroTitle element
+heroTitle.style.display = 'none';
+
+setTimeout(function () {
+  heroTitle.style.display = 'block';
+}, 7000);

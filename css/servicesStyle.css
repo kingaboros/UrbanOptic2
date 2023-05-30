@@ -96,14 +96,6 @@ p {
   pointer-events: none;
 }
 
-.navBar {
-  z-index: 180;
-  width: 80vw;
-  position: fixed;
-  top: 1rem;
-  left: 16rem;
-}
-
 .logo-yellow {
   content: url('/img/logo-light.png');
 }
@@ -424,6 +416,11 @@ p {
   font-family: 'Inter', sans-serif;
 }
 
+.footer__link-top:hover {
+  color: unset;
+  text-decoration: none;
+}
+
 .footer__link-top-line {
   position: absolute;
   top: -50px;
@@ -445,12 +442,6 @@ p {
   .header {
     position: fixed;
     left: 24px;
-  }
-
-  .navBar {
-    left: 0;
-    width: 100%;
-    background-color: transparent;
   }
 
   .stage {
@@ -604,4 +595,10 @@ p {
 }
 
 @media (min-width: 1500px) and (max-width: 2000px) {
+}
+
+.legalContainer {
+  display: block;
+  margin: 0 auto;
+  max-width: 1200px;
 }

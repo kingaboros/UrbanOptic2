@@ -84,8 +84,8 @@
                   >
                 </li>
                 <li>
-                  <button id="navBtn" class="menuBtn">
-                    <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
+                  <button id="navBtn" class="menuBtn appBtn">
+                    Programează-te
                   </button>
                 </li>
               </ul>
@@ -459,7 +459,7 @@
           <a class="footer__link-top" href="#slide-0"
             >Top<span class="footer__link-top-line"></span
           ></a>
-          <p class="footer__copyright">© 2023</p>
+          <p id="currentYear" class="footer__copyright"></p>
         </footer>
       </div>
     </div>
@@ -475,24 +475,9 @@
     <script src="./js/servicesScript.js"></script>
     <script src="./js/includeHTML.js"></script>
     <script src="./js/hamburgerMenu.js"></script>
+    <script src="./js/sharedScript.js"></script>
     <script>
       includeHTML();
-    </script>
-    <script>
-      let prevScrollPos = window.pageYOffset;
-      let menu = document.getElementById('menu');
-
-      window.onscroll = function () {
-        let currentScrollPos = window.pageYOffset;
-
-        if (prevScrollPos > currentScrollPos) {
-          menu.style.top = '0';
-        } else {
-          menu.style.top = '-130px';
-
-          prevScrollPos = currentScrollPos;
-        }
-      };
     </script>
   </body>
 </html>

@@ -70,8 +70,8 @@
                   <a class="nav-link contactLink" href="#contact">Contact</a>
                 </li>
                 <li>
-                  <button id="navBtn" class="menuBtn">
-                    <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
+                  <button id="navBtn" class="menuBtn appBtn">
+                    Programează-te
                   </button>
                 </li>
               </ul>
@@ -100,18 +100,22 @@
       </div>
       <section id="home" class="homeSection yellowBg activeSection">
         <div class="heroHeadingDiv">
-          <p class="heroSubtitle">Ne bucurăm să ne vedem!</p>
-          <h1 class="mainTitle heroTitleDiv">
-            URBAN<br />
-            <span class="blurredTitle">OPTI</span>
-          </h1>
-        </div>
-        <div class="glassesImg">
-          <img src="./img/glasses.png" alt="" />
+          <div class="typewritter">
+            <p class="heroSubtitle" id="helloText"></p>
+          </div>
+          <div id="heroTitle">
+            <h1 class="mainTitle heroTitleDiv">
+              URBAN<br />
+              <span class="blurredTitle">OPTI</span>
+            </h1>
+            <div class="glassesImg">
+              <img src="./img/glasses.png" alt="" />
+            </div>
+          </div>
         </div>
         <div class="heroBtnDiv">
-          <button id="heroContactBtn" class="heroContactBtn">
-            <i class="fa-solid fa-phone btnIcon"></i>Contactează-ne
+          <button id="heroContactBtn" class="heroContactBtn appBtn">
+            Programează-te
           </button>
         </div>
       </section>
@@ -452,50 +456,9 @@
                   nevoile tale vizuale. Poți să ne suni, să ne trimiți un mesaj
                   sau să ne vizitezi în magazinul nostru. Ne bucurăm să ne
                   vedem!
+                  <br />
+                  <button class="formBtn appBtn">Programează-te</button>
                 </p>
-                <div class="formContainer">
-                  <form action="">
-                    <div class="formGroup">
-                      <input
-                        class="inputWidth"
-                        type="text"
-                        placeholder="Nume"
-                      />
-                      <br />
-                      <input
-                        class="inputWidth"
-                        type="text"
-                        placeholder="Prenume"
-                      />
-                      <br />
-                      <input
-                        class="inputWidth"
-                        type="email"
-                        placeholder="Email"
-                      />
-                      <br />
-                      <select name="locations" id="locations">
-                        <option value="Locație">Locație</option>
-                        <option value="Ferdinand">Ferdinand</option>
-                        <option value="Flora">Flora</option>
-                      </select>
-                      <input type="date" placeholder="data" />
-                      <input type="time" placeholder="ora" />
-                      <br />
-                    </div>
-                    <div class="formGroup">
-                      <textarea
-                        class="inputWidth msgInput"
-                        name=""
-                        id=""
-                        rows="10"
-                        placeholder="Mesaj"
-                      ></textarea>
-                      <br />
-                    </div>
-                    <button class="formBtn">Trimite</button>
-                  </form>
-                </div>
                 <div class="inner-divider-ultra-half"></div>
                 <div class="contactIconsDiv">
                   <div class="whiteLine"></div>
@@ -505,19 +468,20 @@
                         <i
                           class="fa-sharp fa-solid fa-location-dot contactIcon"
                         ></i
-                        >Str. Strada , Nr. 16
+                        >Aleea Padin nr. 20-22, Parter, complex Flora<br />R.
+                        Ferdinand, str. Regele Ferdinand nr. 30
                       </p>
                     </li>
                     <li>
                       <p class="textItem">
-                        <i class="fa-solid fa-phone contactIcon"></i>+40 755 254
-                        658
+                        <i class="fa-solid fa-phone contactIcon"></i>0742 798075
+                        <br />0770 973042
                       </p>
                     </li>
                     <li>
                       <p class="textItem">
                         <i class="fa-sharp fa-solid fa-envelope contactIcon"></i
-                        >urbanoptic@office.com
+                        >flora@urbanotic.ro <br />ferdinand@urbanoptic.ro
                       </p>
                     </li>
                     <li class="contactSocialIcons">
@@ -551,42 +515,21 @@
               nevoile tale vizuale. Poți să ne suni, să ne trimiți un mesaj sau
               să ne vizitezi în magazinul nostru. Ne bucurăm să ne vedem!
             </p>
-            <div class="formContainer">
-              <form action="">
-                <input class="inputWidth" type="text" placeholder="Nume" />
-                <br />
-                <input class="inputWidth" type="text" placeholder="Prenume" />
-                <br />
-                <input class="inputWidth" type="email" placeholder="Email" />
-                <br />
-                <select name="locations" id="locations">
-                  <option value="Locație">Locație</option>
-                  <option value="Ferdinand">Ferdinand</option>
-                  <option value="Flora">Flora</option>
-                </select>
-                <input type="date" placeholder="data" />
-                <input type="time" placeholder="ora" />
-                <br />
-                <textarea
-                  class="inputWidth"
-                  name=""
-                  id=""
-                  rows="10"
-                  placeholder="Mesaj"
-                ></textarea>
-                <br />
-                <button class="formBtn">Trimite</button>
-              </form>
-            </div>
-            <button id="contactBtn" class="menuBtn contactBtn">
-              <i class="fa-solid fa-phone btnIcon"></i>
-              +40 755 254 658
+
+            <button id="contactBtn" class="menuBtn contactBtn appBtn">
+              Programează-te
             </button>
             <ul class="contactIconsList">
               <li>
                 <p class="contactTextIcon">
+                  <i class="fa-solid fa-phone contactIcon"></i>0742 798075
+                  <br />0770 973042
+                </p>
+              </li>
+              <li>
+                <p class="contactTextIcon">
                   <i class="fa-sharp fa-solid fa-envelope contactIconDark"></i
-                  >urbanoptic@office.com
+                  >flora@urbanotic.ro <br />ferdinand@urbanoptic.ro
                 </p>
               </li>
               <li>
@@ -594,7 +537,8 @@
                   <i
                     class="fa-sharp fa-solid fa-location-dot contactIconDark"
                   ></i
-                  >Str. Strada , Nr. 16
+                  >Aleea Padin nr. 20-22, Parter, complex Flora<br />R.
+                  Ferdinand, str. Regele Ferdinand nr. 30
                 </p>
               </li>
             </ul>

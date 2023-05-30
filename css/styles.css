@@ -52,6 +52,14 @@ button:focus-visible {
   animation-timing-function: ease;
 }
 
+/* #heroTitle {
+  display: none;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 1400s;
+  animation-timing-function: ease;
+} */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -141,7 +149,6 @@ button:focus-visible {
   z-index: 180;
   width: 80vw;
   position: fixed;
-  top: 1rem;
   left: 16rem;
 }
 
@@ -326,18 +333,35 @@ button:focus-visible {
 /* homepage */
 
 .heroHeadingDiv {
-  margin-top: 57rem;
+  margin-top: 0;
+}
+
+.typewritter {
+  width: 100%;
+  height: 100vh;
 }
 
 .heroSubtitle {
   font-weight: 300;
   font-size: 32px;
   line-height: 39px;
-  color: var(--black);
+  color: white;
   text-align: left;
   width: 100%;
   margin-bottom: -12rem;
   padding-left: 0.5rem;
+  animation: typing 1s steps(30, end);
+  position: relative;
+  top: 66rem;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .heroTitleDiv {
@@ -354,7 +378,7 @@ button:focus-visible {
 .blurredTitle {
   display: block;
   filter: blur(2px);
-  padding-left: 16rem;
+  padding-left: 24rem;
 }
 
 .glassesImg {
@@ -804,7 +828,7 @@ button:focus-visible {
 .contactTextCol {
   max-width: 809px;
   margin-left: 10rem;
-  top: 2vmin;
+  top: 10vmin;
 }
 
 .contactList {
@@ -1076,7 +1100,7 @@ select option {
 }
 
 .formBtn {
-  width: 7rem;
+  width: fit-content;
   height: 2rem;
   padding: 12px 18px;
   background-color: var(--yellow);
@@ -1088,6 +1112,7 @@ select option {
   line-height: 6px;
   transition: all 0.3s ease-in-out;
   border: none;
+  margin-top: 2rem;
 }
 
 /* --------------- Responsive --------------- */
@@ -1163,7 +1188,7 @@ select option {
 
   .heroHeadingDiv {
     display: block;
-    margin: 15rem 0 0 -3rem;
+    margin: 11rem auto 0;
   }
 
   .mainTitle {
@@ -1178,14 +1203,17 @@ select option {
     font-size: 14px;
     color: white;
     margin-bottom: -15px;
-    padding-left: 3px;
+    padding-left: 3.2rem;
+    top: 0rem;
   }
 
   .heroTitleDiv {
-    margin-top: 0;
+    margin-top: -48rem;
+    padding-left: 3rem;
   }
+
   .blurredTitle {
-    padding-left: 1.8rem;
+    padding-left: 3.5rem;
   }
 
   .glassesImg {
@@ -1424,9 +1452,9 @@ select option {
     display: none;
   }
 
-  /* .mobileMenu {
-    top: -7.8rem;
-  } */
+  .mobileMenu {
+    top: -7.48rem;
+  }
 
   .closeIcon {
     display: flex;
@@ -1449,7 +1477,7 @@ select option {
 
   .heroHeadingDiv {
     display: block;
-    margin: 34rem 0 0 -3rem;
+    margin: 87rem 0 0 -3rem;
   }
 
   .homeSection {
@@ -1463,23 +1491,33 @@ select option {
     line-height: 10rem;
   }
 
+  .typewritter {
+    position: absolute;
+    height: 100vh;
+    top: 13rem;
+    left: 6.4rem;
+  }
+
   .heroSubtitle {
     font-weight: 400;
     font-size: 1.5rem;
     color: white;
     margin-bottom: -15px;
-    padding-left: 3px;
+    padding-left: 2.3rem;
+    top: 1rem;
   }
 
   .heroTitleDiv {
-    margin-top: 0;
+    margin-top: -46rem;
+    padding-left: 2rem;
   }
+
   .blurredTitle {
-    padding-left: 1.8rem;
+    padding-left: 9.8rem;
   }
 
   .glassesImg {
-    right: -19.5rem;
+    right: -29.5rem;
     top: -23.5rem;
   }
 
@@ -2034,6 +2072,16 @@ select option {
     width: 100% !important;
   }
 
+  .aboutDesk {
+    top: -45rem;
+    left: -28rem;
+  }
+
+  .aboutTextBg {
+    width: 28vw;
+    height: 55vh;
+  }
+
   .textCol {
     margin-top: 14rem;
   }
@@ -2083,13 +2131,14 @@ select option {
     margin-top: 5rem;
   }
 
-  .contactIconsDiv {
-    top: 8.24vmin;
-  }
-
   .contactTextCol {
     margin-left: 2.5rem;
     max-width: 54vw;
+    top: 19vmin;
+  }
+
+  .contactIconsDiv {
+    top: 19.67vmin;
   }
 
   .whiteLine {
@@ -2098,12 +2147,13 @@ select option {
   }
 
   .contactList {
-    width: 88%;
+    width: 100%;
     margin-left: 3.5rem;
   }
 
   .contactSocialIcons {
-    margin-right: 0;
+    margin-right: -4rem;
+    padding-top: 0.6rem;
   }
 
   .whiteText {
