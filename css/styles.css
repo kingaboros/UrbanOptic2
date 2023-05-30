@@ -44,6 +44,29 @@ button:focus-visible {
   z-index: 9999;
 }
 
+#aboutDesk {
+  display: none;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+}
+
 #scrollableDiv {
   height: 78vh;
   overflow-y: scroll;
@@ -355,6 +378,27 @@ button:focus-visible {
   height: auto;
   width: 100vw !important;
   z-index: 28;
+}
+
+.aboutDesk {
+  position: relative;
+  top: -32rem;
+  margin-bottom: -23rem;
+  z-index: 30;
+  left: -14rem;
+}
+
+.aboutTextBg {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+  width: 40vw;
+  height: 10rem;
+  height: 70vh;
+}
+
+.aboutText {
+  width: 94% !important;
 }
 
 .aboutDescMobile {
@@ -970,6 +1014,16 @@ button:focus-visible {
   margin: 2rem 0 0 3rem;
 }
 
+.formContainer form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.formGroup {
+  flex-basis: 100%;
+  box-sizing: border-box;
+}
+
 .formContainer input,
 textarea,
 select {
@@ -1046,6 +1100,9 @@ select option {
   .servicesLogo {
     width: 60%;
     margin-top: -0.5rem;
+  }
+  .formContainer form {
+    display: block;
   }
 }
 
@@ -1332,6 +1389,11 @@ select option {
   input[type='time']::-webkit-calendar-picker-indicator {
     filter: unset;
   }
+
+  .teamLast {
+    margin-top: 1.4rem;
+    padding-left: 0.5rem;
+  }
 }
 
 /* ======================= tablets and small desktop screens ===================================*/
@@ -1606,6 +1668,7 @@ select option {
   .formContainer {
     margin: 2rem auto;
     display: flex;
+    justify-content: space-around;
   }
 
   .formContainer input,
@@ -1832,6 +1895,14 @@ select option {
     height: 58%;
   }
 
+  .teamLast {
+    margin-top: 1rem;
+  }
+
+  .teamLast img {
+    width: 90%;
+  }
+
   .servicesContainer {
     width: 95%;
   }
@@ -1897,11 +1968,27 @@ select option {
 
   .contactTextCol {
     margin-left: 2rem;
-    top: 42vmin;
+    top: 38vmin;
+  }
+
+  .contactIconsDiv {
+    top: 8.9vmin;
   }
 
   .whiteLine {
     width: 77vw;
+  }
+
+  .formContainer {
+    margin: 2rem 0 0;
+  }
+
+  .formGroup {
+    flex-basis: 50%;
+  }
+
+  .msgInput {
+    height: 19vh;
   }
 }
 

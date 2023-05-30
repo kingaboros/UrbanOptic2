@@ -101,7 +101,19 @@ function scrollHorizontal(e) {
 
             // Check if scrolled to the promo section and call liftPromotions
             if (sectionID === 'promo') {
-              liftPromotions('');
+              liftPromotions('promo');
+            }
+
+            // Check if scrolled to the about section and display aboutDesk container
+            if (sectionID === 'about') {
+              const aboutDeskContainer = document.getElementById('aboutDesk');
+              setTimeout(function () {
+                aboutDeskContainer.style.display = 'block';
+                aboutDeskContainer.classList.add('fade-in');
+                setTimeout(function () {
+                  aboutDeskContainer.style.opacity = '1';
+                }, 3000);
+              }, 3000);
             }
           } else {
             requestAnimationFrame(animateScroll);
@@ -116,17 +128,300 @@ function scrollHorizontal(e) {
   }
 }
 
+// function scrollVertical(e) {
+//   let delta;
+//   const currentScrollTop = mainContainer.scrollTop;
+//   const isMobile = window.innerWidth < 992;
+
+//   if (isMobile) {
+//     // Touch-based scrolling
+//     if (e.touches && e.touches.length > 0) {
+//       const touch = e.touches[0];
+//       delta = touch.pageY - currentScrollTop;
+//     }
+//   } else {
+//     // Mouse wheel scrolling
+//     e = window.event || e;
+//     delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
+//   }
+
+//   if (delta) {
+//     clearTimeout(scrollTimeout); // Clear any existing scroll timeout
+
+//     let targetSection = null;
+//     let targetPosition = null;
+
+//     if (delta > 0) {
+//       // Scrolling up
+//       for (let i = 0; i < sections.length; i++) {
+//         const section = sections[i];
+//         const sectionStart = section.offsetTop;
+
+//         if (sectionStart > currentScrollTop) {
+//           targetSection = section;
+//           targetPosition = sectionStart;
+//           break;
+//         }
+//       }
+//     } else {
+//       // Scrolling down
+//       for (let i = sections.length - 1; i >= 0; i--) {
+//         const section = sections[i];
+//         const sectionEnd = section.offsetTop + section.offsetHeight;
+
+//         if (sectionEnd <= currentScrollTop + mainContainer.clientHeight) {
+//           targetSection = section;
+//           targetPosition = sectionEnd - mainContainer.clientHeight;
+//           break;
+//         }
+//       }
+//     }
+
+//     if (targetSection) {
+//       const scrollDelay = 100; // Adjust the scroll delay as needed
+
+//       scrollTimeout = setTimeout(() => {
+//         const animateScroll = () => {
+//           const distance = targetPosition - mainContainer.scrollTop;
+//           const scrollStep =
+//             delta > 0 ? Math.ceil(distance / 10) : Math.floor(distance / 10);
+
+//           mainContainer.scrollTop += scrollStep;
+
+//           // Stop the scroll animation when reaching the target position
+//           if (
+//             (delta > 0 && mainContainer.scrollTop >= targetPosition) ||
+//             (delta < 0 && mainContainer.scrollTop <= targetPosition)
+//           ) {
+//             clearTimeout(scrollTimeout);
+
+//             // Update the section ID in the URL hash
+//             const sectionID = targetSection.getAttribute('id');
+//             if (sectionID) {
+//               updateHash(sectionID);
+
+//               // Reset the hash if the target section has an ID of "home"
+//               if (sectionID === 'home') {
+//                 updateHash('');
+//               }
+//             }
+
+//             // Add activeSection class to the visible section
+//             sections.forEach((section) => {
+//               if (section === targetSection) {
+//                 section.classList.add('activeSection');
+//               } else {
+//                 section.classList.remove('activeSection');
+//               }
+//             });
+
+//             // Add active class to the menu links
+//             const menuLinks = document.querySelectorAll('.desktopMenu a');
+//             menuLinks.forEach((link) => {
+//               const linkTarget = link.getAttribute('href');
+//               if (linkTarget === `#${sectionID}`) {
+//                 link.classList.add('active');
+//               } else {
+//                 link.classList.remove('active');
+//               }
+//             });
+
+//             // Check if scrolled to the promo section and call liftPromotions
+//             if (sectionID === 'promo') {
+//               liftPromotions('promo');
+//             }
+//           } else {
+//             requestAnimationFrame(animateScroll);
+//           }
+//         };
+
+//         animateScroll();
+//       }, scrollDelay);
+//     }
+
+//     mainContainer.classList.add('mobileMainContainer');
+//   }
+
+//   if (window.innerWidth >= 992) {
+//     if (prevScrollPos > currentScrollTop2) {
+//       // User is scrolling up, show the menu
+//       menu.style.top = '0';
+//     } else {
+//       // User is scrolling down, hide the menu
+//       menu.style.top = '-130px'; // Adjust this value based on your menu height
+//     }
+//   } else {
+//     // For screen sizes less than 992px, always show the menu
+//     menu.style.top = '0';
+//   }
+
+//   prevScrollPos = currentScrollTop2;
+
+//   // Prevent default behavior for menu links
+//   for (let i = 0; i < menuItems.length; i++) {
+//     menuItems[i].addEventListener('click', function (event) {
+//       event.preventDefault();
+//     });
+//   }
+// }
+
+// function scrollVertical(e) {
+//   const isMobile = window.innerWidth < 992;
+
+//   if (!isMobile) {
+//     // Do not execute the scroll functionality for screens 992px and above
+//     return;
+//   }
+
+//   let delta;
+//   const currentScrollTop = mainContainer.scrollTop;
+
+//   if (e.touches && e.touches.length > 0) {
+//     // Touch-based scrolling
+//     const touch = e.touches[0];
+//     delta = touch.pageY - currentScrollTop;
+//   } else {
+//     // Mouse wheel scrolling
+//     e = window.event || e;
+//     delta = Math.max(-1, Math.min(1, e.deltaY || -e.detail));
+//   }
+
+//   if (delta) {
+//     clearTimeout(scrollTimeout); // Clear any existing scroll timeout
+
+//     let targetSection = null;
+//     let targetPosition = null;
+
+//     if (delta > 0) {
+//       // Scrolling up
+//       for (let i = 0; i < sections.length; i++) {
+//         const section = sections[i];
+//         const sectionStart = section.offsetTop;
+
+//         if (sectionStart > currentScrollTop) {
+//           targetSection = section;
+//           targetPosition = sectionStart;
+//           break;
+//         }
+//       }
+//     } else {
+//       // Scrolling down
+//       for (let i = sections.length - 1; i >= 0; i--) {
+//         const section = sections[i];
+//         const sectionEnd = section.offsetTop + section.offsetHeight;
+
+//         if (sectionEnd <= currentScrollTop + mainContainer.clientHeight) {
+//           targetSection = section;
+//           targetPosition = sectionEnd - mainContainer.clientHeight;
+//           break;
+//         }
+//       }
+//     }
+
+//     if (targetSection) {
+//       const scrollDelay = 100; // Adjust the scroll delay as needed
+
+//       scrollTimeout = setTimeout(() => {
+//         const animateScroll = () => {
+//           const distance = targetPosition - mainContainer.scrollTop;
+//           const scrollStep =
+//             delta > 0 ? Math.ceil(distance / 10) : Math.floor(distance / 10);
+
+//           mainContainer.scrollTop += scrollStep;
+
+//           // Stop the scroll animation when reaching the target position
+//           if (
+//             (delta > 0 && mainContainer.scrollTop >= targetPosition) ||
+//             (delta < 0 && mainContainer.scrollTop <= targetPosition)
+//           ) {
+//             clearTimeout(scrollTimeout);
+
+//             // Update the section ID in the URL hash
+//             const sectionID = targetSection.getAttribute('id');
+//             if (sectionID) {
+//               updateHash(sectionID);
+
+//               // Reset the hash if the target section has an ID of "home"
+//               if (sectionID === 'home') {
+//                 updateHash('');
+//               }
+//             }
+
+//             // Add activeSection class to the visible section
+//             sections.forEach((section) => {
+//               if (section === targetSection) {
+//                 section.classList.add('activeSection');
+//               } else {
+//                 section.classList.remove('activeSection');
+//               }
+//             });
+
+//             // Add active class to the menu links
+//             const menuLinks = document.querySelectorAll('.desktopMenu a');
+//             menuLinks.forEach((link) => {
+//               const linkTarget = link.getAttribute('href');
+//               if (linkTarget === `#${sectionID}`) {
+//                 link.classList.add('active');
+//               } else {
+//                 link.classList.remove('active');
+//               }
+//             });
+
+//             // Check if scrolled to the promo section and call liftPromotions
+//             if (sectionID === 'promo') {
+//               liftPromotions('promo');
+//             }
+//           } else {
+//             requestAnimationFrame(animateScroll);
+//           }
+//         };
+
+//         animateScroll();
+//       }, scrollDelay);
+//     }
+
+//     mainContainer.classList.add('mobileMainContainer');
+//   }
+
+//   if (window.innerWidth <= 992) {
+//     // Show the menu when scrolling up or using touch
+//     if (
+//       delta < 0 ||
+//       (e.touches && e.touches.length > 0 && e.touches[0].clientY < prevTouchY)
+//     ) {
+//       menu.style.top = '0';
+//     } else {
+//       // Hide the menu when scrolling down
+//       menu.style.top = '-140px'; // Adjust this value based on your menu height
+//     }
+//   } else {
+//     // For screen sizes greater than 992px, always show the menu
+//     menu.style.top = '0';
+//   }
+
+//   // Prevent default behavior for menu links
+//   for (let i = 0; i < menuItems.length; i++) {
+//     menuItems[i].addEventListener('click', function (event) {
+//       event.preventDefault();
+//     });
+//   }
+// }
+
 function scrollVertical(e) {
-  let delta;
-  const currentScrollTop = mainContainer.scrollTop;
   const isMobile = window.innerWidth < 992;
 
-  if (isMobile) {
+  if (!isMobile) {
+    // Do not execute the scroll functionality for screens 992px and above
+    return;
+  }
+
+  let delta;
+  const currentScrollTop = mainContainer.scrollTop;
+
+  if (e.touches && e.touches.length > 0) {
     // Touch-based scrolling
-    if (e.touches && e.touches.length > 0) {
-      const touch = e.touches[0];
-      delta = touch.pageY - currentScrollTop;
-    }
+    const touch = e.touches[0];
+    delta = touch.pageY - currentScrollTop;
   } else {
     // Mouse wheel scrolling
     e = window.event || e;
@@ -230,20 +525,24 @@ function scrollVertical(e) {
     mainContainer.classList.add('mobileMainContainer');
   }
 
-  if (window.innerWidth >= 992) {
-    if (prevScrollPos > currentScrollTop2) {
-      // User is scrolling up, show the menu
+  if (window.innerWidth <= 992) {
+    // Show the menu when scrolling up or using touch
+    if (
+      delta < 0 ||
+      (e.touches && e.touches.length > 0 && e.touches[0].clientY < prevTouchY)
+    ) {
       menu.style.top = '0';
-    } else {
-      // User is scrolling down, hide the menu
-      menu.style.top = '-130px'; // Adjust this value based on your menu height
+    } else if (
+      delta > 0 ||
+      (e.touches && e.touches.length > 0 && e.touches[0].clientY > prevTouchY)
+    ) {
+      // Hide the menu when scrolling down or using touch in the downward direction
+      menu.style.top = '-140px'; // Adjust this value based on your menu height
     }
   } else {
-    // For screen sizes less than 992px, always show the menu
+    // For screen sizes greater than 992px, always show the menu
     menu.style.top = '0';
   }
-
-  prevScrollPos = currentScrollTop2;
 
   // Prevent default behavior for menu links
   for (let i = 0; i < menuItems.length; i++) {
@@ -251,13 +550,16 @@ function scrollVertical(e) {
       event.preventDefault();
     });
   }
+
+  prevTouchY =
+    e.touches && e.touches.length > 0 ? e.touches[0].clientY : prevTouchY;
 }
 
 function handleTouchMove(event) {
-  if (isTouchDevice) {
+  if (isMobile) {
     if (event.touches[0].clientY < prevTouchY) {
       // User is scrolling down, hide the menu
-      menu.style.top = '-130px'; // Adjust this value based on your menu height
+      menu.style.top = '-140px'; // Adjust this value based on your menu height
     } else {
       // User is scrolling up, show the menu
       menu.style.top = '0';
@@ -267,11 +569,17 @@ function handleTouchMove(event) {
 }
 
 // Add the scroll event listener
-window.addEventListener('scroll', scrollVertical);
+window.addEventListener('scroll', function (event) {
+  scrollVertical(event);
+  handleTouchMove(event);
+});
 
 // Add touch event listeners
 let prevTouchY = 0;
 window.addEventListener('touchmove', handleTouchMove);
+
+// Add the scroll event listener
+window.addEventListener('scroll', scrollVertical);
 
 // Add event listeners for touch and wheel events
 
