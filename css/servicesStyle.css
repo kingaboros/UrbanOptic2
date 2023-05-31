@@ -438,7 +438,21 @@ p {
   color: white;
 }
 
+.legalContainer {
+  display: block;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/*  ========================================================================== 
+    screens up to 991px
+    ========================================================================== */
+
 @media all and (max-width: 991px) {
+  #logo {
+    content: url('../img/logo-dark.png');
+  }
+
   .header {
     position: fixed;
     left: 24px;
@@ -451,10 +465,6 @@ p {
   .nav-btn {
     margin: 18px 0 0 -6px;
   }
-
-  /* .logo {
-    margin-left: -10rem;
-  } */
 
   .intro {
     margin-top: -6rem;
@@ -556,6 +566,10 @@ p {
   }
 }
 
+/*  ========================================================================== 
+    screens from 992px up to 1299px
+    ========================================================================== */
+
 @media (min-width: 992px) and (max-width: 1299px) {
   .header {
     left: -97px;
@@ -584,6 +598,10 @@ p {
   }
 }
 
+/*  ========================================================================== 
+    screens from 1300px up to 1499px
+    ========================================================================== */
+
 @media (min-width: 1300px) and (max-width: 1499px) {
   .logo {
     width: 15%;
@@ -594,11 +612,9 @@ p {
   }
 }
 
-@media (min-width: 1500px) and (max-width: 2000px) {
-}
+/*  ========================================================================== 
+    screens from 1500px up to 2000px
+    ========================================================================== */
 
-.legalContainer {
-  display: block;
-  margin: 0 auto;
-  max-width: 1200px;
+@media (min-width: 1500px) and (max-width: 2000px) {
 }

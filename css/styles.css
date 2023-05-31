@@ -37,6 +37,8 @@ button:focus-visible {
 
 #menu {
   transition: top 0.5s ease-in-out;
+  /* position: fixed;
+  top: 0; */
 }
 
 #navbarNav {
@@ -430,7 +432,8 @@ button:focus-visible {
 }
 
 .readMoreLink,
-.accordionLink {
+.accordionLink,
+.legalLink {
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
@@ -440,8 +443,22 @@ button:focus-visible {
 }
 
 .readMoreLink:hover,
-.accordionLink:hover {
+.accordionLink:hover,
+.legalLink:hover {
   color: var(--yellow) !important ;
+}
+
+.legalLink {
+  color: white !important;
+}
+
+.legalLinks {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  position: relative;
+  top: 35vmin;
 }
 
 .accordionContent {
@@ -974,6 +991,7 @@ button:focus-visible {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .contactIconDark {
@@ -1010,7 +1028,7 @@ button:focus-visible {
   justify-content: space-evenly;
   list-style: none;
   width: 54%;
-  margin: 2rem auto 0;
+  margin: 2rem auto 3rem;
   padding-bottom: 2rem;
 }
 
@@ -1122,12 +1140,30 @@ select option {
 /* ============================================== mobile devices =====================================*/
 
 @media all and (max-width: 991px) {
+  .mainContainer {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
   .servicesLogo {
     width: 60%;
     margin-top: -0.5rem;
   }
   .formContainer form {
     display: block;
+  }
+
+  .aboutSection,
+  .servicesSection,
+  .promoSection,
+  .contactSection {
+    height: auto !important;
+  }
+
+  .contactSection {
+    background-color: transparent;
+    margin-top: -7rem;
   }
 }
 
@@ -1238,7 +1274,7 @@ select option {
 
   .teamSection {
     width: auto;
-    height: 100% !important;
+    height: auto !important;
     margin-top: 1rem;
   }
 
@@ -1421,6 +1457,10 @@ select option {
   .teamLast {
     margin-top: 1.4rem;
     padding-left: 0.5rem;
+  }
+
+  .legalLinks {
+    top: -2vmin;
   }
 }
 
@@ -1726,6 +1766,10 @@ select option {
   input[type='date']::-webkit-calendar-picker-indicator,
   input[type='time']::-webkit-calendar-picker-indicator {
     filter: unset;
+  }
+
+  .legalLinks {
+    top: -2vmin;
   }
 }
 
