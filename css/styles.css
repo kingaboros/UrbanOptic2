@@ -407,11 +407,10 @@ button:focus-visible {
 }
 
 .aboutDesk {
-  position: relative;
-  top: -32rem;
-  margin-bottom: -23rem;
+  position: absolute;
+  top: 11rem;
+  left: 12rem;
   z-index: 30;
-  left: -14rem;
 }
 
 .aboutTextBg {
@@ -419,8 +418,6 @@ button:focus-visible {
   border-radius: 20px;
   padding: 1rem;
   width: 40vw;
-  height: 10rem;
-  height: 70vh;
 }
 
 .aboutText {
@@ -734,7 +731,7 @@ button:focus-visible {
   height: 8px;
   background-color: var(--grey);
   width: 100px;
-  z-index: 200;
+  z-index: 1;
   top: -5rem;
   left: 50.7rem;
 }
@@ -2121,13 +2118,12 @@ select option {
   }
 
   .aboutDesk {
-    top: -45rem;
-    left: -28rem;
+    top: 11rem;
+    left: 12rem;
   }
 
   .aboutTextBg {
     width: 28vw;
-    height: 55vh;
   }
 
   .textCol {
@@ -2172,6 +2168,11 @@ select option {
 
   .discountTag {
     font-size: 6rem;
+  }
+
+  .contactSection {
+    padding-top: 0 !important;
+    padding-bottom: 10rem;
   }
 
   .contactImgCol img {
