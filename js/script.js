@@ -156,3 +156,51 @@ if (window.location.hash) {
     window.location.pathname + window.location.search
   );
 }
+
+// updates menu and logo as per section
+// function updateLogoAndMenu(sectionId) {
+//   const logo = document.querySelector('.logo');
+//   const menuLinks = document.querySelectorAll('.desktopMenu a');
+
+//   // Reset all menu links to their default state
+//   menuLinks.forEach((link) => {
+//     link.classList.remove('active');
+//   });
+
+//   switch (sectionId) {
+//     case 'home':
+//       logo.src = './img/logo-dark.png';
+//       break;
+//     case 'about':
+//       logo.src = './img/logo-light.png';
+//       const aboutLink = document.querySelector('.desktopMenu .aboutLink');
+//       aboutLink.classList.add('active');
+//       break;
+//     case 'services':
+//       logo.src = './img/logo-light.png';
+//       const servicesLink = document.querySelector('.desktopMenu .servicesLink');
+//       servicesLink.classList.add('active');
+//       break;
+//     case 'promo':
+//       logo.src = './img/logo-dark.png';
+//       const promoLink = document.querySelector('.desktopMenu .promoLink');
+//       promoLink.classList.add('active');
+//       break;
+//     case 'contact':
+//       logo.src = './img/logo-light.png';
+//       const contactLink = document.querySelector('.desktopMenu .contactLink');
+//       contactLink.classList.add('active');
+//       break;
+//     default:
+//       logo.src = './img/logo-light.png';
+//       break;
+//   }
+// }
+
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////
+/////////////////////////

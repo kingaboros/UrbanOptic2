@@ -1776,6 +1776,10 @@ select option {
 /* ======================= standard desktop screens - horizontal scrolling  ===================================*/
 
 @media (min-width: 992px) and (max-width: 1299px) {
+  .mainContainer {
+    overflow-x: scroll !important;
+    white-space: nowrap;
+  }
   .navBar {
     width: 93vw;
     left: 6vmin;
