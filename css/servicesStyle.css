@@ -178,7 +178,7 @@ p {
 .intro__content {
   position: absolute;
   right: 6%;
-  bottom: 29%;
+  bottom: 55%;
   z-index: 3;
 }
 
@@ -200,7 +200,7 @@ p {
 }
 
 .introTitle {
-  font-size: 5rem;
+  font-size: 7rem;
   letter-spacing: normal;
   padding: 0.5rem;
 }
@@ -608,7 +608,32 @@ p {
   }
 
   .intro__content {
-    bottom: 35%;
+    bottom: 55%;
+  }
+
+  .col__content-txt {
+    max-width: 100vw;
+  }
+
+  .col__content-title {
+    margin: 3rem 0 1rem 0;
+    font-size: 3vw;
+    letter-spacing: -0.2vw;
+    line-height: 25px;
+  }
+
+  .col__content {
+    padding: 2vw 3vw 5vw;
+  }
+
+  .footer__link img {
+    margin-top: -10rem;
+  }
+
+  .btnDiv {
+    margin-bottom: 6rem;
+    position: relative;
+    z-index: 2;
   }
 }
 

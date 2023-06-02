@@ -567,8 +567,9 @@ window.addEventListener('hashchange', function () {
   setNavbarLogo('menu');
 });
 
-// image slider
+////////////////////////////////////////////////
 
+// image slider
 const prevBtn = document.querySelector('.prevBtn');
 const nextBtn = document.querySelector('.nextBtn');
 const slides = document.querySelector('.slides');
@@ -624,6 +625,7 @@ function updateDots() {
 
 createDots();
 showSlide();
+///////////////////////////////////////////////////////////
 
 // Lift Promotions
 const liftPromotions = (sectionId) => {

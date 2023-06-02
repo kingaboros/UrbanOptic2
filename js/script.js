@@ -106,7 +106,7 @@ let copyrightText = document.getElementById('currentYear');
 copyrightText.textContent = 'Copyright © ' + currentYear + ' | Urban Optic';
 //////////////////////////////////////////////////////////////////////////
 
-// remove yellowBg for mobile and tablet
+// removes yellowBg for mobile and tablet
 function removeYellowBg() {
   const screenWidth = window.innerWidth;
   const yellowBgSection = document.getElementById('promo');
@@ -119,7 +119,7 @@ function removeYellowBg() {
 }
 ///////////////////////////////////////////////////////////////////////
 
-// remove blackBg for mobile and tablet
+// removes blackBg for mobile and tablet
 function removeBlackBg() {
   const screenWidth = window.innerWidth;
   const blackBgSection = document.getElementById('contact');
@@ -162,7 +162,6 @@ function updateLogoAndMenu(sectionId) {
   const logo = document.querySelector('.logo');
   const menuLinks = document.querySelectorAll('.desktopMenu a');
 
-  // Reset all menu links to their default state
   menuLinks.forEach((link) => {
     link.classList.remove('active');
   });
@@ -199,6 +198,7 @@ function updateLogoAndMenu(sectionId) {
 
 /////////////////////////////////
 
+// changes button color
 function changeButtonStyle(yellowBtn) {
   const navBtn = document.getElementById('navBtn');
 
@@ -207,8 +207,10 @@ function changeButtonStyle(yellowBtn) {
   } else {
     navBtn.classList.remove('yellowMenuBtn');
   }
+  console.log(navBtn);
 }
 
+// changes nav links color
 function changeNavLinksStyle(whiteNavLinks) {
   const navLinks = document.querySelectorAll('.desktopMenu a');
 
@@ -223,6 +225,7 @@ function changeNavLinksStyle(whiteNavLinks) {
 //////////////////////////////////////////////////////////////
 
 // lift Promotions
+
 const liftPromotions = (sectionId) => {
   const windowWidth = window.innerWidth;
   const scrollWidth = window.scrollX;
@@ -355,6 +358,8 @@ function setNavbarLogo(elementId) {
   } else {
     logo.src = './img/logo-light.png';
   }
+
+  console.log(logo.src);
 }
 
 ////////////////////////////////////////////////////
@@ -500,7 +505,6 @@ const aboutDeskContainer = document.getElementById('aboutDesk');
 
 menuLinks.forEach((link) => {
   link.addEventListener('click', function (e) {
-    e.preventDefault();
     const sectionId = this.getAttribute('href').substring(1);
     updateLogoAndMenu(sectionId);
     const targetSection = document.getElementById(sectionId);
@@ -554,10 +558,13 @@ menuLinks.forEach((link) => {
     }
 
     if (sectionId === 'promo') {
-      liftPromotions('sectionId');
+      setNavbarLogo('promo');
+      changeButtonStyle(false);
+      changeNavLinksStyle(false);
     }
 
     if (sectionId === 'contact') {
+      setNavbarLogo('menu');
       changeButtonStyle(true);
       changeNavLinksStyle(true);
     } else {

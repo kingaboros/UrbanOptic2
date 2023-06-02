@@ -18,3 +18,12 @@ window.onscroll = function () {
 let currentYear = new Date().getFullYear();
 let copyrightText = document.getElementById('currentYear');
 copyrightText.textContent = 'Copyright © ' + currentYear + ' | Urban Optic';
+
+//// app btn redirect
+let appBtns = document.querySelectorAll('.appBtn');
+appBtns.forEach(function (button) {
+  button.addEventListener('click', function () {
+    window.location.href =
+      'https://urbanoptic.programari.cloud.onlineservice.io/';
+  });
+});
