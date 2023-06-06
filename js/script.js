@@ -308,57 +308,88 @@ createDots();
 showSlide();
 ////////////////////////////////////////////////////
 
-// changes text color -> this works when the user clicks on a link from the menu
-function setNavbarTextColor(elementId) {
-  let navbar = document.getElementById(elementId);
-  let navbarLinks = navbar.querySelectorAll('a');
-
-  // Get the current section based on window location hash
-  let currentHash = window.location.hash;
-
-  for (let i = 0; i < navbarLinks.length; i++) {
-    let link = navbarLinks[i];
-
-    // Check if the link attribute matches the desired value
-    if (currentHash === '#contact') {
-      link.style.color = '#fff';
-    } else {
-      link.style.color = '#343434';
-    }
-  }
-}
-
 // changes button style in the navbar -> this works when the user clicks on a link from the menu
 function setNavbarButtonStyle(elementId) {
   let navbar = document.getElementById(elementId);
   let button = navbar.querySelector('.menuBtn');
 
-  let currentHash = window.location.hash;
+  function updateStyles() {
+    let currentHash = window.location.hash;
 
-  if (currentHash === '#contact') {
-    button.style.backgroundColor = '#ffcc01';
-    button.style.color = '#343434';
-  } else {
-    button.style.backgroundColor = '#343434';
-    button.style.color = '#ffcc01';
+    if (currentHash === '#contact') {
+      button.style.backgroundColor = '#ffcc01';
+      button.style.color = '#343434';
+    } else {
+      button.style.backgroundColor = '#343434';
+      button.style.color = '#ffcc01';
+    }
   }
+
+  // Initial update on page load
+  updateStyles();
+
+  // Update styles when a navigation link is clicked
+  let navbarLinks = navbar.querySelectorAll('a');
+  navbarLinks.forEach(function (link) {
+    link.addEventListener('click', updateStyles);
+  });
+}
+
+// changes text color -> this works when the user clicks on a link from the menu
+function setNavbarTextColor(elementId) {
+  let navbar = document.getElementById(elementId);
+  let navbarLinks = navbar.querySelectorAll('a');
+
+  function updateStyles() {
+    // let currentHash = window.location.hash;
+
+    for (let i = 0; i < navbarLinks.length; i++) {
+      let link = navbarLinks[i];
+
+      if (link.getAttribute('href') === 'contact') {
+        link.style.color = '#fff';
+      } else {
+        link.style.color = '#343434';
+      }
+    }
+  }
+
+  // Initial update on page load
+  updateStyles();
+
+  // Update styles when a navigation link is clicked
+  navbarLinks.forEach(function (link) {
+    link.addEventListener('click', updateStyles);
+  });
 }
 
 // changes logo -> this works when the user clicks on a link from the menu
 function setNavbarLogo(elementId) {
-  let navbar = document.getElementById(elementId);
-  let logo = navbar.querySelector('.logo');
+  if (window.innerWidth > 992) {
+    let navbar = document.getElementById(elementId);
+    let logo = navbar.querySelector('.logo');
 
-  let currentHash = window.location.hash;
+    function updateLogo() {
+      let currentHash = window.location.hash;
 
-  if (currentHash === '#home') {
-    logo.src = './img/logo-dark.png';
-  } else if (currentHash === '#promo') {
-    logo.src = './img/logo-dark.png';
-  } else {
-    logo.src = './img/logo-light.png';
+      if (currentHash === '#home') {
+        logo.src = './img/logo-dark.png';
+      } else if (currentHash === '#promo') {
+        logo.src = './img/logo-dark.png';
+      } else if (currentHash === '#contact') {
+        logo.src = './img/logo-light.png';
+      }
+    }
+
+    // Initial update on page load
+    updateLogo();
+
+    // Update logo when a navigation link is clicked
+    let navbarLinks = navbar.querySelectorAll('a');
+    navbarLinks.forEach(function (link) {
+      link.addEventListener('click', updateLogo);
+    });
   }
-
   console.log(logo.src);
 }
 
@@ -488,6 +519,10 @@ function scrollHorizontal(e) {
 
         animateScroll();
       }, scrollDelay);
+    } else {
+      // No target section found, reset button and nav link styles
+      changeButtonStyle(false);
+      changeNavLinksStyle(false);
     }
 
     mainContainer.classList.remove('mobileMainContainer');
@@ -561,6 +596,11 @@ menuLinks.forEach((link) => {
       setNavbarLogo('promo');
       changeButtonStyle(false);
       changeNavLinksStyle(false);
+
+      // Call the liftPromotions function with a delay to allow for the scroll animation
+      setTimeout(function () {
+        liftPromotions('promo');
+      }, 100);
     }
 
     if (sectionId === 'contact') {
@@ -576,3 +616,28 @@ menuLinks.forEach((link) => {
     history.pushState(null, null, `#${sectionId}`);
   });
 });
+
+////// typewritter intro text
+
+const greeting = 'Ne bucurăm să ne vedem!';
+const delay = 10; // Delay in milliseconds
+
+let i = 0;
+const typewriter = setInterval(() => {
+  document.getElementById('helloText').textContent = greeting.slice(0, i);
+  i++;
+  if (i > greeting.length) {
+    clearInterval(typewriter);
+  }
+}, delay);
+
+const hero = document.getElementById('heroTitle');
+hero.style.display = 'none';
+
+setTimeout(function () {
+  hero.style.display = 'block';
+  hero.classList.add('fade-in');
+  setTimeout(function () {
+    hero.style.opacity = '1';
+  }, 4000);
+}, 4000);
