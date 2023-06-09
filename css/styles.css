@@ -348,14 +348,15 @@ button:focus-visible {
   font-weight: 300;
   font-size: 32px;
   line-height: 39px;
-  color: white;
+  color: var(--black);
   text-align: left;
   width: 100%;
   margin-bottom: -12rem;
   padding-left: 0.5rem;
   animation: typing 1s steps(30, end);
   position: absolute;
-  top: 66rem;
+  top: 20rem;
+  left: 29rem;
 }
 
 @keyframes typing {
@@ -382,9 +383,6 @@ button:focus-visible {
   display: block;
   filter: blur(2px);
   padding-left: 24rem;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--black);
-  text-stroke: 1px var(--black);
 }
 
 .glassesImg {
@@ -683,13 +681,15 @@ button:focus-visible {
 /* coupon images  */
 
 .promoImg1 {
-  background: url('/img/products/glasses1.jpg');
+  background: url('/img/promo/promo1.jpg');
   background-size: cover;
 }
+
 .promoImg2 {
-  background: url('/img/products/glasses2.jpg');
+  background: url('/img/promo/promo2.jpg');
   background-size: cover;
 }
+
 .promoImg3 {
   background: url('/img/products/glasses3.jpg');
   background-size: cover;
@@ -704,14 +704,14 @@ button:focus-visible {
 
 .discountTag {
   font-weight: 700;
-  font-size: 120px;
-  line-height: 145px;
+  font-size: 6rem;
+  line-height: 6rem;
   color: var(--grey);
 }
 
 .supText {
   font-weight: 700;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 61px;
   text-decoration: underline;
   color: var(--grey);
@@ -723,8 +723,8 @@ button:focus-visible {
   color: var(--grey);
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 1.7rem;
+  line-height: 26px;
   align-self: flex-end;
   width: 100%;
 }
@@ -1151,6 +1151,7 @@ select option {
     width: 60%;
     margin-top: -0.5rem;
   }
+
   .formContainer form {
     display: block;
   }
@@ -1225,38 +1226,38 @@ select option {
 
   .heroHeadingDiv {
     display: block;
-    margin: 38rem auto 0;
+    margin: 48rem auto 0;
   }
 
-  .mainTitle {
-    display: block;
-    font-size: 60px;
-    padding-left: 0rem;
-    line-height: 5rem;
+  .heroTitleDiv {
+    margin-top: -67rem;
+    padding-left: 2rem;
   }
 
   .heroSubtitle {
     font-weight: 400;
-    font-size: 14px;
-    color: white;
+    font-size: clamp(0.2rem, 20vw, 1.2rem);
+    color: var(--black);
     margin-bottom: -15px;
     padding-left: 3.2rem;
     top: 11rem;
-    left: 0rem;
+    left: -1rem;
   }
 
-  .heroTitleDiv {
-    margin-top: -48rem;
-    padding-left: 3rem;
+  .mainTitle {
+    display: block;
+    font-size: 4.5rem;
+    line-height: clamp(7rem, 20vw, 8rem);
+    padding-right: clamp(1rem, 20vw, 10rem);
   }
 
   .blurredTitle {
-    padding-left: 2.5rem;
+    padding-left: 1rem;
   }
 
   .glassesImg {
-    right: -10.3rem;
-    top: -14.5rem;
+    right: -9.6rem;
+    top: clamp(-16rem, 20vw, -17rem);
   }
 
   .glassesImg img {
@@ -1481,16 +1482,6 @@ select option {
     display: none;
   }
 
-  .heroSubtitle {
-    font-weight: 400;
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: -15px;
-    padding-left: 2.3rem;
-    top: 0rem;
-    left: -4rem;
-  }
-
   .mobileMenuLogo {
     display: block;
     margin-top: -3rem;
@@ -1529,7 +1520,7 @@ select option {
 
   .heroHeadingDiv {
     display: block;
-    margin: 87rem 0 0 -3rem;
+    margin: 85rem 0 0 -2rem;
   }
 
   .homeSection {
@@ -1548,6 +1539,16 @@ select option {
     height: 100vh;
     top: 13rem;
     left: 6.4rem;
+  }
+
+  .heroSubtitle {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--black);
+    margin-bottom: -15px;
+    padding-left: 2.3rem;
+    top: -2rem;
+    left: -2.6rem;
   }
 
   .heroTitleDiv {
@@ -1781,7 +1782,7 @@ select option {
 @media (min-width: 992px) and (max-width: 1299px) {
   .mainContainer {
     overflow-x: scroll !important;
-    white-space: nowrap;
+    /* white-space: nowrap; */
   }
   .navBar {
     width: 93vw;
@@ -1800,12 +1801,13 @@ select option {
   .desktopMenu {
     width: 100%;
   }
+
   .heroHeadingDiv {
-    margin: 24rem 0 0;
+    margin: 7rem 0 0;
   }
 
   .glassesImg {
-    right: -25rem;
+    right: -20rem;
     top: -35rem;
     width: 70vw;
   }
@@ -1816,8 +1818,13 @@ select option {
   }
 
   .blurredTitle {
-    margin-top: -3rem;
-    padding-left: 16rem;
+    margin-top: -2rem;
+    padding-left: 10rem;
+  }
+
+  .heroSubtitle {
+    top: 15rem;
+    left: 9rem;
   }
 
   .aboutVideo {
@@ -1827,6 +1834,10 @@ select option {
 
   .aboutDescMobile {
     display: none;
+  }
+
+  .aboutTextBg {
+    width: 55vw;
   }
 
   .aboutText {
@@ -1881,20 +1892,30 @@ select option {
   }
 
   /* promotions section */
+
+  .promoImgDiv {
+    margin-top: -21rem;
+  }
+
+  .slideContainer {
+    height: 70vh !important;
+  }
+
   .cardDiv {
-    width: 70%;
-    margin-top: 13rem;
+    width: 64%;
+    margin: -13rem 15rem;
   }
 
   .promoImg {
     max-width: 70%;
   }
 
-  /* contact section */
-
-  .contactContainer {
-    margin-top: 9rem;
+  .discountDesc {
+    font-size: 0.8rem;
+    line-height: 7rem;
   }
+
+  /* contact section */
 
   .contactTextCol {
     max-width: 100% !important;
@@ -1902,7 +1923,7 @@ select option {
   }
 
   .contactIconsDiv {
-    top: 41.24vmin;
+    top: 29.24vmin;
   }
 
   .contactList {
@@ -1947,11 +1968,11 @@ select option {
   }
   .heroSubtitle {
     top: 11rem;
-    left: 11.5rem;
+    left: 10rem;
   }
 
   .heroHeadingDiv {
-    margin-top: 15rem;
+    margin-top: 10rem;
   }
 
   .glassesImg {
@@ -2161,6 +2182,15 @@ select option {
 
   .nav-item {
     padding-right: 1rem;
+  }
+
+  .heroHeadingDiv {
+    margin-top: -4rem;
+  }
+
+  .heroSubtitle {
+    top: 10rem;
+    left: 18rem;
   }
 
   .glassesImg {
