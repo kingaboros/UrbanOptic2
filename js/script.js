@@ -639,5 +639,5 @@ setTimeout(function () {
   hero.classList.add('fade-in');
   setTimeout(function () {
     hero.style.opacity = '1';
-  }, 4000);
-}, 4000);
+  }, 1500);
+}, 1500);
